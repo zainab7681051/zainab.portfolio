@@ -5,14 +5,14 @@
 }
 
 :root{
-	--red: #ff0358;
-	--orange:  #f9a71c;
+	--primary: #7ABA78;
+	--secondary:  #0A6847;
+	--teritiary:  #F8CE52;
 	--black:  #000;
-	--white: #fff;
-	--lightgrey: #d7e1e7;
+	--white: #EAEAEA;
+	--belge: #F6E9B2;
 	--grey:  #9db6c3;
-	--darkgrey: #374045;
-	--blue:  #00ffff;
+	--darkgrey: #114232;
 	--containerXPadding:  1.5rem;
 	--unit: 16px;
 }
@@ -31,7 +31,7 @@ img{
 
 a{
 	text-decoration: none;
-	color: var(--blue);
+	color: var(--secondary);
 }
 
 a:hover{
@@ -138,7 +138,7 @@ header{
 }
 
 .menu ul li a:hover{
-	color:  var(--blue);
+	color:  var(--primary);
 }
 
 .menu ul li + li{
@@ -146,7 +146,7 @@ header{
 }
 
 .menu ul li a.active{
-	color:  var(--orange);
+	color:  var(--teritiary);
 	pointer-events: none;
 }
 
@@ -172,7 +172,7 @@ header{
 }
 
 .social a:hover{
-	color:  var(--blue);
+	color:  var(--teritiary);
 }
 
 .bg{
@@ -183,7 +183,7 @@ header{
 	background-size: contain;
 	background-position: right bottom;
 	background-repeat: no-repeat;
-	background-color: var(--red);
+	background-color: var(--primary);
 	background-blend-mode: multiply;
 	z-index: -1;
 	transform: translateX(100%)
@@ -207,7 +207,7 @@ header{
 	right: 0;
 	bottom: 0;
 	z-index: -1;
-	background-color: var(--red); 
+	background-color: var(--primary); 
 }
 
 .number{
@@ -240,7 +240,7 @@ header{
 	content: '';
 	width: 1rem;
 	height: 2.5rem;
-	background: var(--orange);
+	background: var(--teritiary);
 	margin-right: 0.5rem;
 	display: inline-block;
 }
@@ -249,7 +249,8 @@ header{
 	font-weight: 300;
 	margin-bottom: 2rem;
 	opacity: 0;
-	transform: translateY(50vh)
+	transform: translateY(50vh);
+    color: var(--black);
 }
 
 .btn{
@@ -286,7 +287,7 @@ header{
 	width: 0;
 	z-index: -1;
 	transition: width 0.5s ease;
-	background: var(--white);
+	background: var(--belge);
 }
 
 .btn:hover:before{
@@ -327,8 +328,8 @@ header{
 	right: 0;
 	width: 25%;
 	bottom: 0;
-	background-color: var(--blue);
-	mix-blend-mode: hue;
+	background-color: var(--secondary);
+	/*mix-blend-mode: hue;*/
 	transform: translateX(-100vw)
 }
 
@@ -379,6 +380,7 @@ header{
 	.menu ul li a{
 		color:  var(--white);
 		padding: 0;
+        font-size: 1.5rem;
 	}
 	.menu ul li + li{
 		border-top: none;
@@ -408,7 +410,6 @@ header{
 	.block p{
 		font-size: 1.5rem;
 		margin-bottom: 2rem;
-		color: var(--black);
 	}
 	/* .arrow{
 		position: absolute;

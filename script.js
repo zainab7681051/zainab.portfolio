@@ -1,16 +1,14 @@
+//header menu actions
+const toggle = document.querySelector('.toggle');
+const menu = document.querySelector('.menu');
+toggle.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    menu.classList.toggle('active');
+});
+
 
 //gsap animation
-function animation() {
-	const MenuAction = () => {
-		const toggle = document.querySelector('.toggle');
-		const menu = document.querySelector('.menu');
-		toggle.addEventListener('click', () => {
-			toggle.classList.toggle('active');
-			menu.classList.toggle('active');
-		});
-	};
-	MenuAction();
-
+/* function animation() {
 	const entryAnime = () => {
 		const tl = gsap.timeline();
 		tl.to(
@@ -62,7 +60,7 @@ function animation() {
 	}
 	entryAnime()
 }
-
+*/
 ///////////////////////////////////////////////////////////////////////
 //intro section
  var intro = `<section class="hero fullscreen">
