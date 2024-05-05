@@ -7,6 +7,7 @@ toggle.addEventListener('click', () => {
 });
 
 
+
 //gsap animation
 /* function animation() {
 	const entryAnime = () => {
@@ -61,8 +62,21 @@ toggle.addEventListener('click', () => {
 	entryAnime()
 }
 */
+function animate_intro()
+{
+
+    document.querySelector(".strip").style.transform="translateX(0)"
+    document.querySelector(".heading-block").style.transform="translateY(0)"
+    document.querySelector(".heading-block").style.opacity="1"
+    document.querySelector(".block p").style.transform="translateY(0)"
+    document.querySelector(".block p").style.opacity="1"
+    document.querySelector(".button-group").style.opacity="1"
+    return true
+
+}
 ///////////////////////////////////////////////////////////////////////
 //intro section
+//hidden elements: strip, heading block, block p, button group
  var intro = `<section class="hero fullscreen">
  <div class="bg fullscreen"></div>
  <span class="strip"></span>
@@ -96,6 +110,7 @@ var app = document.getElementById("app");
 //header links: changing the content of the page by triggering
 //a click event for the link that has been clicked
 const activeLinks = document.querySelectorAll('ul li a');
+
 for (const link of activeLinks) {
     link.onclick = () => {
         const activeClass = document.querySelectorAll('ul li a.active');
@@ -106,7 +121,7 @@ for (const link of activeLinks) {
             case "intro":
             {
                 app.innerHTML = intro
-                animation()
+                animate_intro()
                 break;
             }
             case "skills":
@@ -123,7 +138,7 @@ for (const link of activeLinks) {
 document.addEventListener('DOMContentLoaded', () => {
     //loading the page on the intro section
 	app.innerHTML = intro;
-    //starting the gsap animation
-    animation()
+    //starting the intro section animation
+    //animate_intro()
 })
 

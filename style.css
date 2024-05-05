@@ -192,6 +192,7 @@ header{
 .heading-block{
 	transform: translateY(-50vh);
 	opacity: 0;
+    transition: all .75s ease-in
 }
 
 .hero{
@@ -248,9 +249,10 @@ header{
 .block p{
 	font-weight: 300;
 	margin-bottom: 2rem;
+    color: var(--black);
 	opacity: 0;
 	transform: translateY(50vh);
-    color: var(--black);
+    transition: all .75s ease-in-out
 }
 
 .btn{
@@ -314,6 +316,7 @@ header{
 	gap: 1rem;
 	flex-direction: column;
 	opacity: 0;
+    transition: all .75s ease-in-out
 }
 
 /* .arrow{
@@ -330,8 +333,10 @@ header{
 	bottom: 0;
 	background-color: var(--secondary);
 	/*mix-blend-mode: hue;*/
-	transform: translateX(-100vw)
+	transform: translateX(-100vw);
+    transition: transform 1s ease-in-out
 }
+
 
 @media (min-width: 768px){
 	:root{
