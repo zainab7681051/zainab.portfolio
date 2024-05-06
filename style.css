@@ -192,7 +192,7 @@ header{
 .heading-block{
 	transform: translateY(-50vh);
 	opacity: 0;
-    transition: all .75s ease-in
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out
 }
 
 .hero{
@@ -252,7 +252,7 @@ header{
     color: var(--black);
 	opacity: 0;
 	transform: translateY(50vh);
-    transition: all .75s ease-in-out
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out
 }
 
 .btn{
@@ -315,8 +315,8 @@ header{
 	display: flex;
 	gap: 1rem;
 	flex-direction: column;
-	opacity: 0;
-    transition: all .75s ease-in-out
+	opacity: 0; 
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out
 }
 
 /* .arrow{
@@ -334,7 +334,7 @@ header{
 	background-color: var(--secondary);
 	/*mix-blend-mode: hue;*/
 	transform: translateX(-100vw);
-    transition: transform 1s ease-in-out
+    transition: transform .75s ease-in-out
 }
 
 
