@@ -12,7 +12,7 @@
 	--white: #EAEAEA;
 	--belge: #F6E9B2;
 	--grey:  #9db6c3;
-	--darkgrey: #114232;
+	--darkgreen: #114232;
 	--containerXPadding:  1.5rem;
 	--unit: 16px;
 }
@@ -86,6 +86,7 @@ header{
 	display: block;
 	border-bottom: 2px solid var(--white);
 	position: absolute;
+    z-index: 51;
 	transition: top 0.3s ease, transform 0.3s ease;
 }
 
@@ -114,7 +115,9 @@ header{
 	top:  5rem;
 	right: -15rem;
 	width: 15rem;
-	background: var(--darkgrey);
+    height: 15rem;
+    font-size:1.4rem;
+	background: var(--darkgreen);
 	opacity: 0;
 	padding: 1rem;
 	transition: right 0.3s ease, opacity 0.3s ease;
@@ -138,7 +141,7 @@ header{
 }
 
 .menu ul li a:hover{
-	color:  var(--primary);
+	color:  var(--belge);
 }
 
 .menu ul li + li{
@@ -163,6 +166,7 @@ header{
 	display: flex;
 	gap: 1rem;
 	font-size: 2rem;
+    z-index: 3
 }
 
 .social a{
@@ -190,9 +194,9 @@ header{
 }
 
 .heading-block{
-	transform: translateY(-50vh);
+	transform: translateY(-100vh);
 	opacity: 0;
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out
 }
 
 .hero{
@@ -211,48 +215,40 @@ header{
 	background-color: var(--primary); 
 }
 
-.number{
-	font-size: 10rem;
-	opacity: 0.1;
-	position: absolute;
-	top: 3rem;
-	left: 0;
-	pointer-events: none;
-}
-
 .block{
 	color: var(--white);
 	font-weight: 400;
 	display: flex;
-	margin-top:  auto;
+    margin: auto 0;
 	flex-direction: column;
 	width: 100%
 }
 
 .block h2{
-	font-size: 2rem;
+	font-size: 3rem;
 }
 
 .block h1{
-	font-size: 3rem
+	font-size: 4rem
 }
 
 .block h1:before{
 	content: '';
-	width: 1rem;
-	height: 2.5rem;
+	width: 1.5rem;
+	height: 3rem;
 	background: var(--teritiary);
 	margin-right: 0.5rem;
 	display: inline-block;
 }
 
 .block p{
+    font-size:1.1rem;
 	font-weight: 300;
 	margin-bottom: 2rem;
     color: var(--black);
 	opacity: 0;
 	transform: translateY(50vh);
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out
 }
 
 .btn{
@@ -276,7 +272,7 @@ header{
 	border: 1px solid transparent;
 	color: var(--white);
 	position: relative;
-	transition: color 0.5s ease;
+	transition: color .5s ease;
 	z-index: 1;
 }
 
@@ -288,7 +284,7 @@ header{
 	height: 100%;
 	width: 0;
 	z-index: -1;
-	transition: width 0.5s ease;
+	transition: width .5s ease;
 	background: var(--belge);
 }
 
@@ -316,14 +312,9 @@ header{
 	gap: 1rem;
 	flex-direction: column;
 	opacity: 0; 
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out
+    transition: transform .5s ease-in-out, opacity .5s ease-in-out
 }
 
-/* .arrow{
-	margin: 2rem 0;
-	font-size: 2rem;
-	opacity: 0;
-} */
 
 .strip{
 	position: absolute;
@@ -332,12 +323,25 @@ header{
 	width: 25%;
 	bottom: 0;
 	background-color: var(--secondary);
-	/*mix-blend-mode: hue;*/
 	transform: translateX(-100vw);
-    transition: transform .75s ease-in-out, width .75s ease-in-out;
+    transition: transform .4s ease-in-out, width .4s ease-in-out;
 }
 
-
+.skills-container
+{
+}
+.heading-text
+{
+}
+.frontend
+{
+}
+.backend
+{
+}
+.other
+{
+}
 @media (min-width: 768px){
 	:root{
 		--containerXPadding: 2rem;
@@ -394,12 +398,8 @@ header{
 		bottom:  2rem;
 		gap: 1.25rem;
 	}
-	.number{
-		font-size: 50vh;
-		left: -5vh;
-	}
+
 	.block{
-		margin: auto 0;
 		z-index: 1;
 	}
 	.block h2{
@@ -416,9 +416,5 @@ header{
 		font-size: 1.5rem;
 		margin-bottom: 2rem;
 	}
-	/* .arrow{
-		position: absolute;
-		bottom: 0;
-		font-size: 4rem;
-	} */
+	
 }

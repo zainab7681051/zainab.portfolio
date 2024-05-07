@@ -37,6 +37,7 @@ function animate_intro()
     document.querySelector(".button-group").style.opacity="1"
 
 }
+
 //triggers the strip class transition effects
 function animate_intro_exit()
 {
@@ -63,7 +64,7 @@ function enter_section(id)
         case "intro":
         {
             app.innerHTML = intro
-            set_time_out(750,animate_intro)
+            set_time_out(550,animate_intro)
             break;
         }
         case "skills":
@@ -77,48 +78,67 @@ function enter_section(id)
 
 }
 //triggers each section's transition effects on exit--when user clicks another link
-function exit_section(id)
+function exit_section(id, func)
 {
     switch(id)
             {
                 case "intro":
                     {
-                        set_time_out(750, animate_intro_exit)
+                        set_time_out(550, animate_intro_exit)
+                        //animate_intro_exit()
                         break;
                     }
             }
+    func()
 }
 
 
-///////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//**---Page Sections---**
+//
 //intro section
-//hidden elements: strip, heading block, block p, button group
  var intro = `<section class="hero fullscreen">
- <div class="bg fullscreen"></div>
- <span class="strip"></span>
- <div class="block container">
-     <div class="heading-block">
-         <h2 class="upper-text">Software Developer</h2>
-         <h1 class="huge-font">Zainab</h1>
-     </div>
-     <p class="upper-text">
-         I am skilled in JavaScript, C#, C/C++ and more.
-         <br>I create efficient and engaging
-   web-based softwares and solutions
-     </p>
-     <div class="button-group">
-         <a href="#" class="btn primary">my CV &nbsp;
-             <i class="bi bi-download"></i>
-         </a>
-         <a href="#" class="btn border">Works & Projects &nbsp;
-             <i class="bi bi-card-list"></i>
-         </a>
-     </div>
- </div>
- </section> `
+         <div class="bg fullscreen"></div>
+         <span class="strip"></span>
+         <div class="block container">
+             <div class="heading-block">
+                 <h2 class="upper-text">Software Developer</h2>
+                 <h1 class="huge-font">Zainab</h1>
+             </div>
+             <p class="upper-text">
+                 I am skilled in JavaScript, C#, C/C++ and more.
+                 <br>I create efficient and engaging
+           web-based softwares and solutions
+             </p>
+             <div class="button-group">
+                 <a href="#" class="btn primary">my CV &nbsp;
+                     <i class="bi bi-download"></i>
+                 </a>
+                 <a href="#" class="btn border">Works & Projects &nbsp;
+                     <i class="bi bi-card-list"></i>
+                 </a>
+             </div>
+         </div>
+     </section> `
 ////////////////////////////////////////////////////////////////////
 //skills section
-var empty = `<section class="hero fullscreen"></section>`
+var empty = `<section class="hero fullscreen">
+       <div class="skills-container">
+            <div class="heading-text"> heading </div>
+            <div class="main-text">
+                <ul>
+                    <li>c++</li>
+                    <li>c++</li>
+                    <li>c++</li>
+                    <li>c++</li>
+                </ul>
+            </div>
+       </div>
+       <button class="frontend"></button>
+       <button class="backend"></button>
+       <button class="other"></button>
+    </section>`
 
 ///////////////////////////////////////////////////////////////////
 var app = document.getElementById("app");
@@ -133,22 +153,18 @@ for (const link of links) {
         activeClass.classList.remove('active');
         link.classList.add('active');
 
-        var has_existed=false
-        has_existed = exit_section(activeClass.id)
-        if(has_existed)
-        {
-            enter_section(link.id)
-        }
+        exit_section(activeClass.id, () => set_time_out(2000, enter_section, link.id))
+
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     //loading the page on the intro section
 	app.innerHTML = intro;
 
     //starting the intro animation
-    //note: we have to wait 0.75 seconds before calling
+    //note: we have to wait 0.55 seconds before calling
     //the function in order to trigger the transition effects successfully
-    set_time_out(750,animate_intro)
+    set_time_out(550,animate_intro)
 })
 
