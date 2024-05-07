@@ -1,3 +1,18 @@
+//timeout fucntion
+function set_time_out(time, func, param)
+{
+    setTimeout(()=>{
+        if(param)
+        {
+            func(param)
+        }
+        else
+        {
+            func()
+        }
+    }, time)
+}
+
 //header menu actions
 const toggle = document.querySelector('.toggle');
 const menu = document.querySelector('.menu');
@@ -6,12 +21,15 @@ toggle.addEventListener('click', () => {
     menu.classList.toggle('active');
 });
 
-
-//triggers the transition effect for the strip, heading-block, and other classes in the intro section
+//**---Animations and transition effects---**
+//triggers the transition effect for the strip, heading-block, and other classes in the intro section when intro link is triggerd
 function animate_intro()
 {
-
-    document.querySelector(".strip").style.transform="translateX(0)"
+    const strip=document.querySelector(".strip")
+        strip.style.transitionDelay="0s,0s"
+        strip.style.zIndex="0"
+        strip.style.width="25%"
+        strip.style.transform="translateX(0)"
     document.querySelector(".heading-block").style.transform="translateY(0)"
     document.querySelector(".heading-block").style.opacity="1"
     document.querySelector(".block p").style.transform="translateY(0)"
@@ -19,6 +37,59 @@ function animate_intro()
     document.querySelector(".button-group").style.opacity="1"
 
 }
+//triggers the strip class transition effects
+function animate_intro_exit()
+{
+    const strip=document.querySelector(".strip")
+    strip.style.transitionDelay=".8s,0s"
+    strip.style.zIndex="3"
+    strip.style.width="200vw"
+    strip.style.transform="translateX(-100vw)"
+    document.querySelector(".heading-block").style.transform="translateY(-100vh)"
+    document.querySelector(".heading-block").style.opacity="0"
+    document.querySelector(".block p").style.transform="translateY(50vh)"
+    document.querySelector(".block p").style.opacity="0"
+    document.querySelector(".button-group").style.transform="translateY(50vh)"
+    document.querySelector(".button-group").style.opacity="0"
+
+}
+
+//////////////////////////////////////////////////
+//triggers each section's transition effect on load
+function enter_section(id)
+{
+    switch(id)
+    {
+        case "intro":
+        {
+            app.innerHTML = intro
+            set_time_out(750,animate_intro)
+            break;
+        }
+        case "skills":
+        {
+            app.innerHTML=empty;
+            break;
+        }
+        default:
+            break;
+    }
+
+}
+//triggers each section's transition effects on exit--when user clicks another link
+function exit_section(id)
+{
+    switch(id)
+            {
+                case "intro":
+                    {
+                        set_time_out(750, animate_intro_exit)
+                        break;
+                    }
+            }
+}
+
+
 ///////////////////////////////////////////////////////////////////////
 //intro section
 //hidden elements: strip, heading block, block p, button group
@@ -54,28 +125,19 @@ var app = document.getElementById("app");
 
 //header links: changing the content of the page by triggering
 //a click event for the link that has been clicked
-const activeLinks = document.querySelectorAll('ul li a');
+const links = document.querySelectorAll('ul li a');
 
-for (const link of activeLinks) {
+for (const link of links) {
     link.onclick = () => {
-        const activeClass = document.querySelectorAll('ul li a.active');
-        activeClass[0].classList.remove('active');
+        const activeClass = document.querySelector('ul li a.active');
+        activeClass.classList.remove('active');
         link.classList.add('active');
-        switch(link.id)
+
+        var has_existed=false
+        has_existed = exit_section(activeClass.id)
+        if(has_existed)
         {
-            case "intro":
-            {
-                app.innerHTML = intro
-                animate_intro()
-                break;
-            }
-            case "skills":
-            {
-                app.innerHTML=empty;
-                break;
-            }
-            default:
-                break;
+            enter_section(link.id)
         }
     }
 }
@@ -83,12 +145,10 @@ for (const link of activeLinks) {
 document.addEventListener('DOMContentLoaded', () => {
     //loading the page on the intro section
 	app.innerHTML = intro;
+
     //starting the intro animation
     //note: we have to wait 0.75 seconds before calling
     //the function in order to trigger the transition effects successfully
-    setTimeout(()=>{
-        animate_intro()
-    },750)
-
+    set_time_out(750,animate_intro)
 })
 

@@ -334,7 +334,7 @@ header{
 	background-color: var(--secondary);
 	/*mix-blend-mode: hue;*/
 	transform: translateX(-100vw);
-    transition: transform .75s ease-in-out
+    transition: transform .75s ease-in-out, width .75s ease-in-out;
 }
 
 
