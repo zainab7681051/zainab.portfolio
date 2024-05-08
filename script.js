@@ -22,14 +22,14 @@ toggle.addEventListener('click', () => {
 });
 
 //**---Animations and transition effects---**
-//triggers the transition effect for the strip, heading-block, and other classes in the intro section when intro link is triggerd
+//triggers the transition effect for the strip_intro, heading-block, and other classes in the intro section when intro link is triggerd
 function animate_intro()
 {
-    const strip=document.querySelector(".strip")
-        strip.style.transitionDelay="0s,0s"
-        strip.style.zIndex="0"
-        strip.style.width="25%"
-        strip.style.transform="translateX(0)"
+    const strip_intro=document.querySelector(".strip_intro")
+        strip_intro.style.transitionDelay="0s,0s"
+        strip_intro.style.zIndex="0"
+        strip_intro.style.width="25%"
+        strip_intro.style.transform="translateX(0)"
     document.querySelector(".heading-block").style.transform="translateY(0)"
     document.querySelector(".heading-block").style.opacity="1"
     document.querySelector(".block p").style.transform="translateY(0)"
@@ -38,14 +38,14 @@ function animate_intro()
 
 }
 
-//triggers the strip class transition effects
+//triggers the strip_intro class transition effects
 function animate_intro_exit()
 {
-    const strip=document.querySelector(".strip")
-    strip.style.transitionDelay=".8s,0s"
-    strip.style.zIndex="3"
-    strip.style.width="200vw"
-    strip.style.transform="translateX(-100vw)"
+    const strip_intro=document.querySelector(".strip_intro")
+    strip_intro.style.transitionDelay=".8s,0s"
+    strip_intro.style.zIndex="3"
+    strip_intro.style.width="200vw"
+    strip_intro.style.transform="translateX(-100vw)"
     document.querySelector(".heading-block").style.transform="translateY(-100vh)"
     document.querySelector(".heading-block").style.opacity="0"
     document.querySelector(".block p").style.transform="translateY(50vh)"
@@ -85,7 +85,6 @@ function exit_section(id, func)
                 case "intro":
                     {
                         set_time_out(550, animate_intro_exit)
-                        //animate_intro_exit()
                         break;
                     }
             }
@@ -99,12 +98,11 @@ function exit_section(id, func)
 //
 //intro section
  var intro = `<section class="hero fullscreen">
-         <div class="bg fullscreen"></div>
-         <span class="strip"></span>
+         <span class="strip_intro"></span>
          <div class="block container">
              <div class="heading-block">
+                <h1 class="huge-font">Zainab</h1>
                  <h2 class="upper-text">Software Developer</h2>
-                 <h1 class="huge-font">Zainab</h1>
              </div>
              <p class="upper-text">
                  I am skilled in JavaScript, C#, C/C++ and more.
@@ -124,9 +122,9 @@ function exit_section(id, func)
 ////////////////////////////////////////////////////////////////////
 //skills section
 var empty = `<section class="hero fullscreen skills-section">
-        <span class="strip left"></span>
-        <span class="strip mid"></span>
-        <span class="strip right"></span>
+        <span class="strip_intro left"></span>
+        <span class="strip_intro mid"></span>
+        <span class="strip_intro right"></span>
     </section>`
 
 ///////////////////////////////////////////////////////////////////

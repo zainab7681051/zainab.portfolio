@@ -5,14 +5,14 @@
 }
 
 :root{
-	--primary: #7ABA78;
-	--secondary:  #0A6847;
-	--teritiary:  #F8CE52;
+	--first: #17172e;
+	--second:  #d32026;
+	--third: #03ac8b;
+	--fourth: #fa9f1b;
+	--fifth:  #f9ebce;
+	--sixth: #534d35;
 	--black:  #000;
-	--white: #EAEAEA;
-	--belge: #F6E9B2;
-	--grey:  #9db6c3;
-	--darkgreen: #114232;
+	--white: #fff;
 	--containerXPadding:  1.5rem;
 	--unit: 16px;
 }
@@ -31,7 +31,7 @@ img{
 
 a{
 	text-decoration: none;
-	color: var(--secondary);
+	color: var(--second);
 }
 
 a:hover{
@@ -117,7 +117,7 @@ header{
 	width: 15rem;
     height: 15rem;
     font-size:1.4rem;
-	background: var(--darkgreen);
+	background: var(--sixth);
 	opacity: 0;
 	padding: 1rem;
 	transition: right 0.3s ease, opacity 0.3s ease;
@@ -141,15 +141,15 @@ header{
 }
 
 .menu ul li a:hover{
-	color:  var(--belge);
+	color:  var(--third);
 }
 
 .menu ul li + li{
-	border-top:  1px solid var(--grey);
+	border-top:  1px solid var(--fifth);
 }
 
 .menu ul li a.active{
-	color:  var(--teritiary);
+	color:  var(--fourth);
 	pointer-events: none;
 }
 
@@ -176,21 +176,7 @@ header{
 }
 
 .social a:hover{
-	color:  var(--teritiary);
-}
-
-.bg{
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-image: url('img/unit2-m.jpg');
-	background-size: contain;
-	background-position: right bottom;
-	background-repeat: no-repeat;
-	background-color: var(--primary);
-	background-blend-mode: multiply;
-	z-index: -1;
-	transform: translateX(100%)
+	color:  var(--fourth);
 }
 
 .heading-block{
@@ -212,7 +198,7 @@ header{
 	right: 0;
 	bottom: 0;
 	z-index: -1;
-	background-color: var(--primary); 
+	background-color: var(--black); 
 }
 
 .block{
@@ -225,27 +211,30 @@ header{
 }
 
 .block h2{
-	font-size: 3rem;
+	font-size: 4rem;
+	margin-bottom: 2rem;
 }
 
 .block h1{
-	font-size: 4rem
+	font-size: 5rem;
+	margin-bottom: 2rem;
 }
 
 .block h1:before{
 	content: '';
 	width: 1.5rem;
-	height: 3rem;
-	background: var(--teritiary);
+	height: 3.6rem;
+	background: var(--second);
 	margin-right: 0.5rem;
 	display: inline-block;
 }
 
 .block p{
+	width: 76%;
     font-size:1.1rem;
 	font-weight: 300;
 	margin-bottom: 2rem;
-    color: var(--black);
+    color: var(--white);
 	opacity: 0;
 	transform: translateY(50vh);
     transition: transform .5s ease-in-out, opacity .5s ease-in-out
@@ -285,7 +274,7 @@ header{
 	width: 0;
 	z-index: -1;
 	transition: width .5s ease;
-	background: var(--belge);
+	background: var(--second);
 }
 
 .btn:hover:before{
@@ -293,18 +282,16 @@ header{
 }
 
 .btn.primary{
-	background: var(--black);
-	border-color: var(--black);
+    background: var(--white);
+    border-color: var(--black);
+    color: var(--black);
 }
 
-.btn.primary:hover{
-	color: var(--black);
-}
 
-.btn.border{
-	color: var(--black);
-	background-color: transparent;
-	border-color: var(--black);
+.btn.border {
+    color: var(--white);
+    background-color: transparent;
+    border-color: var(--white);
 }
 
 .button-group{
@@ -316,13 +303,13 @@ header{
 }
 
 
-.strip{
+.strip_intro{
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: 25%;
 	bottom: 0;
-	background-color: var(--secondary);
+	background-color: var(--second);
 	transform: translateX(-100vw);
     transition: transform .4s ease-in-out, width .4s ease-in-out;
 }
@@ -331,9 +318,6 @@ header{
 	:root{
 		--containerXPadding: 2rem;
 	}
-	.bg{
-		background-image: url('img/unit2-t.jpg')
-	}
 	.button-group{
 		width: fit-content;
 		flex-direction: row;
@@ -341,15 +325,12 @@ header{
 	.button-group .btn{
 		flex: auto;
 	}
+	
 }
 
 @media (min-width: 1260px){
 	:root{
 		--containerXPadding: 3rem;
-	}
-
-	.bg{
-		background-image: url('img/unit2.jpg')
 	}
 
 	.logo{
@@ -388,14 +369,16 @@ header{
 		z-index: 1;
 	}
 	.block h2{
-		font-size: 2.5rem;
+		font-size: 5.5rem;
+		margin-bottom: 5rem;
 	}
 	.block h1{
-		font-size: 6rem;
+		font-size: 8rem;
+		margin-bottom:2rem;
 	}
 	.block h1:before{
 		width: 2rem;
-		height: 4.5rem;
+		height: 6rem;
 	}
 	.block p{
 		font-size: 1.5rem;
