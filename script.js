@@ -123,21 +123,10 @@ function exit_section(id, func)
      </section> `
 ////////////////////////////////////////////////////////////////////
 //skills section
-var empty = `<section class="hero fullscreen">
-       <div class="skills-container">
-            <div class="heading-text"> heading </div>
-            <div class="main-text">
-                <ul>
-                    <li>c++</li>
-                    <li>c++</li>
-                    <li>c++</li>
-                    <li>c++</li>
-                </ul>
-            </div>
-       </div>
-       <button class="frontend"></button>
-       <button class="backend"></button>
-       <button class="other"></button>
+var empty = `<section class="hero fullscreen skills-section">
+        <span class="strip left"></span>
+        <span class="strip mid"></span>
+        <span class="strip right"></span>
     </section>`
 
 ///////////////////////////////////////////////////////////////////

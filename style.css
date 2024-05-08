@@ -327,21 +327,6 @@ header{
     transition: transform .4s ease-in-out, width .4s ease-in-out;
 }
 
-.skills-container
-{
-}
-.heading-text
-{
-}
-.frontend
-{
-}
-.backend
-{
-}
-.other
-{
-}
 @media (min-width: 768px){
 	:root{
 		--containerXPadding: 2rem;
