@@ -113,9 +113,9 @@ var intro = `<section class="hero fullscreen">
 ////////////////////////////////////////////////////////////////////
 //skills section
 const all_skills = (v) => {
-    const F = ["html", "css", "javascript","typescript", "node js", "vue", "tailwind css"]
-    const B=["node js", "express js", "c#", ".net core", ".net razor pages", ".net entity framework", "C/C++", "pyhton", "java", "sql", "no-sql"]
-    const O=["shell scripts", "bash", "batch","powershell", "vim", "git", "github pages", "unit testing", "docker"]
+    const F = ["html", "css", "javascript", "typescript", "node js", "vue", "tailwind css"]
+    const B = ["node js", "express js", "c#", ".net core", ".net razor pages", ".net entity framework", "C/C++", "pyhton", "java", "sql", "no-sql"]
+    const O = ["shell scripts", "bash", "batch", "powershell", "vim", "git", "github pages", "unit testing", "docker"]
     var result = "<span></span>";
     switch (v) {
         case "frontend":
@@ -131,7 +131,7 @@ const all_skills = (v) => {
                     result += `<p> ${B[i]} </p>`
                 }
                 break;
-            } 
+            }
         case "other":
             {
                 for (let i = 0; i < O.length; i++) {
