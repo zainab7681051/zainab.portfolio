@@ -1,13 +1,10 @@
 //timeout fucntion
-function set_time_out(time, func, param)
-{
-    setTimeout(()=>{
-        if(param)
-        {
+function set_time_out(time, func, param) {
+    setTimeout(() => {
+        if (param) {
             func(param)
         }
-        else
-        {
+        else {
             func()
         }
     }, time)
@@ -23,71 +20,65 @@ toggle.addEventListener('click', () => {
 
 //**---Animations and transition effects---**
 //triggers the transition effect for the strip_intro, heading-block, and other classes in the intro section when intro link is triggerd
-function animate_intro()
-{
-    const strip_intro=document.querySelector(".strip_intro")
-        strip_intro.style.transitionDelay="0s,0s"
-        strip_intro.style.zIndex="0"
-        strip_intro.style.width="25%"
-        strip_intro.style.transform="translateX(0)"
-    document.querySelector(".heading-block").style.transform="translateY(0)"
-    document.querySelector(".heading-block").style.opacity="1"
-    document.querySelector(".block p").style.transform="translateY(0)"
-    document.querySelector(".block p").style.opacity="1"
-    document.querySelector(".button-group").style.opacity="1"
+function animate_intro() {
+    const strip_intro = document.querySelector(".strip_intro")
+    strip_intro.style.transitionDelay = "0s,0s"
+    strip_intro.style.zIndex = "0"
+    strip_intro.style.width = "25%"
+    strip_intro.style.transform = "translateX(0)"
+    document.querySelector(".heading-block").style.transform = "translateY(0)"
+    document.querySelector(".heading-block").style.opacity = "1"
+    document.querySelector(".block p").style.transform = "translateY(0)"
+    document.querySelector(".block p").style.opacity = "1"
+    document.querySelector(".button-group").style.opacity = "1"
 
 }
 
 //triggers the strip_intro class transition effects
-function animate_intro_exit()
-{
-    const strip_intro=document.querySelector(".strip_intro")
-    strip_intro.style.transitionDelay=".8s,0s"
-    strip_intro.style.zIndex="3"
-    strip_intro.style.width="200vw"
-    strip_intro.style.transform="translateX(-100vw)"
-    document.querySelector(".heading-block").style.transform="translateY(-100vh)"
-    document.querySelector(".heading-block").style.opacity="0"
-    document.querySelector(".block p").style.transform="translateY(50vh)"
-    document.querySelector(".block p").style.opacity="0"
-    document.querySelector(".button-group").style.transform="translateY(50vh)"
-    document.querySelector(".button-group").style.opacity="0"
+function animate_intro_exit() {
+    const strip_intro = document.querySelector(".strip_intro")
+    strip_intro.style.transitionDelay = ".8s,0s"
+    strip_intro.style.zIndex = "3"
+    strip_intro.style.width = "200vw"
+    strip_intro.style.transform = "translateX(-100vw)"
+    document.querySelector(".heading-block").style.transform = "translateY(-100vh)"
+    document.querySelector(".heading-block").style.opacity = "0"
+    document.querySelector(".block p").style.transform = "translateY(50vh)"
+    document.querySelector(".block p").style.opacity = "0"
+    document.querySelector(".button-group").style.transform = "translateY(50vh)"
+    document.querySelector(".button-group").style.opacity = "0"
 
 }
 
 //////////////////////////////////////////////////
 //triggers each section's transition effect on load
-function enter_section(id)
-{
-    switch(id)
-    {
+function enter_section(id) {
+    switch (id) {
         case "intro":
-        {
-            app.innerHTML = intro
-            set_time_out(550,animate_intro)
-            break;
-        }
+            {
+                app.innerHTML = intro
+                set_time_out(550, animate_intro)
+                break;
+            }
         case "skills":
-        {
-            app.innerHTML=empty;
-            break;
-        }
+            {
+                app.innerHTML = skills;
+                break;
+            }
         default:
             break;
     }
 
 }
 //triggers each section's transition effects on exit--when user clicks another link
-function exit_section(id, func)
-{
-    switch(id)
+function exit_section(id, func) {
+    switch (id) {
+        case "intro":
             {
-                case "intro":
-                    {
-                        set_time_out(550, animate_intro_exit)
-                        break;
-                    }
+                set_time_out(550, animate_intro_exit)
+                break;
             }
+    }
     func()
 }
 
@@ -97,7 +88,7 @@ function exit_section(id, func)
 //**---Page Sections---**
 //
 //intro section
- var intro = `<section class="hero fullscreen">
+var intro = `<section class="hero fullscreen">
          <span class="strip_intro"></span>
          <div class="block container">
              <div class="heading-block">
@@ -121,10 +112,51 @@ function exit_section(id, func)
      </section> `
 ////////////////////////////////////////////////////////////////////
 //skills section
-var empty = `<section class="hero fullscreen skills-section">
-        <span class="strip_intro left"></span>
-        <span class="strip_intro mid"></span>
-        <span class="strip_intro right"></span>
+const all_skills = (v) => {
+    const F = ["html", "css", "javascript/typescript", "node js", "vue", "tailwind css"]
+    const B=["node js", "express js", "c#", ".net core", ".net razor pages", ".net entity framework", "C/C++", "pyhton", "java", "sql", "no-sql"]
+    const O=["shell scripts (bash, batch,powershell", "vim", "git", "github pages", "unit testing", "docker"]
+    var result = "<span></span>";
+    switch (v) {
+        case "frontend":
+            {
+                for (let i = 0; i < F.length; i++) {
+                    result += `<p> ${F[i]} </p>`
+                }
+                break;
+            }
+        case "backend":
+            {
+                for (let i = 0; i < B.length; i++) {
+                    result += `<p> ${B[i]} </p>`
+                }
+                break;
+            } 
+        case "other":
+            {
+                for (let i = 0; i < O.length; i++) {
+                    result += `<p> ${O[i]} </p>`
+                }
+                break;
+            }
+    }
+    return result;
+}
+var skills = `<section class="hero fullscreen skills-section">
+        <div class="strip_skills left">
+            <h1>frontend</h1>
+            ${all_skills("frontend")}
+            </div>
+        <div class="strip_skills mid">
+            <h1>backend</h1>
+            ${all_skills("backend")}
+            </div>
+        </div>
+        <div class="strip_skills right">
+            <h1>other</h1>
+            ${all_skills("other")}
+            </div>
+        </div>
     </section>`
 
 ///////////////////////////////////////////////////////////////////
@@ -147,11 +179,11 @@ for (const link of links) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     //loading the page on the intro section
-	app.innerHTML = intro;
+    app.innerHTML = intro;
 
     //starting the intro animation
     //note: we have to wait 0.55 seconds before calling
     //the function in order to trigger the transition effects successfully
-    set_time_out(550,animate_intro)
+    set_time_out(550, animate_intro)
 })
 
