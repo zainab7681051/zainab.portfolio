@@ -37,7 +37,7 @@ function animate_intro() {
 //triggers the strip_intro class transition effects
 function animate_intro_exit() {
     const strip_intro = document.querySelector(".strip_intro")
-    strip_intro.style.transitionDelay = ".8s,0s"
+    strip_intro.style.transitionDelay = ".5s,0s"
     strip_intro.style.zIndex = "3"
     strip_intro.style.width = "200vw"
     strip_intro.style.transform = "translateX(-100vw)"
@@ -50,6 +50,21 @@ function animate_intro_exit() {
 
 }
 
+function animate_skills(){
+    const LEFT=document.querySelector(".strip_skills.left")
+    const MID=document.querySelector(".strip_skills.mid")
+    const RIGHT=document.querySelector(".strip_skills.right")
+    LEFT.style.transform="translateX(0)"
+    LEFT.style.opacity="1"
+    MID.style.transform="translateY(0)"
+    MID.style.transform="translateX(0)"
+    MID.style.opacity="1"
+    RIGHT.style.transform="translateX(0)"
+    RIGHT.style.opacity="1"
+}
+
+function animate_skills_exit(){
+}
 //////////////////////////////////////////////////
 //triggers each section's transition effect on load
 function enter_section(id) {
@@ -63,6 +78,7 @@ function enter_section(id) {
         case "skills":
             {
                 app.innerHTML = skills;
+                set_time_out(550, animate_skills)
                 break;
             }
         default:
@@ -76,6 +92,11 @@ function exit_section(id, func) {
         case "intro":
             {
                 set_time_out(550, animate_intro_exit)
+                break;
+            }
+        case "skills":
+            {
+                set_time_out(550, animate_skills_exit)
                 break;
             }
     }
@@ -113,29 +134,32 @@ var intro = `<section class="hero fullscreen">
 ////////////////////////////////////////////////////////////////////
 //skills section
 const all_skills = (v) => {
-    const F = ["html", "css", "javascript", "typescript", "node js", "vue", "tailwind css"]
-    const B = ["node js", "express js", "c#", ".net core", ".net razor pages", ".net entity framework", "C/C++", "pyhton", "java", "sql", "no-sql"]
-    const O = ["shell scripts", "bash", "batch", "powershell", "vim", "git", "github pages", "unit testing", "docker"]
+    const F = [["html", "./img/html.svg"], ["css", "./img/css.svg"], ["javascript", "./img/javascript.svg"], ["typescript", "./img/typescript.svg"], ["node js", "./img/node-js.svg"], ["vue", "./img/vue.svg"], ["tailwind css", "./img/tailwind.svg"]]
+
+    const B = [["node js", "./img/node-js.svg"], ["express js","./img/express.svg"], ["c#" , "./img/cs.svg"], [".net core" , "./img/dot-net.svg"], [".net razor pages", "./img/dot-net.svg"], [".net entity framework", "./img/dot-net.svg"], ["C/C++" , "./img/c.svg"], ["pyhton", "./img/python.svg"], ["java", "./img/java.svg"], ["sql","./img/sql.svg"], ["no-sql","./img/nosql.svg"]]
+
+    const O = [["shell scripts" , "./img/script.svg"], ["bash" , "./img/bash.svg"], ["batch", "./img/terminal.svg"], ["powershell", "./img/powershell.svg"], ["vim" , "./img/vim.svg"], ["git", "./img/git.svg"], ["github pages", "./img/github.svg"], ["unit testing", "./img/test.svg"], ["docker", "./img/docker.svg"]]
+
     var result = "<span></span>";
     switch (v) {
         case "frontend":
             {
                 for (let i = 0; i < F.length; i++) {
-                    result += `<p> ${F[i]} </p>`
+                    result += `<p><img src="${F[i][1]}"/> ${F[i][0]} </p>`
                 }
                 break;
             }
         case "backend":
             {
                 for (let i = 0; i < B.length; i++) {
-                    result += `<p> ${B[i]} </p>`
+                    result += `<p><img src="${B[i][1]}"/> ${B[i][0]} </p>`
                 }
                 break;
             }
         case "other":
             {
                 for (let i = 0; i < O.length; i++) {
-                    result += `<p> ${O[i]} </p>`
+                    result += `<p><img src="${O[i][1]}"/> ${O[i][0]} </p>`
                 }
                 break;
             }
@@ -172,7 +196,7 @@ for (const link of links) {
         activeClass.classList.remove('active');
         link.classList.add('active');
 
-        exit_section(activeClass.id, () => set_time_out(2000, enter_section, link.id))
+        exit_section(activeClass.id, () => set_time_out(1500, enter_section, link.id))
 
     }
 }
@@ -182,8 +206,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     app.innerHTML = intro;
 
     //starting the intro animation
-    //note: we have to wait 0.55 seconds before calling
-    //the function in order to trigger the transition effects successfully
     set_time_out(550, animate_intro)
 })
 

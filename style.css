@@ -225,8 +225,9 @@ header{
 }
 
 .block h1{
-	font-size: 5rem;
+	font-size: 5.5rem;
 	margin-bottom: 2rem;
+	letter-spacing: 4px;
 }
 
 .block h1:before{
@@ -332,36 +333,53 @@ header{
     width: 80vw;
     height: 80vh;
     flex-direction: column;
-    flex-wrap: nowrap;
     padding: 2rem;
 }
 .strip_skills h1 {
 	font-family: 'bookmanBold';
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     font-size: 4rem;
 }
 .strip_skills span {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
     height: 2px;
     background-color: #000;
     width: 50%;
 }
 .strip_skills p {
     text-transform: uppercase;
-    margin-bottom: 3px;
+    margin-top: 8px;
     font-size: 21px;
 	letter-spacing: 3px;
+	display:flex;
+	align-items: center;
 }
+.strip_skills p img {
+    width: 40px;
+    margin-right: 16px;
+}
+
 .strip_skills.left {
     background-color: var(--fourth);
+	transform: translateX(100vw);
+	opacity: 0;
+	transition: transform .5s ease-in-out, opacity .4s ease-in-out;
+
 }
 .strip_skills.mid {
 	background-color: var(--third);
+	height: 85vh;
+ 	transform: translateX(100vw);
+	opacity: 0;
+	transition: transform .5s ease-in-out .5s, opacity .4s ease-in-out .5s;
 }
 .strip_skills.right{
 	background-color:var(--first);
 	margin-bottom: 4rem;
+	transform: translateX(100vw);
+	opacity: 0;
+	transition: transform .5s ease-in-out .9s, opacity .4s ease-in-out .9s;
 }
 
 @media (min-width: 768px){
@@ -435,14 +453,27 @@ header{
 		margin-bottom: 2rem;
 	}
 	.skills-section{
+		overflow: hidden;
 		flex-direction: row;
         align-items: baseline
 	}
 	.strip_skills.left{
 		margin-right: 1rem;
+		transform: translateX(200vw);
+		opacity: 0;
+		transition: transform .5s ease-in-out, opacity .4s ease-in-out;
 	}
 	.strip_skills.mid{
-		margin-right: 1rem;
+		transform: translateY(-100vh);
+		opacity: 0;
+		transition: transform .5s ease-in-out .9s, opacity .4s ease-in-out .9s;
 	}
-	
+
+	.strip_skills.right{
+		margin-left: 1rem;
+		transform: translateX(100vw);
+		opacity: 0;
+		transition: transform .5s ease-in-out .5s, opacity .4s ease-in-out .4s;
+	}
+
 }
