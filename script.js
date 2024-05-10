@@ -18,6 +18,178 @@ toggle.addEventListener('click', () => {
     menu.classList.toggle('active');
 });
 
+////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//**---Page Sections---**
+//
+//intro section
+var intro = `<section class="hero fullscreen">
+         <span class="strip_intro"></span>
+         <div class="block container">
+             <div class="heading-block">
+                <h1 class="huge-font">Zainab</h1>
+                 <h2 class="upper-text">Software Developer</h2>
+             </div>
+             <p class="upper-text">
+                 I am skilled in JavaScript, C#, C/C++ and more.
+                 <br>I create efficient and engaging
+           web-based softwares and solutions
+             </p>
+             <div class="button-group">
+                 <a href="#" class="btn primary">my CV &nbsp;
+                     <i class="bi bi-download"></i>
+                 </a>
+                 <a href="#" class="btn border">Works & Projects &nbsp;
+                     <i class="bi bi-card-list"></i>
+                 </a>
+             </div>
+         </div>
+     </section> `
+////////////////////////////////////////////////////////////////////
+//
+//skills section
+const all_skills = (v) => {
+    const F = [["html", "./assets/icons/html.svg"], ["css", "./assets/icons/css.svg"], ["javascript", "./assets/icons/javascript.svg"], ["typescript", "./assets/icons/typescript.svg"], ["node js", "./assets/icons/node-js.svg"], ["vue", "./assets/icons/vue.svg"], ["tailwind css", "./assets/icons/tailwind-css.svg"]]
+
+    const B = [["node js", "./assets/icons/node-js.svg"], ["express js","./assets/icons/express.svg"], ["c#" , "./assets/icons/cs.svg"], [".net core" , "./assets/icons/dot-net.svg"], ["C/C++" , "./assets/icons/c.svg"], ["pyhton", "./assets/icons/python.svg"], ["java", "./assets/icons/java.svg"], ["sql","./assets/icons/sql.svg"]]
+
+    const O = [["bash" , "./assets/icons/bash.svg"], ["powershell", "./assets/icons/powershell.svg"], ["vim" , "./assets/icons/vim.svg"], ["git", "./assets/icons/git.svg"], ["unit testing", "./assets/icons/test.svg"], ["docker", "./assets/icons/docker.svg"]]
+
+    var result = "<span></span>";
+    switch (v) {
+        case "frontend":
+            {
+                for (let i = 0; i < F.length; i++) {
+                    result += `<p><img src="${F[i][1]}"/> ${F[i][0]} </p>`
+                }
+                break;
+            }
+        case "backend":
+            {
+                for (let i = 0; i < B.length; i++) {
+                    result += `<p><img src="${B[i][1]}"/> ${B[i][0]} </p>`
+                }
+                break;
+            }
+        case "other":
+            {
+                for (let i = 0; i < O.length; i++) {
+                    result += `<p><img src="${O[i][1]}"/> ${O[i][0]} </p>`
+                }
+                break;
+            }
+    }
+    return result;
+}
+var skills = `<section class="hero fullscreen skills-section">
+        <div class="strip_skills left">
+            <h1>frontend</h1>
+            ${all_skills("frontend")}
+            </div>
+        <div class="strip_skills mid">
+            <h1>backend</h1>
+            ${all_skills("backend")}
+            </div>
+        </div>
+        <div class="strip_skills right">
+            <h1>other</h1>
+            ${all_skills("other")}
+            </div>
+        </div>
+    </section>`
+
+///////////////////////////////////////////////////////////////////
+//
+//projects section
+const all_projects= [
+  
+  {
+    "title": "FileConverterTool",
+    "description": "online tool for converting files from one type to another; word to pdf, jpeg to png, etc...",
+    "imgSrc": "fileconvertertool.png",
+    "githubUrl": "https://github.com/zainab7681051/OnlineFileConverterTool",
+    "appUrl": "https://fileconvertertool.web.app"
+  },
+  {
+    "title": "SimpleFreetube",
+    "description": "A frontend project in Vue and with the Invidious API for watching youtube content without logging into youtube.",
+    "imgSrc": "simplefreetube.png",
+    "githubUrl": "https://github.com/zainab7681051/simpleFreeTube",
+    "appUrl": "https://simplefreetube.web.app/"
+  },
+  {
+    "title": "DisneyMoviesWatchlist",
+    "description": "DisneyMoviesWatchlist is a server-side web application in C# - ASP.NET Core, Entity Framework and Razor Pages. Users can create an account and make a watchlist of their favorite Disney animation movies.",
+    "imgSrc": "DisneyMoviesWatchlist.png",
+    "githubUrl": "https://github.com/zainab7681051/DisneyMoviesWatchlist",
+    "appUrl": "https://disneywatchlist.bsite.net/"
+  },
+  {
+    "title": "DisneyMoviesApi",
+    "description": "The Disney Animation Movies API allows you to retrieve information about Disney animation movies, including their title, runtime, IMDb page, rating, and more. Please refer to the README file in the Github repository for information on how to use this Api or integrate it in an ASP.Net or NodeJS project",
+    "imgSrc": "DisneyMoviesApi1.png",
+    "githubUrl": "https://github.com/zainab7681051/DisneyMoviesApi",
+    "appUrl": "https://apidisneymovies.bsite.net/api/v1/movies/all"
+  },
+  {
+    "title": "Invidious Instances",
+    "description": "App for fetching the free and open-source Invidious instances using the invidious API",
+    "imgSrc": "Invidious-Instances.png",
+    "githubUrl": "https://github.com/zainab7681051/get-invidious-instances",
+    "appUrl": "https://zainab7681051.github.io/get-invidious-instances/"
+  }, {
+    "title": "Landing Page With GSAP",
+    "description": "a simple landing page template in html/css/js with GSAP tool for basic animation on load.",
+    "imgSrc": "LandingPage.png",
+    "githubUrl": "https://github.com/zainab7681051/GSAP-Landing-Page",
+    "appUrl": "https://zainab7681051.github.io/GSAP-Landing-Page/"
+  },
+  {
+    "title": "Hero Section Template",
+    "description": "a template of a hero section for a web page in vanilla html and css.",
+    "imgSrc": "here-section-template.png",
+    "githubUrl": "https://github.com/zainab7681051/hero-section-template",
+    "appUrl": "https://zainab7681051.github.io/hero-section-template/"
+  },
+  {
+    "title": "PacMan-Game",
+    "description": "A basic PacMan game in vanilla Javascript and HTML Canvas Element.",
+    "imgSrc": "pacman.png",
+    "githubUrl": "https://github.com/zainab7681051/basic-pac-man-game",
+    "appUrl": "https://basic-pacman-game.web.app/"
+  },
+  {
+    "title": "Image-Genreator",
+    "description": "A node express app for generating input-based images using openAI technology.",
+    "imgSrc": "open-ai-image-generator-api.png",
+    "githubUrl": "https://github.com/zainab7681051/image-generation-app-with-openAI/",
+    "appUrl": "https://openai-images.onrender.com/"
+  },
+  {
+    "title": "Pizza-Delivery",
+    "description": "A wep app for pizzerias. A user can log in and order pizza's and their order is saved in the cloud database.",
+    "imgSrc": "pizza-delivery.png",
+    "githubUrl": "https://github.com/zainab7681051/pizza-delivery",
+    "appUrl": "https://pizza-delivery-5201d.web.app/"
+  },
+  {
+    "title": "Free-Documentaries",
+    "description": "A web App for viewing free documentaries fetched from various YouTube Channels.",
+    "imgSrc": "free-documentaries.png",
+    "githubUrl": "https://github.com/zainab7681051/free-documentaries",
+    "appUrl": ""
+  },
+  {
+    "title": "todo app",
+    "description": "simple todo app for keepig track of your tasks and objectives.",
+    "imgSrc": "todolist.png",
+    "githubUrl": "https://github.com/zainab7681051/simple-to-do-list-app",
+    "appUrl": ""
+  }
+]
+
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 //**---Animations and transition effects---**
 //triggers the transition effect for the strip_intro, heading-block, and other classes in the intro section when intro link is triggerd
 function animate_intro() {
@@ -103,87 +275,7 @@ function exit_section(id, func) {
     func()
 }
 
-
-////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////
-//**---Page Sections---**
-//
-//intro section
-var intro = `<section class="hero fullscreen">
-         <span class="strip_intro"></span>
-         <div class="block container">
-             <div class="heading-block">
-                <h1 class="huge-font">Zainab</h1>
-                 <h2 class="upper-text">Software Developer</h2>
-             </div>
-             <p class="upper-text">
-                 I am skilled in JavaScript, C#, C/C++ and more.
-                 <br>I create efficient and engaging
-           web-based softwares and solutions
-             </p>
-             <div class="button-group">
-                 <a href="#" class="btn primary">my CV &nbsp;
-                     <i class="bi bi-download"></i>
-                 </a>
-                 <a href="#" class="btn border">Works & Projects &nbsp;
-                     <i class="bi bi-card-list"></i>
-                 </a>
-             </div>
-         </div>
-     </section> `
-////////////////////////////////////////////////////////////////////
-//skills section
-const all_skills = (v) => {
-    const F = [["html", "./img/html.svg"], ["css", "./img/css.svg"], ["javascript", "./img/javascript.svg"], ["typescript", "./img/typescript.svg"], ["node js", "./img/node-js.svg"], ["vue", "./img/vue.svg"], ["tailwind css", "./img/tailwind.svg"]]
-
-    const B = [["node js", "./img/node-js.svg"], ["express js","./img/express.svg"], ["c#" , "./img/cs.svg"], [".net core" , "./img/dot-net.svg"], [".net razor pages", "./img/dot-net.svg"], [".net entity framework", "./img/dot-net.svg"], ["C/C++" , "./img/c.svg"], ["pyhton", "./img/python.svg"], ["java", "./img/java.svg"], ["sql","./img/sql.svg"], ["no-sql","./img/nosql.svg"]]
-
-    const O = [["shell scripts" , "./img/script.svg"], ["bash" , "./img/bash.svg"], ["batch", "./img/terminal.svg"], ["powershell", "./img/powershell.svg"], ["vim" , "./img/vim.svg"], ["git", "./img/git.svg"], ["github pages", "./img/github.svg"], ["unit testing", "./img/test.svg"], ["docker", "./img/docker.svg"]]
-
-    var result = "<span></span>";
-    switch (v) {
-        case "frontend":
-            {
-                for (let i = 0; i < F.length; i++) {
-                    result += `<p><img src="${F[i][1]}"/> ${F[i][0]} </p>`
-                }
-                break;
-            }
-        case "backend":
-            {
-                for (let i = 0; i < B.length; i++) {
-                    result += `<p><img src="${B[i][1]}"/> ${B[i][0]} </p>`
-                }
-                break;
-            }
-        case "other":
-            {
-                for (let i = 0; i < O.length; i++) {
-                    result += `<p><img src="${O[i][1]}"/> ${O[i][0]} </p>`
-                }
-                break;
-            }
-    }
-    return result;
-}
-var skills = `<section class="hero fullscreen skills-section">
-        <div class="strip_skills left">
-            <h1>frontend</h1>
-            ${all_skills("frontend")}
-            </div>
-        <div class="strip_skills mid">
-            <h1>backend</h1>
-            ${all_skills("backend")}
-            </div>
-        </div>
-        <div class="strip_skills right">
-            <h1>other</h1>
-            ${all_skills("other")}
-            </div>
-        </div>
-    </section>`
-
-///////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var app = document.getElementById("app");
 
 //header links: changing the content of the page by triggering
