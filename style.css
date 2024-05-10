@@ -381,6 +381,16 @@ header{
 	opacity: 0;
 	transition: transform .5s ease-in-out .9s, opacity .4s ease-in-out .9s;
 }
+#s_span{
+	position: absolute;
+	right: 0;
+	width: 0%;
+	height: 100%;
+	z-index: 2;
+	transform: translateX(0);
+	background-color: var(--fifth);
+	transition: width .4s ease-in-out, transform .5s ease-in-out .5s;
+}
 
 @media (min-width: 768px){
 	:root{

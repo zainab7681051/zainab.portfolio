@@ -49,7 +49,7 @@ var intro = `<section class="hero fullscreen">
 //
 //skills section
 const all_skills = (v) => {
-    const F = [["html", "./assets/icons/html.svg"], ["css", "./assets/icons/css.svg"], ["javascript", "./assets/icons/javascript.svg"], ["typescript", "./assets/icons/typescript.svg"], ["node js", "./assets/icons/node-js.svg"], ["vue", "./assets/icons/vue.svg"], ["tailwind css", "./assets/icons/tailwind-css.svg"]]
+    const F = [["html", "./assets/icons/html.svg"], ["css", "./assets/icons/css.svg"], ["javascript", "./assets/icons/javascript.svg"], ["typescript", "./assets/icons/typescript.svg"], ["vue", "./assets/icons/vue.svg"], ["tailwind css", "./assets/icons/tailwind-css.svg"]]
 
     const B = [["node js", "./assets/icons/node-js.svg"], ["express js","./assets/icons/express.svg"], ["c#" , "./assets/icons/cs.svg"], [".net core" , "./assets/icons/dot-net.svg"], ["C/C++" , "./assets/icons/c.svg"], ["pyhton", "./assets/icons/python.svg"], ["java", "./assets/icons/java.svg"], ["sql","./assets/icons/sql.svg"]]
 
@@ -96,6 +96,7 @@ var skills = `<section class="hero fullscreen skills-section">
             ${all_skills("other")}
             </div>
         </div>
+        <span id="s_span"></span>
     </section>`
 
 ///////////////////////////////////////////////////////////////////
@@ -236,6 +237,17 @@ function animate_skills(){
 }
 
 function animate_skills_exit(){
+    const skills_span=document.querySelector("#s_span")
+    const LEFT=document.querySelector(".strip_skills.left")
+    const MID=document.querySelector(".strip_skills.mid")
+    const RIGHT=document.querySelector(".strip_skills.right")
+ 
+    skills_span.style.width="100%"
+    skills_span.style.transform="translateX(-100vw)"
+
+    LEFT.style.visibility="hidden"
+    MID.style.visibility="hidden"
+    RIGHT.style.visibility="hidden"
 }
 //////////////////////////////////////////////////
 //triggers each section's transition effect on load
