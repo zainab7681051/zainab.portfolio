@@ -51,9 +51,9 @@ var intro = `<section class="hero fullscreen">
 const all_skills = (v) => {
     const F = [["html", "./assets/icons/html.svg"], ["css", "./assets/icons/css.svg"], ["javascript", "./assets/icons/javascript.svg"], ["typescript", "./assets/icons/typescript.svg"], ["vue", "./assets/icons/vue.svg"], ["tailwind css", "./assets/icons/tailwind-css.svg"]]
 
-    const B = [["node js", "./assets/icons/node-js.svg"], ["express js","./assets/icons/express.svg"], ["c#" , "./assets/icons/cs.svg"], [".net core" , "./assets/icons/dot-net.svg"], ["C/C++" , "./assets/icons/c.svg"], ["pyhton", "./assets/icons/python.svg"], ["java", "./assets/icons/java.svg"], ["sql","./assets/icons/sql.svg"]]
+    const B = [["node js", "./assets/icons/node-js.svg"], ["express js", "./assets/icons/express.svg"], ["c#", "./assets/icons/cs.svg"], [".net core", "./assets/icons/dot-net.svg"], ["C/C++", "./assets/icons/c.svg"], ["pyhton", "./assets/icons/python.svg"], ["java", "./assets/icons/java.svg"], ["sql", "./assets/icons/sql.svg"]]
 
-    const O = [["bash" , "./assets/icons/bash.svg"], ["powershell", "./assets/icons/powershell.svg"], ["vim" , "./assets/icons/vim.svg"], ["git", "./assets/icons/git.svg"], ["unit testing", "./assets/icons/test.svg"], ["docker", "./assets/icons/docker.svg"]]
+    const O = [["bash", "./assets/icons/bash.svg"], ["powershell", "./assets/icons/powershell.svg"], ["vim", "./assets/icons/vim.svg"], ["git", "./assets/icons/git.svg"], ["unit testing", "./assets/icons/test.svg"], ["docker", "./assets/icons/docker.svg"]]
 
     var result = "<span></span>";
     switch (v) {
@@ -102,93 +102,105 @@ var skills = `<section class="hero fullscreen skills-section">
 ///////////////////////////////////////////////////////////////////
 //
 //projects section
-const all_projects= [
-  
-  {
-    "title": "FileConverterTool",
-    "description": "online tool for converting files from one type to another; word to pdf, jpeg to png, etc...",
-    "imgSrc": "fileconvertertool.png",
-    "githubUrl": "https://github.com/zainab7681051/OnlineFileConverterTool",
-    "appUrl": "https://fileconvertertool.web.app"
-  },
-  {
-    "title": "SimpleFreetube",
-    "description": "A frontend project in Vue and with the Invidious API for watching youtube content without logging into youtube.",
-    "imgSrc": "simplefreetube.png",
-    "githubUrl": "https://github.com/zainab7681051/simpleFreeTube",
-    "appUrl": "https://simplefreetube.web.app/"
-  },
-  {
-    "title": "DisneyMoviesWatchlist",
-    "description": "DisneyMoviesWatchlist is a server-side web application in C# - ASP.NET Core, Entity Framework and Razor Pages. Users can create an account and make a watchlist of their favorite Disney animation movies.",
-    "imgSrc": "DisneyMoviesWatchlist.png",
-    "githubUrl": "https://github.com/zainab7681051/DisneyMoviesWatchlist",
-    "appUrl": "https://disneywatchlist.bsite.net/"
-  },
-  {
-    "title": "DisneyMoviesApi",
-    "description": "The Disney Animation Movies API allows you to retrieve information about Disney animation movies, including their title, runtime, IMDb page, rating, and more. Please refer to the README file in the Github repository for information on how to use this Api or integrate it in an ASP.Net or NodeJS project",
-    "imgSrc": "DisneyMoviesApi1.png",
-    "githubUrl": "https://github.com/zainab7681051/DisneyMoviesApi",
-    "appUrl": "https://apidisneymovies.bsite.net/api/v1/movies/all"
-  },
-  {
-    "title": "Invidious Instances",
-    "description": "App for fetching the free and open-source Invidious instances using the invidious API",
-    "imgSrc": "Invidious-Instances.png",
-    "githubUrl": "https://github.com/zainab7681051/get-invidious-instances",
-    "appUrl": "https://zainab7681051.github.io/get-invidious-instances/"
-  }, {
-    "title": "Landing Page With GSAP",
-    "description": "a simple landing page template in html/css/js with GSAP tool for basic animation on load.",
-    "imgSrc": "LandingPage.png",
-    "githubUrl": "https://github.com/zainab7681051/GSAP-Landing-Page",
-    "appUrl": "https://zainab7681051.github.io/GSAP-Landing-Page/"
-  },
-  {
-    "title": "Hero Section Template",
-    "description": "a template of a hero section for a web page in vanilla html and css.",
-    "imgSrc": "here-section-template.png",
-    "githubUrl": "https://github.com/zainab7681051/hero-section-template",
-    "appUrl": "https://zainab7681051.github.io/hero-section-template/"
-  },
-  {
-    "title": "PacMan-Game",
-    "description": "A basic PacMan game in vanilla Javascript and HTML Canvas Element.",
-    "imgSrc": "pacman.png",
-    "githubUrl": "https://github.com/zainab7681051/basic-pac-man-game",
-    "appUrl": "https://basic-pacman-game.web.app/"
-  },
-  {
-    "title": "Image-Genreator",
-    "description": "A node express app for generating input-based images using openAI technology.",
-    "imgSrc": "open-ai-image-generator-api.png",
-    "githubUrl": "https://github.com/zainab7681051/image-generation-app-with-openAI/",
-    "appUrl": "https://openai-images.onrender.com/"
-  },
-  {
-    "title": "Pizza-Delivery",
-    "description": "A wep app for pizzerias. A user can log in and order pizza's and their order is saved in the cloud database.",
-    "imgSrc": "pizza-delivery.png",
-    "githubUrl": "https://github.com/zainab7681051/pizza-delivery",
-    "appUrl": "https://pizza-delivery-5201d.web.app/"
-  },
-  {
-    "title": "Free-Documentaries",
-    "description": "A web App for viewing free documentaries fetched from various YouTube Channels.",
-    "imgSrc": "free-documentaries.png",
-    "githubUrl": "https://github.com/zainab7681051/free-documentaries",
-    "appUrl": ""
-  },
-  {
-    "title": "todo app",
-    "description": "simple todo app for keepig track of your tasks and objectives.",
-    "imgSrc": "todolist.png",
-    "githubUrl": "https://github.com/zainab7681051/simple-to-do-list-app",
-    "appUrl": ""
-  }
-]
+const all_projects = [
 
+    {
+        "title": "FileConverterTool",
+        "description": "online tool for converting files from one type to another; word to pdf, jpeg to png, etc...",
+        "imgSrc": "fileconvertertool.png",
+        "githubUrl": "https://github.com/zainab7681051/OnlineFileConverterTool",
+        "appUrl": "https://fileconvertertool.web.app"
+    },
+    {
+        "title": "SimpleFreetube",
+        "description": "A frontend project in Vue and with the Invidious API for watching youtube content without logging into youtube.",
+        "imgSrc": "simplefreetube.png",
+        "githubUrl": "https://github.com/zainab7681051/simpleFreeTube",
+        "appUrl": "https://simplefreetube.web.app/"
+    },
+    {
+        "title": "DisneyMoviesWatchlist",
+        "description": "DisneyMoviesWatchlist is a server-side web application in C# - ASP.NET Core, Entity Framework and Razor Pages. Users can create an account and make a watchlist of their favorite Disney animation movies.",
+        "imgSrc": "DisneyMoviesWatchlist.png",
+        "githubUrl": "https://github.com/zainab7681051/DisneyMoviesWatchlist",
+        "appUrl": "https://disneywatchlist.bsite.net/"
+    },
+    {
+        "title": "DisneyMoviesApi",
+        "description": "The Disney Animation Movies API allows you to retrieve information about Disney animation movies, including their title, runtime, IMDb page, rating, and more. Please refer to the README file in the Github repository for information on how to use this Api or integrate it in an ASP.Net or NodeJS project",
+        "imgSrc": "DisneyMoviesApi1.png",
+        "githubUrl": "https://github.com/zainab7681051/DisneyMoviesApi",
+        "appUrl": "https://apidisneymovies.bsite.net/api/v1/movies/all"
+    },
+    {
+        "title": "Invidious Instances",
+        "description": "App for fetching the free and open-source Invidious instances using the invidious API",
+        "imgSrc": "Invidious-Instances.png",
+        "githubUrl": "https://github.com/zainab7681051/get-invidious-instances",
+        "appUrl": "https://zainab7681051.github.io/get-invidious-instances/"
+    }, {
+        "title": "Landing Page With GSAP",
+        "description": "a simple landing page template in html/css/js with GSAP tool for basic animation on load.",
+        "imgSrc": "LandingPage.png",
+        "githubUrl": "https://github.com/zainab7681051/GSAP-Landing-Page",
+        "appUrl": "https://zainab7681051.github.io/GSAP-Landing-Page/"
+    },
+    {
+        "title": "Hero Section Template",
+        "description": "a template of a hero section for a web page in vanilla html and css.",
+        "imgSrc": "here-section-template.png",
+        "githubUrl": "https://github.com/zainab7681051/hero-section-template",
+        "appUrl": "https://zainab7681051.github.io/hero-section-template/"
+    },
+    {
+        "title": "PacMan-Game",
+        "description": "A basic PacMan game in vanilla Javascript and HTML Canvas Element.",
+        "imgSrc": "pacman.png",
+        "githubUrl": "https://github.com/zainab7681051/basic-pac-man-game",
+        "appUrl": "https://basic-pacman-game.web.app/"
+    },
+    {
+        "title": "Image-Genreator",
+        "description": "A node express app for generating input-based images using openAI technology.",
+        "imgSrc": "open-ai-image-generator-api.png",
+        "githubUrl": "https://github.com/zainab7681051/image-generation-app-with-openAI/",
+        "appUrl": "https://openai-images.onrender.com/"
+    },
+    {
+        "title": "Pizza-Delivery",
+        "description": "A wep app for pizzerias. A user can log in and order pizza's and their order is saved in the cloud database.",
+        "imgSrc": "pizza-delivery.png",
+        "githubUrl": "https://github.com/zainab7681051/pizza-delivery",
+        "appUrl": "https://pizza-delivery-5201d.web.app/"
+    },
+    {
+        "title": "Free-Documentaries",
+        "description": "A web App for viewing free documentaries fetched from various YouTube Channels.",
+        "imgSrc": "free-documentaries.png",
+        "githubUrl": "https://github.com/zainab7681051/free-documentaries",
+        "appUrl": ""
+    },
+    {
+        "title": "todo app",
+        "description": "simple todo app for keepig track of your tasks and objectives.",
+        "imgSrc": "todolist.png",
+        "githubUrl": "https://github.com/zainab7681051/simple-to-do-list-app",
+        "appUrl": ""
+    }
+]
+function get_proj() {
+    for (let i = 0; i < all_projects.length; i++) {
+        console.log(all_projects[i].title)
+    }
+}
+
+var projects = `<section class="hero fullscreen">
+    <div class="projects_section">
+        <div class="projects_slider"> </div>
+        <div class="all_projects"> </div>
+    </div>
+</section>
+`
 ///////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////
 //**---Animations and transition effects---**
@@ -223,31 +235,30 @@ function animate_intro_exit() {
 
 }
 
-function animate_skills(){
-    const LEFT=document.querySelector(".strip_skills.left")
-    const MID=document.querySelector(".strip_skills.mid")
-    const RIGHT=document.querySelector(".strip_skills.right")
-    LEFT.style.transform="translateX(0)"
-    LEFT.style.opacity="1"
-    MID.style.transform="translateY(0)"
-    MID.style.transform="translateX(0)"
-    MID.style.opacity="1"
-    RIGHT.style.transform="translateX(0)"
-    RIGHT.style.opacity="1"
+function animate_skills() {
+    const LEFT = document.querySelector(".strip_skills.left")
+    const MID = document.querySelector(".strip_skills.mid")
+    const RIGHT = document.querySelector(".strip_skills.right")
+    LEFT.style.transform = "translateX(0)"
+    LEFT.style.opacity = "1"
+    MID.style.transform = "translateY(0)"
+    MID.style.transform = "translateX(0)"
+    MID.style.opacity = "1"
+    RIGHT.style.transform = "translateX(0)"
+    RIGHT.style.opacity = "1"
 }
 
-function animate_skills_exit(){
-    const skills_span=document.querySelector("#s_span")
-    const LEFT=document.querySelector(".strip_skills.left")
-    const MID=document.querySelector(".strip_skills.mid")
-    const RIGHT=document.querySelector(".strip_skills.right")
- 
-    skills_span.style.width="100%"
-    skills_span.style.transform="translateX(-100vw)"
+function animate_skills_exit() {
+    const skills_span = document.querySelector("#s_span")
+    const strip_skills = document.querySelectorAll(".strip_skills")
 
-    LEFT.style.visibility="hidden"
-    MID.style.visibility="hidden"
-    RIGHT.style.visibility="hidden"
+    skills_span.style.width = "100%"
+    skills_span.style.transform = "translateX(-100vw)"
+
+    strip_skills.forEach(e => {
+        e.style.transition = "visibility .4s ease"
+        e.style.visibility = "hidden"
+    });
 }
 //////////////////////////////////////////////////
 //triggers each section's transition effect on load
@@ -263,6 +274,16 @@ function enter_section(id) {
             {
                 app.innerHTML = skills;
                 set_time_out(550, animate_skills)
+                break;
+            }
+        case "projects":
+            {
+                app.innerHTML = projects
+                // set_time_out(550, animate_projects)
+                break;
+            }
+        case "cv":
+            {
                 break;
             }
         default:
@@ -283,6 +304,17 @@ function exit_section(id, func) {
                 set_time_out(550, animate_skills_exit)
                 break;
             }
+        case "projects":
+            {
+                // set_time_out(550, animate_projects_exit)
+                break;
+            }
+        case "cv":
+            {
+                break;
+            }
+        default:
+            break;
     }
     func()
 }
@@ -305,7 +337,7 @@ for (const link of links) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     //loading the page on the intro section
     app.innerHTML = intro;
 
