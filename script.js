@@ -188,16 +188,56 @@ const all_projects = [
         "appUrl": ""
     }
 ]
-function get_proj() {
-    for (let i = 0; i < all_projects.length; i++) {
-        console.log(all_projects[i].title)
-    }
-}
+
+// var main_proj;
+// var secondary_proj=[];
+
+// function get_proj() {
+//     main_proj=all_projects[0]
+//     for (let i = 1; i < all_projects.length; i++) {
+//         console.log(all_projects[i].title)
+//     }
+// }
+
+
+
+// function get_README(repo_url){
+//     console.log('here111 here')
+//     const header_selector= "#repo-content-pjax-container > div > div > div.Layout.Layout--flowRow-until-md.react-repos-overview-margin.Layout--sidebarPosition-end.Layout--sidebarPosition-flowRow-end > div.Layout-main > react-partial > div > div > div.Box-sc-g0xbh4-0.yfPnm > div.Box-sc-g0xbh4-0.ehcSsh > div > div.Box-sc-g0xbh4-0.bJMeLZ.js-snippet-clipboard-copy-unpositioned > article > div > h1" 
+//     const body_selector = "#repo-content-pjax-container > div > div > div.Layout.Layout--flowRow-until-md.react-repos-overview-margin.Layout--sidebarPosition-end.Layout--sidebarPosition-flowRow-end > div.Layout-main > react-partial > div > div > div.Box-sc-g0xbh4-0.yfPnm > div.Box-sc-g0xbh4-0.ehcSsh > div > div.Box-sc-g0xbh4-0.bJMeLZ.js-snippet-clipboard-copy-unpositioned > article > p"
+//     var readme= {head:'', body:''};
+//     fetch(repo_url, {mode: "no-cors"}).then(repo => repo.text()).then(html => {
+//         var page = new DOMParser().parseFromString(html, 'text/html')
+//         readme.head= page.querySelector(".markdown-body>*:first-child>.heading-element:first-child")
+//         // .innerHTML || 'null'
+//         readme.body= page.querySelector(body_selector)
+//         // .innerHTML || 'null'
+//         console.log({readme})
+//     }).catch(e => console.error("FETCH ERROR ",e))
+// }
 
 var projects = `<section class="hero fullscreen">
     <div class="projects_section">
-        <div class="projects_slider"> </div>
-        <div class="all_projects"> </div>
+        <div class="project">
+            <img src="" alt=""/>
+            <div class="title">
+                <h1>title</h1>
+                <p> arrow sign pointing downward
+            </div>
+            <div class="text">
+                <div class="head_text">
+                    <p>source code:</p>
+                    <p> live URL: </p>
+                </div>
+                <div class="body_text">
+                    <p></p>
+                </div>
+            </div>
+        </div>    
+
+        <div class="all_projects">
+        </div>
+
     </div>
 </section>
 `
