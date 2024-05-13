@@ -23,7 +23,7 @@ toggle.addEventListener('click', () => {
 //**---Page Sections---**
 //
 //intro section
-var intro = `<section class="hero fullscreen">
+let intro = `<section class="hero fullscreen">
          <span class="strip_intro"></span>
          <div class="block container">
              <div class="heading-block">
@@ -55,7 +55,7 @@ const all_skills = (v) => {
 
     const O = [["bash", "./assets/icons/bash.svg"], ["powershell", "./assets/icons/powershell.svg"], ["vim", "./assets/icons/vim.svg"], ["git", "./assets/icons/git.svg"], ["unit testing", "./assets/icons/test.svg"], ["docker", "./assets/icons/docker.svg"]]
 
-    var result = "<span></span>";
+    let result = "<span></span>";
     switch (v) {
         case "frontend":
             {
@@ -81,7 +81,7 @@ const all_skills = (v) => {
     }
     return result;
 }
-var skills = `<section class="hero fullscreen skills-section">
+let skills = `<section class="hero fullscreen skills-section">
         <div class="strip_skills left">
             <h1>frontend</h1>
             ${all_skills("frontend")}
@@ -113,7 +113,7 @@ const all_projects = [
     },
     {
         "title": "SimpleFreetube",
-        "description": "A frontend project in Vue and with the Invidious API for watching youtube content without logging into youtube.",
+        "description": "a frontend project in Vue and with the Invidious API for watching youtube content without logging into youtube.",
         "imgSrc": "simplefreetube.png",
         "githubUrl": "https://github.com/zainab7681051/simpleFreeTube",
         "appUrl": "https://simplefreetube.web.app/"
@@ -175,7 +175,7 @@ const all_projects = [
     },
     {
         "title": "Free-Documentaries",
-        "description": "A web App for viewing free documentaries fetched from various YouTube Channels.",
+        "description": "A web App for viewing free documentaries fetched from letious YouTube Channels.",
         "imgSrc": "free-documentaries.png",
         "githubUrl": "https://github.com/zainab7681051/free-documentaries",
         "appUrl": ""
@@ -189,8 +189,8 @@ const all_projects = [
     }
 ]
 
-// var main_proj;
-// var secondary_proj=[];
+// let main_proj;
+// let secondary_proj=[];
 
 // function get_proj() {
 //     main_proj=all_projects[0]
@@ -205,9 +205,9 @@ const all_projects = [
 //     console.log('here111 here')
 //     const header_selector= "#repo-content-pjax-container > div > div > div.Layout.Layout--flowRow-until-md.react-repos-overview-margin.Layout--sidebarPosition-end.Layout--sidebarPosition-flowRow-end > div.Layout-main > react-partial > div > div > div.Box-sc-g0xbh4-0.yfPnm > div.Box-sc-g0xbh4-0.ehcSsh > div > div.Box-sc-g0xbh4-0.bJMeLZ.js-snippet-clipboard-copy-unpositioned > article > div > h1" 
 //     const body_selector = "#repo-content-pjax-container > div > div > div.Layout.Layout--flowRow-until-md.react-repos-overview-margin.Layout--sidebarPosition-end.Layout--sidebarPosition-flowRow-end > div.Layout-main > react-partial > div > div > div.Box-sc-g0xbh4-0.yfPnm > div.Box-sc-g0xbh4-0.ehcSsh > div > div.Box-sc-g0xbh4-0.bJMeLZ.js-snippet-clipboard-copy-unpositioned > article > p"
-//     var readme= {head:'', body:''};
+//     let readme= {head:'', body:''};
 //     fetch(repo_url, {mode: "no-cors"}).then(repo => repo.text()).then(html => {
-//         var page = new DOMParser().parseFromString(html, 'text/html')
+//         let page = new DOMParser().parseFromString(html, 'text/html')
 //         readme.head= page.querySelector(".markdown-body>*:first-child>.heading-element:first-child")
 //         // .innerHTML || 'null'
 //         readme.body= page.querySelector(body_selector)
@@ -215,29 +215,26 @@ const all_projects = [
 //         console.log({readme})
 //     }).catch(e => console.error("FETCH ERROR ",e))
 // }
-
-var projects = `<section class="hero fullscreen">
+const p=all_projects[0]
+let projects = `<section class="hero fullscreen">
     <div class="projects_section">
         <div class="project">
-            <img src="" alt=""/>
+            <div class="img_container">
+                <img src="./assets/img/${p.imgSrc}" alt=""/>
+            </div>
             <div class="title">
-                <h1>title</h1>
-                <p> arrow sign pointing downward
+                <h1>${p.title}</h1>
             </div>
             <div class="text">
-                <div class="head_text">
-                    <p>source code:</p>
-                    <p> live URL: </p>
-                </div>
                 <div class="body_text">
-                    <p></p>
+                    <p>${p.description}</p>
+                </div>
+                <div class="bottom_text">
+                    <a href="${p.githubUrl}}">source</a>
+                    <a href="${p.appUrl}}">URL</a>
                 </div>
             </div>
         </div>    
-
-        <div class="all_projects">
-        </div>
-
     </div>
 </section>
 `
@@ -360,7 +357,7 @@ function exit_section(id, func) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-var app = document.getElementById("app");
+let app = document.getElementById("app");
 
 //header links: changing the content of the page by triggering
 //a click event for the link that has been clicked

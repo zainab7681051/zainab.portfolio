@@ -43,7 +43,7 @@ img {
 
 a {
 	text-decoration: none;
-	color: var(--second);
+	color: var(--third);
 }
 
 a:hover {
@@ -407,7 +407,31 @@ header {
 	background-color: var(--first);
 	transition: width .4s ease-in-out, transform .5s ease-in-out .5s;
 }
-
+.projects_section {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding-right: 5vw;
+    padding-left: 5vw;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    min-height: 50vh;
+    color: var(--fifth);
+}
+.project {
+    position: relative;
+    width: 100%;
+}
+.img_container {
+    width: 100%;
+	overflow: hidden;
+}
+.img_container img{
+	transition: transform .5s cubic-bezier(.215,.61,.355,1);
+}
+.img_container img:hover {
+    transform: scale(1.05);
+}
 @media (min-width: 768px) {
 	:root {
 		--containerXPadding: 2rem;
