@@ -36,14 +36,21 @@ let intro = `<section class="hero fullscreen">
            web-based softwares and solutions
              </p>
              <div class="button-group">
-                 <a href="#" class="btn primary">my CV &nbsp;
+                 <a href="https://firebasestorage.googleapis.com/v0/b/zainab-portfolio.appspot.com/o/Resume.pdf?alt=media&token=b1a32688-8e90-49f5-8014-129dbcd561c6" target="_blank" class="btn primary">my CV &nbsp;
                      <i class="bi bi-download"></i>
                  </a>
-                 <a href="#" class="btn border">Works & Projects &nbsp;
+                 <a onclick='exit_section("intro", () => set_time_out(1500, enter_section, "projects"));document.getElementById("intro").classList.remove("active");document.getElementById("projects").classList.add("active");' id="btn_border" href="#" class="btn border">Works & Projects &nbsp;
                      <i class="bi bi-card-list"></i>
                  </a>
              </div>
          </div>
+         <script> 
+            let intro_link = document.querySelector('.btn.border')
+            intro_link.onclick = () => {
+                console.log("here")
+                exit_section("intro", () => set_time_out(1500, enter_section, "projects"))
+            }
+        </script>
      </section> `
 ////////////////////////////////////////////////////////////////////
 //
@@ -102,7 +109,7 @@ let skills = `<section class="hero fullscreen skills-section">
 ///////////////////////////////////////////////////////////////////
 //
 //projects section
-const all_projects = [
+const PROJECTS = [
 
     {
         "title": "FileConverterTool",
@@ -113,21 +120,21 @@ const all_projects = [
     },
     {
         "title": "SimpleFreetube",
-        "description": "a frontend project in Vue and with the Invidious API for watching youtube content without logging into youtube.",
+        "description": "a frontend project in Vue and with the Invidious API for watching youtube",
         "imgSrc": "simplefreetube.png",
         "githubUrl": "https://github.com/zainab7681051/simpleFreeTube",
         "appUrl": "https://simplefreetube.web.app/"
     },
     {
         "title": "DisneyMoviesWatchlist",
-        "description": "DisneyMoviesWatchlist is a server-side web application in C# - ASP.NET Core, Entity Framework and Razor Pages. Users can create an account and make a watchlist of their favorite Disney animation movies.",
+        "description": "DisneyMoviesWatchlist is a server-side web application in C# - ASP.NET Core, Entity Framework and Razor Pages",
         "imgSrc": "DisneyMoviesWatchlist.png",
         "githubUrl": "https://github.com/zainab7681051/DisneyMoviesWatchlist",
         "appUrl": "https://disneywatchlist.bsite.net/"
     },
     {
         "title": "DisneyMoviesApi",
-        "description": "The Disney Animation Movies API allows you to retrieve information about Disney animation movies, including their title, runtime, IMDb page, rating, and more. Please refer to the README file in the Github repository for information on how to use this Api or integrate it in an ASP.Net or NodeJS project",
+        "description": "The Disney Animation Movies API allows you to retrieve information about Disney animation movies",
         "imgSrc": "DisneyMoviesApi1.png",
         "githubUrl": "https://github.com/zainab7681051/DisneyMoviesApi",
         "appUrl": "https://apidisneymovies.bsite.net/api/v1/movies/all"
@@ -168,14 +175,14 @@ const all_projects = [
     },
     {
         "title": "Pizza-Delivery",
-        "description": "A wep app for pizzerias. A user can log in and order pizza's and their order is saved in the cloud database.",
+        "description": "A wep app for pizzerias in vue and firebase firestore",
         "imgSrc": "pizza-delivery.png",
         "githubUrl": "https://github.com/zainab7681051/pizza-delivery",
         "appUrl": "https://pizza-delivery-5201d.web.app/"
     },
     {
         "title": "Free-Documentaries",
-        "description": "A web App for viewing free documentaries fetched from letious YouTube Channels.",
+        "description": "A web App for viewing youtube documentaries",
         "imgSrc": "free-documentaries.png",
         "githubUrl": "https://github.com/zainab7681051/free-documentaries",
         "appUrl": ""
@@ -189,52 +196,37 @@ const all_projects = [
     }
 ]
 
-// let main_proj;
-// let secondary_proj=[];
 
-// function get_proj() {
-//     main_proj=all_projects[0]
-//     for (let i = 1; i < all_projects.length; i++) {
-//         console.log(all_projects[i].title)
-//     }
-// }
-
-
-
-// function get_README(repo_url){
-//     console.log('here111 here')
-//     const header_selector= "#repo-content-pjax-container > div > div > div.Layout.Layout--flowRow-until-md.react-repos-overview-margin.Layout--sidebarPosition-end.Layout--sidebarPosition-flowRow-end > div.Layout-main > react-partial > div > div > div.Box-sc-g0xbh4-0.yfPnm > div.Box-sc-g0xbh4-0.ehcSsh > div > div.Box-sc-g0xbh4-0.bJMeLZ.js-snippet-clipboard-copy-unpositioned > article > div > h1" 
-//     const body_selector = "#repo-content-pjax-container > div > div > div.Layout.Layout--flowRow-until-md.react-repos-overview-margin.Layout--sidebarPosition-end.Layout--sidebarPosition-flowRow-end > div.Layout-main > react-partial > div > div > div.Box-sc-g0xbh4-0.yfPnm > div.Box-sc-g0xbh4-0.ehcSsh > div > div.Box-sc-g0xbh4-0.bJMeLZ.js-snippet-clipboard-copy-unpositioned > article > p"
-//     let readme= {head:'', body:''};
-//     fetch(repo_url, {mode: "no-cors"}).then(repo => repo.text()).then(html => {
-//         let page = new DOMParser().parseFromString(html, 'text/html')
-//         readme.head= page.querySelector(".markdown-body>*:first-child>.heading-element:first-child")
-//         // .innerHTML || 'null'
-//         readme.body= page.querySelector(body_selector)
-//         // .innerHTML || 'null'
-//         console.log({readme})
-//     }).catch(e => console.error("FETCH ERROR ",e))
-// }
-const p=all_projects[0]
-let projects = `<section class="hero fullscreen">
-    <div class="projects_section">
+function get_proj() {
+    let project = ``
+    for (let i = 0; i < PROJECTS.length; i++) {
+        project += `
         <div class="project">
-            <div class="img_container">
-                <img src="./assets/img/${p.imgSrc}" alt=""/>
-            </div>
+            <a href="${PROJECTS[i].appUrl}" target="_blank"> 
+                <div class="img_container">
+                    <img src="./assets/img/${PROJECTS[i].imgSrc}" alt=""/>
+                </div>
+            </a>
             <div class="title">
-                <h1>${p.title}</h1>
+                <h1>${PROJECTS[i].title}</h1>
             </div>
             <div class="text">
                 <div class="body_text">
-                    <p>${p.description}</p>
+                    <p>${PROJECTS[i].description}</p>
                 </div>
                 <div class="bottom_text">
-                    <a href="${p.githubUrl}}">source</a>
-                    <a href="${p.appUrl}}">URL</a>
+                    <a href="${PROJECTS[i].githubUrl}} target="_blank">source</a>
+                    <a href="${PROJECTS[i].appUrl}} target="_blank">url</a>
                 </div>
             </div>
-        </div>    
+        </div>`
+    }
+    return project;
+}
+
+let projects = `<section class="hero fullscreen">
+    <div class="projects_section">
+        ${get_proj()}   
     </div>
 </section>
 `
@@ -304,7 +296,7 @@ function enter_section(id) {
         case "intro":
             {
                 app.innerHTML = intro
-                set_time_out(550, animate_intro)
+                set_time_out(550, animate_intro) 
                 break;
             }
         case "skills":
@@ -373,6 +365,7 @@ for (const link of links) {
 
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     //loading the page on the intro section
