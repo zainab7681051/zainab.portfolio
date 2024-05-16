@@ -36,21 +36,14 @@ let intro = `<section class="hero fullscreen">
            web-based softwares and solutions
              </p>
              <div class="button-group">
-                 <a href="https://firebasestorage.googleapis.com/v0/b/zainab-portfolio.appspot.com/o/Resume.pdf?alt=media&token=b1a32688-8e90-49f5-8014-129dbcd561c6" target="_blank" class="btn primary">my CV &nbsp;
+                 <a href="https://firebasestorage.googleapis.com/v0/b/zainab-portfolio.appspot.com/o/Resume.pdf?alt=media&token=b1a32688-8e90-49f5-8014-129dbcd561c6" target="_blank" title="downlaod my CV" class="btn primary">my CV &nbsp;
                      <i class="bi bi-download"></i>
                  </a>
-                 <a onclick='exit_section("intro", () => set_time_out(1500, enter_section, "projects"));document.getElementById("intro").classList.remove("active");document.getElementById("projects").classList.add("active");' id="btn_border" href="#" class="btn border">Works & Projects &nbsp;
+                 <a onclick='exit_section("intro", () => set_time_out(1500, enter_section, "projects"));document.getElementById("intro").classList.remove("active");document.getElementById("projects").classList.add("active");' id="btn_border" href="#" title="Works & Projects" class="btn border">Works & Projects &nbsp;
                      <i class="bi bi-card-list"></i>
                  </a>
              </div>
          </div>
-         <script> 
-            let intro_link = document.querySelector('.btn.border')
-            intro_link.onclick = () => {
-                console.log("here")
-                exit_section("intro", () => set_time_out(1500, enter_section, "projects"))
-            }
-        </script>
      </section> `
 ////////////////////////////////////////////////////////////////////
 //
@@ -112,6 +105,13 @@ let skills = `<section class="hero fullscreen skills-section">
 const PROJECTS = [
 
     {
+        "title": "SimpleFreetube",
+        "description": "a frontend project in Vue and the Invidious API for watching youtube",
+        "imgSrc": "simplefreetube.png",
+        "githubUrl": "https://github.com/zainab7681051/simpleFreeTube",
+        "appUrl": "https://simplefreetube.web.app/"
+    },
+    {
         "title": "FileConverterTool",
         "description": "online tool for converting files from one type to another; word to pdf, jpeg to png, etc...",
         "imgSrc": "fileconvertertool.png",
@@ -119,11 +119,11 @@ const PROJECTS = [
         "appUrl": "https://fileconvertertool.web.app"
     },
     {
-        "title": "SimpleFreetube",
-        "description": "a frontend project in Vue and with the Invidious API for watching youtube",
-        "imgSrc": "simplefreetube.png",
-        "githubUrl": "https://github.com/zainab7681051/simpleFreeTube",
-        "appUrl": "https://simplefreetube.web.app/"
+        "title": "Invidious Instances",
+        "description": "App for fetching the free and open-source Invidious instances using the invidious API",
+        "imgSrc": "Invidious-Instances.png",
+        "githubUrl": "https://github.com/zainab7681051/get-invidious-instances",
+        "appUrl": "https://zainab7681051.github.io/get-invidious-instances/"
     },
     {
         "title": "DisneyMoviesWatchlist",
@@ -140,12 +140,6 @@ const PROJECTS = [
         "appUrl": "https://apidisneymovies.bsite.net/api/v1/movies/all"
     },
     {
-        "title": "Invidious Instances",
-        "description": "App for fetching the free and open-source Invidious instances using the invidious API",
-        "imgSrc": "Invidious-Instances.png",
-        "githubUrl": "https://github.com/zainab7681051/get-invidious-instances",
-        "appUrl": "https://zainab7681051.github.io/get-invidious-instances/"
-    }, {
         "title": "Landing Page With GSAP",
         "description": "a simple landing page template in html/css/js with GSAP tool for basic animation on load.",
         "imgSrc": "LandingPage.png",
@@ -199,14 +193,29 @@ const PROJECTS = [
 
 function get_proj() {
     let project = ``
+    let img_tag;
+    let url_tag;
     for (let i = 0; i < PROJECTS.length; i++) {
-        project += `
-        <div class="project">
-            <a href="${PROJECTS[i].appUrl}" target="_blank"> 
+        if(PROJECTS[i].appUrl)
+        {
+            img_tag=`<a href="${PROJECTS[i].appUrl}" target="_blank">
                 <div class="img_container">
                     <img src="./assets/img/${PROJECTS[i].imgSrc}" alt=""/>
                 </div>
-            </a>
+            </a>`
+            url_tag=`<a href="${PROJECTS[i].appUrl}" target="_blank" title="Live URL">url</a>
+`
+        }
+        else
+        {
+            img_tag=`<div class="img_container">
+                    <img src="./assets/img/${PROJECTS[i].imgSrc}" alt=""/>
+                </div>`
+            url_tag=''
+        }
+        project += `
+        <div class="project">
+           ${img_tag}
             <div class="title">
                 <h1>${PROJECTS[i].title}</h1>
             </div>
@@ -215,8 +224,8 @@ function get_proj() {
                     <p>${PROJECTS[i].description}</p>
                 </div>
                 <div class="bottom_text">
-                    <a href="${PROJECTS[i].githubUrl}} target="_blank">source</a>
-                    <a href="${PROJECTS[i].appUrl}} target="_blank">url</a>
+                    <a href="${PROJECTS[i].githubUrl}" target="_blank" title="Source Code">source</a>
+                    ${url_tag}
                 </div>
             </div>
         </div>`
@@ -226,7 +235,7 @@ function get_proj() {
 
 let projects = `<section class="hero fullscreen">
     <div class="projects_section">
-        ${get_proj()}   
+        ${get_proj()}
     </div>
 </section>
 `
@@ -296,7 +305,7 @@ function enter_section(id) {
         case "intro":
             {
                 app.innerHTML = intro
-                set_time_out(550, animate_intro) 
+                set_time_out(550, animate_intro)
                 break;
             }
         case "skills":

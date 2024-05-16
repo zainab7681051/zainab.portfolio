@@ -96,7 +96,7 @@ header {
 .toggle span {
 	width: 100%;
 	display: block;
-	border-bottom: 3px solid var(--white);
+	border-bottom: 2px solid var(--white);
 	position: absolute;
 	z-index: 51;
 	transition: top 0.3s ease, transform 0.3s ease;
@@ -223,8 +223,7 @@ header {
 }
 
 .block h2 {
-	/* font-size: 4rem; */
-	font-size: 3rem;
+	font-size: 2rem;
 	margin-bottom: 2rem;
 }
 
@@ -413,15 +412,17 @@ header {
     flex-direction: column;
     padding-right: 5vw;
     padding-left: 5vw;
-    padding-top: 35px;
+    padding-top: 5rem;
     padding-bottom: 35px;
     min-height: 50vh;
     color: var(--fifth);
 }
 .project {
+    margin-right: 8.34%;
     position: relative;
-    width: 100%;
-	margin-bottom:1.5rem
+    width: 83.34%;
+    margin-bottom: 15vmin;
+    margin-left: 8.34%;
 }
 .img_container {
     width: 100%;
@@ -429,7 +430,7 @@ header {
 	margin-bottom: 15px;
 }
 .img_container img{
-	transition: transform .4s cubic-bezier(.215,.61,.355,1);
+	transition: transform .4s ease-in-out;
 }
 .img_container img:hover {
     transform: scale(1.05);
@@ -444,13 +445,13 @@ header {
 }
 .body_text {
     line-height: 1.5;
-    font-size: 19px;
+    font-size: 17px;
 }
 .bottom_text {
     margin-top: 8px;
 }
 .bottom_text a {
-    font-size: 18px;
+    font-size: 17px;
     box-shadow: inset 0 -1px var(--third);
 }
 @media (min-width: 768px) {
@@ -473,7 +474,7 @@ header {
 
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 1024px) {
 	:root {
 		--containerXPadding: 3rem;
 	}
