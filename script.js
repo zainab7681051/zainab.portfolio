@@ -298,6 +298,12 @@ function animate_skills_exit() {
         e.style.visibility = "hidden"
     });
 }
+
+function animate_projects(){
+}
+
+function animate_projects_exit(){
+}
 //////////////////////////////////////////////////
 //triggers each section's transition effect on load
 function enter_section(id) {

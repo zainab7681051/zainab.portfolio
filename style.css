@@ -132,6 +132,7 @@ header {
 	background: var(--sixth);
 	opacity: 0;
 	padding: 1rem;
+    border-radius: 10px;
 	transition: right 0.3s ease, opacity 0.3s ease;
 }
 
@@ -246,7 +247,7 @@ header {
 }
 
 .block p {
-	font-size: 1rem;
+	font-size: .8rem;
 	font-weight: 300;
 	margin-bottom: 2rem;
 	color: var(--white);
@@ -256,7 +257,7 @@ header {
 }
 
 .btn {
-	font-size: 1rem;
+	font-size: .8rem;
 	text-transform: uppercase;
 	letter-spacing: 0.05rem;
 	padding: 0.6rem 2rem;
@@ -338,9 +339,9 @@ header {
 	display: flex;
 	margin-top: 4rem;
 	width: 100vw;
-	height: 80vh;
 	flex-direction: column;
 	padding: 2rem;
+    border-radius: 12px;
 	transition: visibility .5s ease;
 }
 
@@ -361,14 +362,14 @@ header {
 .strip_skills p {
 	text-transform: uppercase;
 	margin-top: 8px;
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	letter-spacing: 3px;
 	display: flex;
 	align-items: center;
 }
 
 .strip_skills p img {
-	width: 35px;
+	width: 28px;
 	margin-right: 16px;
 }
 
@@ -382,7 +383,6 @@ header {
 
 .strip_skills.mid {
 	background-color: var(--third);
-	height: 85vh;
 	transform: translateX(100vw);
 	opacity: 0;
 	transition: transform .5s ease-in-out .5s, opacity .4s ease-in-out .5s;
@@ -428,6 +428,7 @@ header {
     width: 100%;
 	overflow: hidden;
 	margin-bottom: 15px;
+    border-radius:15px;
 }
 .img_container img{
 	transition: transform .4s ease-in-out;
@@ -537,9 +538,12 @@ header {
 	}
 
 	.block p {
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		margin-bottom: 2rem;
 	}
+    .btn {
+        font-size:1rem;
+    }
 
 	.skills-section {
 		overflow: hidden;
@@ -547,16 +551,21 @@ header {
 		align-items: baseline
 	}
 
+    .strip_skills{
+        padding-bottom:4rem;
+        margin-top:6rem;
+    }
+
 	.strip_skills h1 {
-		font-size: 4rem;
+		font-size: 2rem;
 	}
 
 	.strip_skills p {
-		font-size: 21px;
+		font-size: 1.2rem;
 	}
 
 	.strip_skills p img {
-		width: 40px;
+		width: 30px;
 	}
 
 	.strip_skills.left {
