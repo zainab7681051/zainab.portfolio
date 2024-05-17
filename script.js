@@ -96,7 +96,8 @@ let skills = `<section class="hero fullscreen skills-section">
             ${all_skills("other")}
             </div>
         </div>
-        <span id="s_span"></span>
+
+        <span class="_span s_span"></span>
     </section>`
 
 ///////////////////////////////////////////////////////////////////
@@ -233,9 +234,20 @@ function get_proj() {
 }
 
 let projects = `<section class="hero fullscreen">
+    <div class="loader">
+        <div class="cascade">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <div class="projects_section">
         ${get_proj()}
     </div>
+
+    <span class="_span p_span"></span>
 </section>
 `
 ///////////////////////////////////////////////////////////////////
@@ -286,7 +298,7 @@ function animate_skills() {
 }
 
 function animate_skills_exit() {
-    const skills_span = document.querySelector("#s_span")
+    const skills_span = document.querySelector(".s_span")
     const strip_skills = document.querySelectorAll(".strip_skills")
 
     skills_span.style.width = "100%"
@@ -299,9 +311,31 @@ function animate_skills_exit() {
 }
 
 function animate_projects(){
+
+    const session = sessionStorage.getItem('no_loading')
+    if(session)
+    {
+        document.querySelector('.loader').style.display = "none"
+        document.querySelector('.projects_section').style.display = 'flex'
+    }
+    else
+    {
+        set_time_out(2000, () => document.querySelector('.loader').style.display = "none" )
+
+        set_time_out(2000, () => document.querySelector('.projects_section').style.display = 'flex' )
+        sessionStorage.setItem('no_loading', true)
+    }
 }
 
 function animate_projects_exit(){
+    const p_span = document.querySelector('.p_span')
+    const p_section = document.querySelector('.projects_section')
+
+    p_span.style.width = "100%"
+    p_span.style.transform = "translateX(-100vw)"
+    p_section.style.visibility='hidden'
+
+
 }
 //////////////////////////////////////////////////
 //triggers each section's transition effect on load
@@ -322,7 +356,7 @@ function enter_section(id) {
         case "projects":
             {
                 app.innerHTML = projects
-                // set_time_out(550, animate_projects)
+                set_time_out(550, animate_projects)
                 break;
             }
         case "cv":
@@ -349,7 +383,7 @@ function exit_section(id, func) {
             }
         case "projects":
             {
-                // set_time_out(550, animate_projects_exit)
+                set_time_out(550, animate_projects_exit)
                 break;
             }
         case "cv":
@@ -370,13 +404,15 @@ let app = document.getElementById("app");
 const links = document.querySelectorAll('ul li a');
 
 for (const link of links) {
-    link.onclick = () => {
-        const activeClass = document.querySelector('ul li a.active');
-        activeClass.classList.remove('active');
-        link.classList.add('active');
+    if(link.id != 'cv')
+    {
+        link.onclick = () => {
+            const activeClass = document.querySelector('ul li a.active');
+            activeClass.classList.remove('active');
+            link.classList.add('active');
 
-        exit_section(activeClass.id, () => set_time_out(1500, enter_section, link.id))
-
+            exit_section(activeClass.id, () => set_time_out(1500, enter_section, link.id))
+        }
     }
 }
 

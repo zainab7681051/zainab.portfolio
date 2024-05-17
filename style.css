@@ -8,7 +8,7 @@
 
 :root {
 	--first: #44ccff;
-	--second: #ff0035;
+	--second: #db162f;
 	--third: #35ff69;
 	--fourth: #f49d37;
 	--fifth: #f4fdaf;
@@ -396,19 +396,21 @@ header {
 	transition: transform .5s ease-in-out .9s, opacity .4s ease-in-out .9s;
 }
 
-#s_span {
+._span {
 	position: absolute;
 	right: 0;
 	width: 0%;
 	height: 100%;
 	z-index: 2;
 	transform: translateX(0);
+	transition: width .4s ease-in-out, transform .4s ease-in-out .5s;
+}
+.s_span{
 	background-color: var(--first);
-	transition: width .4s ease-in-out, transform .5s ease-in-out .5s;
 }
 .projects_section {
     margin-top: 2rem;
-    display: flex;
+    display: none;
     flex-direction: column;
     padding-right: 5vw;
     padding-left: 5vw;
@@ -423,6 +425,7 @@ header {
     margin-bottom: 15vmin;
     margin-left: 2.34%;
 }
+
 .img_container {
     width: 100%;
 	overflow: hidden;
@@ -461,6 +464,92 @@ header {
 }
 .bottom_text a:hover{
     color: var(--third);
+} 
+.p_span{
+background-color: var(--fifth);
+}
+.loader {
+    position: absolute;
+    z-index: 10;
+    background-color: var(--black);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: display .5s ease;
+}
+
+/**
+ * Cascade
+ *
+ * @author jh3y - jheytompkins.com
+ *https://github.com/jh3y/whirl/blob/dist/css/cascade.css
+ */
+@-webkit-keyframes cascade {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-250%);
+    transform: translateY(-250%); }
+    30%,
+    60% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    transform: translateY(0); }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(250%);
+transform: translateY(250%); } }
+
+@keyframes cascade {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-250%);
+    transform: translateY(-250%); }
+    30%,
+    60% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    transform: translateY(0); }
+    100% {
+        opacity: 0;
+        -webkit-transform: translateY(250%);
+transform: translateY(250%); } }
+
+.cascade {
+    height: 30px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 20px);
+    grid-gap: 14px; 
+}
+.cascade div {
+    width: 30px;
+    background: var(--fifth); 
+}
+.cascade div:nth-child(1) {
+    -webkit-animation: cascade 1.5s 0.15s ease infinite backwards;
+    animation: cascade 1.5s 0.15s ease infinite backwards; 
+}
+.cascade div:nth-child(2) {
+    -webkit-animation: cascade 1.5s 0.3s ease infinite backwards;
+    animation: cascade 1.5s 0.3s ease infinite backwards; 
+}
+.cascade div:nth-child(3) {
+    -webkit-animation: cascade 1.5s 0.45s ease infinite backwards;
+    animation: cascade 1.5s 0.45s ease infinite backwards; 
+}
+.cascade div:nth-child(4) {
+    -webkit-animation: cascade 1.5s 0.6s ease infinite backwards;
+    animation: cascade 1.5s 0.6s ease infinite backwards; 
+}
+.cascade div:nth-child(5) {
+    -webkit-animation: cascade 1.5s 0.75s ease infinite backwards;
+    animation: cascade 1.5s 0.75s ease infinite backwards; 
 } 
 
 @media (min-width: 768px) {
