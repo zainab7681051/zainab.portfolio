@@ -417,6 +417,7 @@ header {
     padding-top: 5rem;
     padding-bottom: 35px;
     min-height: 50vh;
+    transition: visibility .5s ease;
 }
 .project {
     margin-right: 2.34%;
