@@ -190,7 +190,6 @@ const PROJECTS = [
     }
 ]
 
-
 function get_proj() {
     let project = ``
     let img_tag;
