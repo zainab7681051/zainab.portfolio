@@ -12,7 +12,7 @@
 	--third: #35ff69;
 	--fourth: #f49d37;
 	--fifth: #f4fdaf;
-	--sixth: #16697a;
+	--sixth: ##212c46;
 	--black: #0d1321;
 	--white: #ffeddf;
 	--containerXPadding: 1.5rem;
@@ -61,7 +61,9 @@ a:hover {
 
 .container {
 	padding-left: var(--containerXPadding);
-	padding-right: var(--containerXPadding)
+	padding-right: var(--containerXPadding);
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
 }
 
 .fullscreen {
@@ -706,5 +708,8 @@ transform: translateY(250%); } }
         width: 83.34%;
         margin-bottom: 15vmin;
         margin-left: 8.34%;
+    }
+    .header_opacity {
+        opacity: 0;
     }
 }

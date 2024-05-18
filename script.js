@@ -166,7 +166,7 @@ const PROJECTS = [
         "description": "A node express app for generating input-based images using openAI technology.",
         "imgSrc": "open-ai-image-generator-api.png",
         "githubUrl": "https://github.com/zainab7681051/image-generation-app-with-openAI/",
-        "appUrl": "https://openai-images.onrender.com/"
+        "appUrl": ""
     },
     {
         "title": "Pizza-Delivery",
@@ -396,7 +396,10 @@ function exit_section(id, func) {
     func()
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//**--- loading the 'app' ---**
+//
 let app = document.getElementById("app");
 
 //header links: changing the content of the page by triggering
@@ -416,7 +419,26 @@ for (const link of links) {
     }
 }
 
+let lastScroll = 0;
+const header_container = document.querySelector("header.container").classList
+document.addEventListener('scroll', () => {
 
+    let currentScroll = window.pageYOffset;
+
+    if(currentScroll <= 0 || currentScroll <= lastScroll) //top of the page or scrolling up
+    {
+        if(header_container.contains('header_opacity'))
+            header_container.remove('header_opacity')
+    }
+    if(currentScroll > lastScroll) //scrolling down
+    {
+        if(!header_container.contains('header_opacity'))
+            header_container.add('header_opacity')
+    }
+
+    lastScroll = currentScroll
+    return;
+})
 document.addEventListener('DOMContentLoaded', () => {
     //loading the page on the intro section
     app.innerHTML = intro;
