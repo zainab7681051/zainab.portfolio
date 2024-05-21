@@ -179,7 +179,6 @@ header {
 	right: var(--containerXPadding);
 	bottom: 1.5rem;
 	display: flex;
-	gap: 1rem;
 	font-size: 2rem;
 	z-index: 3
 }
@@ -193,7 +192,9 @@ header {
 .social a:hover {
 	color: var(--third);
 }
-
+.social a i.bi.bi-github{
+    margin-right: 1rem;
+}
 .heading-block {
 	transform: translateY(-100vh);
 	opacity: 0;
@@ -615,7 +616,6 @@ transform: translateY(250%); } }
 
 	.social {
 		bottom: 2rem;
-		gap: 1.25rem;
 	}
 
 	.block {

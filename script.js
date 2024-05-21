@@ -419,6 +419,8 @@ for (const link of links) {
     }
 }
 
+//decreasing and increasing the opacity of the header on scroll
+//note: the 'header_opacity' class is defined only for large screens in style.css
 let lastScroll = 0;
 const header_container = document.querySelector("header.container").classList
 document.addEventListener('scroll', () => {
