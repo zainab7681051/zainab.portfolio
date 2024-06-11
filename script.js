@@ -196,22 +196,20 @@ function get_proj() {
     let img_tag;
     let url_tag;
     for (let i = 0; i < PROJECTS.length; i++) {
-        if(PROJECTS[i].appUrl)
-        {
-            img_tag=`<a href="${PROJECTS[i].appUrl}" target="_blank">
+        if (PROJECTS[i].appUrl) {
+            img_tag = `<a href="${PROJECTS[i].appUrl}" target="_blank">
                 <div class="img_container">
                     <img src="./assets/img/${PROJECTS[i].imgSrc}" alt=""/>
                 </div>
             </a>`
-            url_tag=`<a href="${PROJECTS[i].appUrl}" target="_blank" title="Live URL">url</a>
+            url_tag = `<a href="${PROJECTS[i].appUrl}" target="_blank" title="Live URL">url</a>
 `
         }
-        else
-        {
-            img_tag=`<div class="img_container">
+        else {
+            img_tag = `<div class="img_container">
                     <img src="./assets/img/${PROJECTS[i].imgSrc}" alt=""/>
                 </div>`
-            url_tag=''
+            url_tag = ''
         }
         project += `
         <div class="project">
@@ -310,30 +308,28 @@ function animate_skills_exit() {
     });
 }
 
-function animate_projects(){
+function animate_projects() {
 
     const session = sessionStorage.getItem('no_loading')
-    if(session)
-    {
+    if (session) {
         document.querySelector('.loader').style.display = "none"
         document.querySelector('.projects_section').style.display = 'flex'
     }
-    else
-    {
-        set_time_out(2000, () => document.querySelector('.loader').style.display = "none" )
+    else {
+        set_time_out(2000, () => document.querySelector('.loader').style.display = "none")
 
-        set_time_out(2000, () => document.querySelector('.projects_section').style.display = 'flex' )
+        set_time_out(2000, () => document.querySelector('.projects_section').style.display = 'flex')
         sessionStorage.setItem('no_loading', true)
     }
 }
 
-function animate_projects_exit(){
+function animate_projects_exit() {
     const p_span = document.querySelector('.p_span')
     const p_section = document.querySelector('.projects_section')
 
     p_span.style.width = "100%"
     p_span.style.transform = "translateX(-100vw)"
-    p_section.style.visibility='hidden'
+    p_section.style.visibility = 'hidden'
 
 
 }
@@ -343,18 +339,21 @@ function enter_section(id) {
     switch (id) {
         case "intro":
             {
+                setHash(id);
                 app.innerHTML = intro
                 set_time_out(550, animate_intro)
                 break;
             }
         case "skills":
             {
+                setHash(id);
                 app.innerHTML = skills;
                 set_time_out(550, animate_skills)
                 break;
             }
         case "projects":
             {
+                setHash(id);
                 app.innerHTML = projects
                 set_time_out(550, animate_projects)
                 break;
@@ -402,13 +401,15 @@ function exit_section(id, func) {
 //
 let app = document.getElementById("app");
 
+const setHash = (value) => {
+    location.hash = value;
+}
 //header links: changing the content of the page by triggering
 //a click event for the link that has been clicked
 const links = document.querySelectorAll('ul li a');
 
 for (const link of links) {
-    if(link.id != 'cv')
-    {
+    if (link.id != 'cv') {
         link.onclick = () => {
             const activeClass = document.querySelector('ul li a.active');
             activeClass.classList.remove('active');
@@ -425,16 +426,16 @@ let lastScroll = 0;
 const header_container = document.querySelector("header.container").classList
 document.addEventListener('scroll', () => {
 
-    let currentScroll = window.pageYOffset;
+    let currentScroll = window.scrollY;
 
-    if(currentScroll <= 0 || currentScroll <= lastScroll) //top of the page or scrolling up
+    if (currentScroll <= 0 || currentScroll <= lastScroll) //top of the page or scrolling up
     {
-        if(header_container.contains('header_opacity'))
+        if (header_container.contains('header_opacity'))
             header_container.remove('header_opacity')
     }
-    if(currentScroll > lastScroll) //scrolling down
+    if (currentScroll > lastScroll) //scrolling down
     {
-        if(!header_container.contains('header_opacity'))
+        if (!header_container.contains('header_opacity'))
             header_container.add('header_opacity')
     }
 
@@ -442,10 +443,39 @@ document.addEventListener('scroll', () => {
     return;
 })
 document.addEventListener('DOMContentLoaded', () => {
-    //loading the page on the intro section
-    app.innerHTML = intro;
+    if (!location.hash) {
 
-    //starting the intro animation
-    set_time_out(550, animate_intro)
+        const activeClass = document.querySelector('ul li a.active');
+        if (activeClass)
+            activeClass.classList.remove('active');
+        const newActiveClass = document.querySelector("#intro");
+        newActiveClass.classList.add("active");
+        //loading the page on the intro section
+        app.innerHTML = intro;
+
+        //starting the intro animation
+        set_time_out(550, animate_intro)
+    }
+    else {
+        const activeClass = document.querySelector('ul li a.active');
+        if (activeClass)
+            activeClass.classList.remove('active');
+        const newActiveClass = document.querySelector(location.hash);
+        newActiveClass.classList.add("active");
+        switch (location.hash) {
+            case "#intro":
+                app.innerHTML = intro;
+                set_time_out(550, animate_intro)
+                break;
+            case "#skills":
+                app.innerHTML = skills;
+                set_time_out(550, animate_skills)
+                break;
+            case "#projects":
+                app.innerHTML = projects;
+                set_time_out(550, animate_projects)
+                break;
+        }
+    }
 })
 

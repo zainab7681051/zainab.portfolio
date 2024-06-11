@@ -7,14 +7,11 @@
 }
 
 :root {
-	--first: #44ccff;
-	--second: #db162f;
-	--third: #35ff69;
-	--fourth: #f49d37;
-	--fifth: #f4fdaf;
-	--sixth: #212c46;
-	--black: #0d1321;
-	--white: #ffeddf;
+	--first: #00B295;
+	--second: #FB3640;
+	--third: #302c2d;
+	--black: #191516;
+	--white: #F8FFE5;
 	--containerXPadding: 1.5rem;
 	--unit: 16px;
 }
@@ -43,7 +40,7 @@ img {
 
 a {
 	text-decoration: none;
-	color: var(--third);
+	color: var(--white);
 }
 
 a:hover {
@@ -62,8 +59,8 @@ a:hover {
 .container {
 	padding-left: var(--containerXPadding);
 	padding-right: var(--containerXPadding);
-    opacity: 1;
-    transition: opacity .2s ease-in-out;
+	opacity: 1;
+	transition: opacity .2s ease-in-out;
 }
 
 .fullscreen {
@@ -131,10 +128,10 @@ header {
 	width: 15rem;
 	height: 15rem;
 	font-size: 1rem;
-	background: var(--sixth);
+	background: var(--third);
 	opacity: 0;
 	padding: 1rem;
-    border-radius: 10px;
+	border-radius: 10px;
 	transition: right 0.3s ease, opacity 0.3s ease;
 }
 
@@ -156,15 +153,15 @@ header {
 }
 
 .menu ul li a:hover {
-	color: var(--third);
+	color: var(--second);
 }
 
 .menu ul li+li {
-	border-top: 1px solid var(--fifth);
+	border-top: 1px solid var(--first);
 }
 
 .menu ul li a.active {
-	color: var(--fourth);
+	color: var(--second);
 	pointer-events: none;
 }
 
@@ -190,11 +187,13 @@ header {
 }
 
 .social a:hover {
-	color: var(--third);
+	color: var(--second);
 }
-.social a i.bi.bi-github{
-    margin-right: 1rem;
+
+.social a i.bi.bi-github {
+	margin-right: 1rem;
 }
+
 .heading-block {
 	transform: translateY(-100vh);
 	opacity: 0;
@@ -244,7 +243,7 @@ header {
 	/* height: 3.6rem; */
 	width: .8rem;
 	height: 2.5rem;
-	background: var(--second);
+	background: var(--first);
 	margin-right: 0.5rem;
 	display: inline-block;
 }
@@ -290,7 +289,7 @@ header {
 	width: 0;
 	z-index: -1;
 	transition: width .5s ease;
-	background: var(--second);
+	background: var(--first);
 }
 
 .btn:hover:before {
@@ -325,7 +324,7 @@ header {
 	right: 0;
 	width: 25%;
 	bottom: 0;
-	background-color: var(--second);
+	background-color: var(--first);
 	transform: translateX(-100vw);
 	transition: transform .4s ease-in-out, width .4s ease-in-out;
 }
@@ -344,7 +343,7 @@ header {
 	width: 100vw;
 	flex-direction: column;
 	padding: 2rem;
-    border-radius: 12px;
+	border-radius: 12px;
 	transition: visibility .5s ease;
 }
 
@@ -377,7 +376,7 @@ header {
 }
 
 .strip_skills.left {
-	background-color: var(--fourth);
+	background-color: var(--first);
 	transform: translateX(100vw);
 	opacity: 0;
 	transition: transform .5s ease-in-out, opacity .4s ease-in-out;
@@ -385,7 +384,7 @@ header {
 }
 
 .strip_skills.mid {
-	background-color: var(--third);
+	background-color: var(--first);
 	transform: translateX(100vw);
 	opacity: 0;
 	transition: transform .5s ease-in-out .5s, opacity .4s ease-in-out .5s;
@@ -408,84 +407,94 @@ header {
 	transform: translateX(0);
 	transition: width .4s ease-in-out, transform .4s ease-in-out .5s;
 }
-.s_span{
+
+.s_span {
 	background-color: var(--first);
 }
+
 .projects_section {
-    margin-top: 2rem;
-    display: none;
-    flex-direction: column;
-    padding-right: 5vw;
-    padding-left: 5vw;
-    padding-top: 5rem;
-    padding-bottom: 35px;
-    min-height: 50vh;
-    transition: visibility .5s ease;
+	margin-top: 2rem;
+	display: none;
+	flex-direction: column;
+	padding-right: 5vw;
+	padding-left: 5vw;
+	padding-top: 5rem;
+	padding-bottom: 35px;
+	min-height: 50vh;
+	transition: visibility .5s ease;
 }
+
 .project {
-    margin-right: 2.34%;
-    position: relative;
-    width: 98.34%;
-    margin-bottom: 15vmin;
-    margin-left: 2.34%;
+	margin-right: 2.34%;
+	position: relative;
+	width: 98.34%;
+	margin-bottom: 15vmin;
+	margin-left: 2.34%;
 }
 
 .img_container {
-    width: 100%;
+	width: 100%;
 	overflow: hidden;
 	margin-bottom: 15px;
-    border-radius:15px;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: var(--first);
 }
-.img_container img{
+
+.img_container img {
 	transition: transform .4s ease-in-out;
 }
+
 .img_container img:hover {
-    transform: scale(1.05);
+	transform: scale(1.05);
 }
+
 .title {
-    display: inline;
+	display: inline;
 }
+
 .title h1 {
-    color: var(--fifth);
-    font-size: 21px;
+	color: var(--white);
+	font-size: 21px;
 	display: inline-grid;
-    letter-spacing: 3px;
-    box-shadow: inset 0 -1px var(--second);
+	letter-spacing: 3px;
 }
+
 .body_text {
-    color: var(--white);
-    line-height: 1.5;
-    font-size: 15px;
-    margin-top: 8px;
+	color: var(--white);
+	line-height: 1.5;
+	font-size: 15px;
+	margin-top: 8px;
 }
+
 .bottom_text {
-    margin-top: 8px;
+	margin-top: 8px;
 }
+
 .bottom_text a {
-    color: var(--white);
-    box-shadow: inset 0 -1px var(--third);
-    transition: color .3s ease-in-out;
+	color: var(--first);
+	transition: color .3s ease-in-out;
 }
-.bottom_text a:hover{
-    color: var(--third);
-} 
-.p_span{
-background-color: var(--fifth);
+
+.p_span {
+	background-color: var(--first);
 }
+
 .loader {
-    position: absolute;
-    z-index: 10;
-    background-color: var(--black);
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-content: center;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: display .5s ease;
+	position: absolute;
+	z-index: 10;
+	background-color: var(--black);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-content: center;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	transition: display .5s ease;
 }
 
 /**
@@ -495,68 +504,86 @@ background-color: var(--fifth);
  *https://github.com/jh3y/whirl/blob/dist/css/cascade.css
  */
 @-webkit-keyframes cascade {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-250%);
-    transform: translateY(-250%); }
-    30%,
-    60% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-    transform: translateY(0); }
-    100% {
-        opacity: 0;
-        -webkit-transform: translateY(250%);
-transform: translateY(250%); } }
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-250%);
+		transform: translateY(-250%);
+	}
+
+	30%,
+	60% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(250%);
+		transform: translateY(250%);
+	}
+}
 
 @keyframes cascade {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-250%);
-    transform: translateY(-250%); }
-    30%,
-    60% {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-    transform: translateY(0); }
-    100% {
-        opacity: 0;
-        -webkit-transform: translateY(250%);
-transform: translateY(250%); } }
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-250%);
+		transform: translateY(-250%);
+	}
+
+	30%,
+	60% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(250%);
+		transform: translateY(250%);
+	}
+}
 
 .cascade {
-    height: 30px;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(5, 20px);
-    grid-gap: 14px; 
+	height: 30px;
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(5, 20px);
+	grid-gap: 14px;
 }
-.cascade div {
-    width: 30px;
-    background: var(--fifth); 
-}
-.cascade div:nth-child(1) {
-    -webkit-animation: cascade 1.5s 0.15s ease infinite backwards;
-    animation: cascade 1.5s 0.15s ease infinite backwards; 
-}
-.cascade div:nth-child(2) {
-    -webkit-animation: cascade 1.5s 0.3s ease infinite backwards;
-    animation: cascade 1.5s 0.3s ease infinite backwards; 
-}
-.cascade div:nth-child(3) {
-    -webkit-animation: cascade 1.5s 0.45s ease infinite backwards;
-    animation: cascade 1.5s 0.45s ease infinite backwards; 
-}
-.cascade div:nth-child(4) {
-    -webkit-animation: cascade 1.5s 0.6s ease infinite backwards;
-    animation: cascade 1.5s 0.6s ease infinite backwards; 
-}
-.cascade div:nth-child(5) {
-    -webkit-animation: cascade 1.5s 0.75s ease infinite backwards;
-    animation: cascade 1.5s 0.75s ease infinite backwards; 
-} 
 
-@media (min-width: 768px) {
+.cascade div {
+	width: 30px;
+	background: var(--first);
+}
+
+.cascade div:nth-child(1) {
+	-webkit-animation: cascade 1.5s 0.15s ease infinite backwards;
+	animation: cascade 1.5s 0.15s ease infinite backwards;
+}
+
+.cascade div:nth-child(2) {
+	-webkit-animation: cascade 1.5s 0.3s ease infinite backwards;
+	animation: cascade 1.5s 0.3s ease infinite backwards;
+}
+
+.cascade div:nth-child(3) {
+	-webkit-animation: cascade 1.5s 0.45s ease infinite backwards;
+	animation: cascade 1.5s 0.45s ease infinite backwards;
+}
+
+.cascade div:nth-child(4) {
+	-webkit-animation: cascade 1.5s 0.6s ease infinite backwards;
+	animation: cascade 1.5s 0.6s ease infinite backwards;
+}
+
+.cascade div:nth-child(5) {
+	-webkit-animation: cascade 1.5s 0.75s ease infinite backwards;
+	animation: cascade 1.5s 0.75s ease infinite backwards;
+}
+
+@media (min-width: 600px) {
 	:root {
 		--containerXPadding: 2rem;
 	}
@@ -641,9 +668,10 @@ transform: translateY(250%); } }
 		font-size: 1.3rem;
 		margin-bottom: 2rem;
 	}
-    .btn {
-        font-size:1rem;
-    }
+
+	.btn {
+		font-size: 1rem;
+	}
 
 	.skills-section {
 		overflow: hidden;
@@ -651,10 +679,10 @@ transform: translateY(250%); } }
 		align-items: baseline
 	}
 
-    .strip_skills{
-        padding-bottom:4rem;
-        margin-top:6rem;
-    }
+	.strip_skills {
+		padding-bottom: 4rem;
+		margin-top: 6rem;
+	}
 
 	.strip_skills h1 {
 		font-size: 2rem;
@@ -687,29 +715,36 @@ transform: translateY(250%); } }
 		opacity: 0;
 		transition: transform .5s ease-in-out .5s, opacity .4s ease-in-out .4s;
 	}
-    .bottom_text{
-        font-size:21px;
-           
-    }
-    .bottom_text a{
-        box-shadow: inset 0 -2px var(--third);
-    }
 
-    .body_text{
-        font-size:21px
-    }
-    .title h1{
-        font-size:28px;
-        box-shadow: inset 0 -2px var(--second);
-    }
-    .project {
-        margin-right: 8.34%;
-        position: relative;
-        width: 83.34%;
-        margin-bottom: 15vmin;
-        margin-left: 8.34%;
-    }
-    .header_opacity {
-        opacity: 0;
-    }
+	.bottom_text {
+		font-size: 21px;
+	}
+
+	.bottom_text a {
+		color: var(--white);
+	}
+
+	.bottom_text a:hover {
+		color: var(--second);
+	}
+
+	.body_text {
+		font-size: 21px
+	}
+
+	.title h1 {
+		font-size: 28px;
+	}
+
+	.project {
+		margin-right: 8.34%;
+		position: relative;
+		width: 83.34%;
+		margin-bottom: 15vmin;
+		margin-left: 8.34%;
+	}
+
+	.header_opacity {
+		opacity: 0;
+	}
 }
