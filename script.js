@@ -1,3 +1,4 @@
+"use strict"
 //timeout fucntion
 function set_time_out(time, func, param) {
     setTimeout(() => {
@@ -232,7 +233,7 @@ function get_proj() {
 }
 
 let projects = `<section class="hero fullscreen">
-    <div class="loader">
+    <!-- <div class="loader">
         <div class="cascade">
             <div></div>
             <div></div>
@@ -240,7 +241,19 @@ let projects = `<section class="hero fullscreen">
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div> -->
+    <figure id="loading">
+        <div style="display:flex; justify-content: center;">        
+            <div class="cascade">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <figcaption>loading works&projects...</figcaption>
+    </figure>
     <div class="projects_section">
         ${get_proj()}
     </div>
@@ -309,17 +322,13 @@ function animate_skills_exit() {
 }
 
 function animate_projects() {
-
-    const session = sessionStorage.getItem('no_loading')
-    if (session) {
-        document.querySelector('.loader').style.display = "none"
-        document.querySelector('.projects_section').style.display = 'flex'
-    }
-    else {
-        set_time_out(2000, () => document.querySelector('.loader').style.display = "none")
-
-        set_time_out(2000, () => document.querySelector('.projects_section').style.display = 'flex')
-        sessionStorage.setItem('no_loading', true)
+    const img = document.querySelectorAll(".img_container img");
+    if (img) {
+        for (let element of img)
+            if (element.complete) {
+                document.querySelector('#loading').style.display = "none";
+                document.querySelector('.projects_section').style.display = "flex";
+            }
     }
 }
 

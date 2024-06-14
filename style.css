@@ -481,20 +481,19 @@ header {
 	background-color: var(--first);
 }
 
-.loader {
-	position: absolute;
-	z-index: 10;
-	background-color: var(--black);
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	display: flex;
-	align-content: center;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	transition: display .5s ease;
+#loading {
+	display: block;
+	margin: auto;
+	width: 100%;
+}
+
+#loading figcaption {
+	display: block;
+	width: 100%;
+	color: var(--white);
+	font-size: 1.2rem;
+	text-align: center;
+	margin-top: 3rem;
 }
 
 /**
