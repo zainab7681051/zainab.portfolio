@@ -1,0 +1,28 @@
+{
+  "name": "zainab.portfolio",
+  "version": "1.0.0",
+  "author": "zainab7681051 zainab76810510@gmail.com",
+  "description": "My portfolio features a variety of software projects that highlight my skills in different technologies and problem-solving.",
+  "keywords": [
+    "developer",
+    "portfolio",
+    "html/css",
+    "javascript"
+  ],
+  "homepage": "https://zainab7681051.github.io/zainab.portfolio/",
+  "bugs": {
+    "url": "https://github.com/zainab7681051/zainab.portfolio/issues"
+  },
+  "license": "GNU General Public License v3.0 only",
+  "private": "true",
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/zainab7681051/zainab.portfolio"
+  },
+  "directories": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"Error: no test specified\" && exit 1"
+  }
+}
