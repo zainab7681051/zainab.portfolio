@@ -1,2 +1,2 @@
 # zainab.portfolio
-my new portfolio in vanilla html/css/js
+My portfolio features a variety of software projects that highlight my skills in different technologies and problem-solving.
