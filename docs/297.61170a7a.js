@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[297],{297:function(n,o,r){r.r(o),r.d(o,{default:function(){return l}});var e=r(425);const u={id:"home"},t=[(0,e.Lk)("h1",null,"👋Hello world🌎",-1)],i={};var l=(0,r(262).A)(i,[["render",function(n,o){return(0,e.uX)(),(0,e.CE)("div",u,t)}]])}}]);
