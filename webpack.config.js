@@ -110,7 +110,7 @@ export default {
         hot: true,
         host: 'localhost',
         historyApiFallback: true,
-        open: true,
+        open: false,
         port: 4210
     },
 };
