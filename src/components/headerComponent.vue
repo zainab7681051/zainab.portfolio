@@ -1,9 +1,11 @@
 <script setup>
-import { ref } from "vue"
+import { ref, onMounted, onBeforeUnmount } from "vue"
+
 let showMenu = ref(false)
 function toggleMenu() {
     showMenu.value = !showMenu.value;
 }
+
 </script>
 
 <template>
@@ -27,13 +29,6 @@ function toggleMenu() {
 </template>
 
 <style scoped>
-.container {
-    padding-left: var(--containerXPadding);
-    padding-right: var(--containerXPadding);
-    opacity: 1;
-    transition: opacity .2s ease-in-out;
-}
-
 header {
     position: fixed;
     z-index: 50;

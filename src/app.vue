@@ -64,14 +64,11 @@ a:hover {
   text-decoration: none;
 }
 
-
-.huge-font {
-  font-family: 'bookmanBold';
-}
-
-.upper-text {
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
+.container {
+  padding-left: var(--containerXPadding);
+  padding-right: var(--containerXPadding);
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
 }
 
 .social {
@@ -98,6 +95,16 @@ a:hover {
   margin-right: 1rem;
 }
 
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.fullscreen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+}
 
 @media (min-width: 600px) {
   :root {
