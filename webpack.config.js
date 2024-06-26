@@ -6,12 +6,13 @@ import autoprefixer from 'autoprefixer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Get the file URL
+// get the file URL
 const __filename = fileURLToPath(import.meta.url);
-// Get the directory name
+// get the directory name
 const __dirname = path.dirname(__filename);
 
 const isProduction = process.env.NODE_ENV === 'production';
+
 export default {
     mode: isProduction ? 'production' : 'development',
     entry: {
@@ -43,7 +44,7 @@ export default {
                 },
             },
             {
-                test: /\.(png|jpe?g|gif|webm|mp4|svg)$/,
+                test: /\.(png|jpe?g|gif|svg)$/,
                 loader: "file-loader",
                 options: {
                     name: "[name][contenthash:8].[ext]",
@@ -54,8 +55,8 @@ export default {
             {
                 test: /\.css$/,
                 use: [
-                    "style-loader",
-                    MiniCssExtractPlugin.loader,
+                    isProduction ?
+                        MiniCssExtractPlugin.loader : "style-loader",
                     "css-loader",
                     {
                         loader: "postcss-loader",
@@ -75,8 +76,8 @@ export default {
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: "[name].[contenthash:8].css",
-            chunkFilename: "[name].[contenthash:8].css",
+            filename: isProduction ? "[name].[contenthash:8].css" : "[name].css",
+            chunkFilename: isProduction ? "[id].[contenthash:8].css" : "[id].css"
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, "public", "index.html"),

@@ -21,6 +21,8 @@
     "url": "https://github.com/zainab7681051/zainab.portfolio"
   },
   "browserslist": [
+    ">0.1%",
+    "not dead",
     "since 2015"
   ],
   "scripts": {
