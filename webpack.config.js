@@ -1,3 +1,4 @@
+import webpack from 'webpack';
 import { VueLoaderPlugin } from 'vue-loader';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -22,6 +23,7 @@ export default {
         filename: "[name].[contenthash:8].js",
         path: path.resolve(__dirname, isProduction ? 'docs' : 'dist'),
         chunkFilename: "[name].[contenthash:8].js",
+        clean: true,
     },
     module: {
         rules: [
@@ -41,15 +43,23 @@ export default {
                 loader: "file-loader",
                 options: {
                     name: "[name][contenthash:8].[ext]",
+                    outputPath: "fonts",
                 },
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/,
+                test: /\.(png|jpe?g|gif)$/,
                 loader: "file-loader",
                 options: {
                     name: "[name][contenthash:8].[ext]",
-                    outputPath: "assets/img",
-                    esModule: false,
+                    outputPath: "img",
+                },
+            },
+            {
+                test: /\.(ico|svg)$/,
+                loader: "file-loader",
+                options: {
+                    name: "[name][contenthash:8].[ext]",
+                    outputPath: "icons",
                 },
             },
             {
@@ -73,6 +83,11 @@ export default {
         ],
     },
     plugins: [
+        new webpack.DefinePlugin({
+            __VUE_OPTIONS_API__: 'true',
+            __VUE_PROD_DEVTOOLS__: 'false',
+            __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false'
+        }),
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
@@ -104,6 +119,7 @@ export default {
             },
         },
     },
+    devtool: isProduction ? false : 'inline-source-map',
     devServer: {
         static: {
             directory: path.join(__dirname, 'dist'),
@@ -111,7 +127,7 @@ export default {
         hot: true,
         host: 'localhost',
         historyApiFallback: true,
-        open: false,
-        port: 4210
+        open: true,
+        port: '4210',
     },
 };

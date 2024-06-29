@@ -1,5 +1,7 @@
-<template>
-    <div>
-        <h1>about page</h1>
-    </div>
+<script setup>
+import ProjectComp from "../components/projectsComponent.vue"
+</script>
+<template>    
+    <project-comp/>
 </template>
+<style></style>

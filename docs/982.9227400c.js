@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[982],{3982:function(a,i,e){e.r(i),i.default=e.p+"img/pizza-delivery6a681292.png"}}]);

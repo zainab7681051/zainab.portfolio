@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[933],{7933:function(a,e,n){n.r(e),e.default=n.p+"img/pacman3e8c3bee.png"}}]);

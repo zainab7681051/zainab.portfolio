@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue"
+import { ref } from "vue"
 
 let showMenu = ref(false)
 function toggleMenu() {
@@ -146,6 +146,7 @@ header {
         right: auto;
         opacity: 1;
         width: auto;
+        height: auto;
         padding: 0;
     }
 

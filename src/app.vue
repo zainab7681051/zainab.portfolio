@@ -3,7 +3,7 @@ import HeaderComp from "./components/headerComponent.vue"
 </script>
 
 <template>
-  <header-comp />
+  <header-comp/>
   <router-view />
 
   <div class="social">
@@ -46,7 +46,7 @@ body {
   line-height: 1.3;
   font-family: 'bookmanLight';
   background-color: var(--black);
-  color: var(--white)
+  color: var(--white);
 }
 
 img {
@@ -68,7 +68,6 @@ a:hover {
   padding-left: var(--containerXPadding);
   padding-right: var(--containerXPadding);
   opacity: 1;
-  transition: opacity .2s ease-in-out;
 }
 
 .social {
@@ -84,7 +83,6 @@ a:hover {
 .social a {
   color: var(--white);
   display: block;
-  transition: color 0.3s ease;
 }
 
 .social a:hover {

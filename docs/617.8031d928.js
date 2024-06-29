@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[617],{7617:function(a,e,i){i.r(e),e.default=i.p+"img/open-ai-image-generator-apic0f8bbae.png"}}]);

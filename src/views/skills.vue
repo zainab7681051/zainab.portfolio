@@ -1,5 +1,6 @@
+<script setup>
+import SkillsComp from "../components/skillsComponent.vue"
+</script>
 <template>
-    <div>
-        <h1>about page</h1>
-    </div>
+    <skills-comp/>
 </template>

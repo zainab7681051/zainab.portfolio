@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[269],{8650:function(a,n,e){e.r(n),n.default=e.p+"img/LandingPageae954b28.png"}}]);
