@@ -425,11 +425,11 @@ header {
 }
 
 .project {
-	margin-right: 2.34%;
 	position: relative;
 	width: 98.34%;
-	margin-bottom: 15vmin;
-	margin-left: 2.34%;
+    display: block;
+    margin: 0;
+    margin-bottom: 3rem;
 }
 
 .img_container {
