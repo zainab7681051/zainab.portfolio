@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[309],{3309:function(a,o,i){i.r(o),o.default=i.p+"img/todolist143ace1a.png"}}]);

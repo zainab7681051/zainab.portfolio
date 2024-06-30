@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[579],{9579:function(e,i,p){p.r(i),i.default=p.p+"img/simplefreetube2c580ccb.png"}}]);

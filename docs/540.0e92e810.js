@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[540],{6540:function(n,a,i){i.r(a),a.default=i.p+"img/Invidious-Instancesf84598a5.png"}}]);
