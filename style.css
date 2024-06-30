@@ -456,7 +456,7 @@ header {
 
 .title h1 {
 	color: var(--white);
-	font-size: 21px;
+	font-size: 25px;
 	display: inline-grid;
 	letter-spacing: 3px;
 }
@@ -464,7 +464,7 @@ header {
 .body_text {
 	color: var(--white);
 	line-height: 1.5;
-	font-size: 15px;
+	font-size: 12px;
 	margin-top: 8px;
 }
 
