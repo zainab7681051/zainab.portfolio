@@ -1,1 +1,0 @@
-(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[336],{3336:function(a,n,o){a.exports=o.p+"img/LandingPageae954b28.png"}}]);

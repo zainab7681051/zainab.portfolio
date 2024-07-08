@@ -1,0 +1,1 @@
+(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[466],{3466:function(a,e,p){a.exports=p.p+"assets/pacman3e8c3bee.png"}}]);

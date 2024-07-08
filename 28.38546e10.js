@@ -1,0 +1,1 @@
+(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[28],{5028:function(o,p,s){o.exports=s.p+"assets/DisneyMoviesApi1f823d565.png"}}]);
