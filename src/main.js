@@ -49,6 +49,7 @@ projects.forEach(p => {
 
     let source = document.createElement('a')
     source.href = p.githubUrl
+    source.target = '_blank'
     source.textContent = 'source'
     new_div.appendChild(source)
 
