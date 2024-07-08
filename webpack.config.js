@@ -29,11 +29,11 @@ export default {
                 },
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/,
+                test: /\.(png|jpe?g|gif|svg|pdf)$/,
                 loader: "file-loader",
                 options: {
                     name: "[name][contenthash:8].[ext]",
-                    outputPath: "img",
+                    outputPath: "assets",
                     esModule: false
                 }
             },

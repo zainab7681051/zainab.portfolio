@@ -5,13 +5,14 @@ import { intro } from './intro.js'
 import { skills } from './skills.js'
 import { projects } from './projects.js'
 import pinkSvg from '../assets/mandala.svg'
+import pdf from '../assets/Resume.pdf'
 
 document.querySelector('.pink').src = pinkSvg
 document.getElementById('name').textContent = intro.name;
 document.getElementById('role').textContent = intro.role;
 document.getElementById('short_description').textContent = intro.short_description;
 
-document.getElementById('resume').href = intro.resume_pdf_link
+document.getElementById('resume').href = pdf
 
 const frontend_skills = document.getElementById('frontend')
 skills.frontend.forEach(s => {
