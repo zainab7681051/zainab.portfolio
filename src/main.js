@@ -1,4 +1,4 @@
-import "../static/style.css"
+import "./style.css"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger.js"
 import { intro } from './intro.js'

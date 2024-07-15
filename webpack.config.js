@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -63,9 +64,19 @@ export default {
             filename: isProduction ? "[name].[contenthash:8].css" : "[name].css",
             chunkFilename: isProduction ? "[id].[contenthash:8].css" : "[id].css"
         }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, 'public'),
+                    to: path.resolve(__dirname, isProduction ? 'docs' : 'dist'),
+                    globOptions: {
+                        ignore: ['**/index.html'],
+                    },
+                },
+            ],
+        }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "static", "index.html"),
-            favicon: path.resolve(__dirname, "assets", "icon.svg"),
+            template: path.resolve(__dirname, "public", "index.html"),
         }),
     ],
     resolve: {
