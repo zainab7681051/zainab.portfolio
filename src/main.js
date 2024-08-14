@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
             scrollTrigger: {
                 trigger: '.intro',
                 start: 'top top',
-                end: '+=300%',
+                end: '+=400%',
                 scrub: 1
             }
         });
