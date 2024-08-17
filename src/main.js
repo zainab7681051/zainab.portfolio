@@ -38,11 +38,15 @@ skills.other.forEach(s => {
 const projects_wrapper = document.querySelector('.projects-wrapper')
 projects.forEach(p => {
     let new_div = document.createElement('div')
+    new_div.classList.add('project-container')
     projects_wrapper.appendChild(new_div)
 
+    let img_wrapper=document.createElement('div')
+    img_wrapper.classList.add('project-img-wrapper')
     let img = document.createElement('img')
     import(`../assets/img/${p.imgSrc}`).then(e => img.src = e.default)
-    new_div.appendChild(img)
+    img_wrapper.appendChild(img)
+    new_div.appendChild(img_wrapper)
 
     let title = document.createElement('p')
     title.textContent = p.title
@@ -77,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mm.add('(min-width: 1024px)', () => {
         let tl = gsap.timeline({
             scrollTrigger: {
-                trigger: '.intro',
+                trigger: '#intro',
                 start: 'top top',
                 end: '+=400%',
                 scrub: 1
