@@ -1,0 +1,1 @@
+(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[741],{2741:function(e,p,a){e.exports=a.p+"assets/clevercode-services.web.app915f3a77.jpeg"}}]);
