@@ -1,6 +1,13 @@
 export const projects = [
 
     {
+        "title": "CleverCode Services Company Website",
+        "description": "The offcial website for CleverCode Services, a Custom web development solutions company",
+        "imgSrc": "clevercode-services.web.app.jpeg",
+        "githubUrl": "",
+        "appUrl": "https://clevercode-services.web.app"
+    },
+    {
         "title": "SimpleFreetube",
         "description": "a frontend project in Vue and the Invidious API for watching youtube",
         "imgSrc": "simplefreetube.png",
