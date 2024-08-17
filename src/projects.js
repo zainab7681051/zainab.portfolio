@@ -7,6 +7,7 @@ export const projects = [
         "githubUrl": "",
         "appUrl": "https://clevercode-services.web.app"
     },
+
     {
         "title": "SimpleFreetube",
         "description": "a frontend project in Vue and the Invidious API for watching youtube",

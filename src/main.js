@@ -81,23 +81,22 @@ document.addEventListener('DOMContentLoaded', function () {
     mm.add('(min-width: 1024px)', () => {
         let tl = gsap.timeline({
             scrollTrigger: {
-                trigger: '#intro',
+                trigger: 'body',
                 start: 'top top',
-                end: '+=400%',
+                end: 'bottom bottom',
                 scrub: 1
             }
         });
 
-        tl.to('.blue', { left: -100, width: 300, height: 300, rotate: 135, top: 'calc(50% - 150px)', duration: 0.2 }, 0)
-            .to('.green', { left: 'calc(100% - 200px)', top: '10%', rotate: 180, scale: 0.8, duration: 0.2 }, 0)
-            .to('.pink', { width: 120, height: 120, top: 'calc(50% - 175px)', left: '1.5rem', duration: 0.2 }, 0)
-            .to('h1', { color: '#fff', fontSize: '1.75rem', left: '2rem', top: 'calc(50% - 2.5rem)', duration: 0.2 }, 0)
-            .to('h2', { left: '100%', duration: 0.2 }, 0)
-            .to('.quote', { top: '100%', duration: 0.2 }, 0)
-            .to('.menu', { display: 'flex', opacity: 1, duration: 0.2 }, 0.1)
-            .to('.green', { rotate: 500, top: '70%' }, 0.2)
+        tl.to('.blue', { left: -100, width: 300, height: 300, rotate: 135, top: 'calc(50% - 150px)', duration: 0.1 }, 0)
+            .to('.green', { left: 'calc(100% - 200px)', top: '10%', rotate: 180, scale: 0.8, duration: 0.1 }, 0)
+            .to('.pink', { width: 120, height: 120, top: 'calc(50% - 175px)', left: '1.5rem', duration: 0.1 }, 0)
+            .to('h1', { color: '#fff', fontSize: '1.75rem', left: '2rem', top: 'calc(50% - 2.5rem)', duration: 0.1 }, 0)
+            .to('h2', { left: '100%', duration: 0.1 }, 0)
+            .to('.quote', { top: '100%', duration: 0.1 }, 0)
+            .to('.menu', { display: 'flex', opacity: 1, duration: 0.1 }, 0)
+            .to('.green', {rotate: 500, top: '70%' }, 0.1)
     });
-
     let sections = document.querySelectorAll('section:not(#intro)')
     let menuLinks = document.querySelectorAll('.menu li a')
     window.addEventListener('scroll', () => {
