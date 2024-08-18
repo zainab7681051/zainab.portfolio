@@ -12,6 +12,9 @@
 
 <body>
     <section class="intro" id="intro">
+        <input type="checkbox" id="menu-btn"/>
+        <label for="menu-btn" class="menu-btn">menu</label>
+        
         <a class="resume-btn" id="resume" target="_blank"><i class="bi bi-cloud-download"></i>resume</a>
         <div class="resume-btn-msg">download my cv</div>
 
@@ -29,6 +32,7 @@
             <li><a href="#experience">experience</a></li>
             <li><a href="#projects">projects</a></li>
             <li><a href="#contact">contact</a></li>
+            <li><a target="_blank" id="li-resume">my resume <i class="bi bi-cloud-download"></i></a></li>
         </ul>
     </section>
 
@@ -46,6 +50,26 @@
     <section id="experience">
         <div>
             <h3>work experience</h3>
+            <div class="experience-wrapper">
+                <div class="timeline">
+                    <span class="circle"></span>
+                    <div class="bar"></div>
+                    <span class="circle"></span>
+                    <div class="bar"></div>
+                </div>
+                <div class="job-container">
+                    <div class="job">
+                        <h4>front-end developer</h4>
+                        <h5>cleverCode services</h5>
+                        <p class="date">june 2024 - present</p>
+                    </div>
+                    <div class="job">
+                        <h4>freelance full-stack developer</h4>
+                        <h5>self-employed</h5>
+                        <p class="date">may 2024 - present</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section id="projects">

@@ -18,7 +18,7 @@
 }
 
 html {
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 body {
@@ -29,6 +29,7 @@ body {
 }
 
 section {
+    min-height: 50vh;
     padding: 2rem;
 }
 
@@ -37,9 +38,13 @@ footer {
     font-size: 0.8rem;
     padding: 0.5rem;
 }
-
+#menu-btn{
+    display:none
+}
+.menu-btn,
 .resume-btn {
     outline: none;
+    cursor:pointer;
     text-decoration: none;
     padding: 0.6rem 1.2rem;
     border-radius: 1.5rem;
@@ -59,15 +64,67 @@ footer {
 .resume-btn i {
     margin-right: 5px;
 }
-
+.resume-btn,
 .resume-btn-msg {
     display: none;
 }
-
+.menu-btn,
 .resume-btn,
 .resume-btn-msg {
     text-transform: capitalize;
 }
+
+#menu-btn:checked ~ .menu-btn {
+    background-color: var(--milky-white);
+    color: var(--black)
+}
+
+.menu {
+    display:none;
+    position: fixed;
+    top: 4.5rem;
+    right: -15rem;
+    text-transform: capitalize;
+    z-index: 11;
+    flex-direction: column;
+    opacity: 0;
+    transition: right .3s ease-in-out, opacity .3s ease-in-out;
+}
+#menu-btn:checked ~ .menu {
+    display:flex;
+    right: 2rem;
+    opacity:1;
+    align-items: flex-end;
+    padding: 2rem .5rem 2rem 2rem;
+    gap: 1rem;
+    border-radius: 1.5rem;
+    background-color:var(--milky-white);
+    color: var(--black);
+    border: solid 2px var(--black);
+}
+
+.menu a {
+    color: var(--black);
+    padding: 0.5rem;
+}
+
+.menu a::after{
+    content: '';
+    width: 0;
+    height: 1rem;
+    background-color: var(--black);
+    display: inline-block;
+    border-radius: 0.25rem;
+    position: relative;
+    top: 0.1rem;
+    transition: width .2s, margin-left .2s;
+}
+
+.menu a.active::after {
+    width: 1rem;
+    margin-left: 0.25rem
+}
+
 
 .pink {
     max-width: 100%;
@@ -174,7 +231,7 @@ ul {
 .projects-wrapper .project-container{
     width: 100%;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
 }
 
 .projects-wrapper img {
@@ -207,11 +264,39 @@ ul {
     font-size: 1.5rem;
     text-transform: capitalize;
 }
-
-.menu {
-    display: none;
+.experience-wrapper {
+    display: flex;
+    gap: 1rem;
+    align-items: stretch;
 }
-
+.timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bar {
+    width: 2px;
+    background-color: var(--pink);
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+}
+span.circle {
+    width: 1.5rem;
+    height: 2.9rem;
+    background: var(--pink);
+    border: solid 4px var(--pink);
+    border-radius: 15rem;
+}
+.job-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+}
+.job{
+    padding: 1rem 0
+}
 @media (min-width: 1024px) {
     section {
         min-height: 100vh;
@@ -221,7 +306,12 @@ ul {
         padding-left: 18rem;
     }
 
+    .menu-btn {
+        display:none;
+    }
+
     .resume-btn {
+        display:block;
         font-size: 1.4rem;
     }
 
@@ -355,7 +445,9 @@ ul {
         color: var(--white);
         padding: 0.5rem;
     }
-
+    .menu a::after{
+        display: none;
+    }
     .menu a::before {
         content: '';
         width: 0;
@@ -371,6 +463,9 @@ ul {
     .menu a.active::before {
         width: 1rem;
         margin-right: 0.25rem
+    }
+    #li-resume {
+        display:none;
     }
 
 }

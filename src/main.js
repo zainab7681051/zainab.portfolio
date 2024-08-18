@@ -13,6 +13,8 @@ document.getElementById('role').textContent = intro.role;
 document.getElementById('short_description').textContent = intro.short_description;
 
 document.getElementById('resume').href = pdf
+document.getElementById('li-resume').href = pdf
+
 
 const frontend_skills = document.getElementById('frontend')
 skills.frontend.forEach(s => {
