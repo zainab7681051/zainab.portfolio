@@ -38,7 +38,7 @@ skills.other.forEach(s => {
     other_skills.appendChild(li)
 })
 
-const experience_wrapper = document.querySelector('experience-wrapper');
+let experience_wrapper = document.querySelector('.experience-wrapper');
 experience.forEach(e => {
     let job_container = document.createElement('div');
     job_container.classList.add('job-container');
@@ -65,13 +65,14 @@ experience.forEach(e => {
     job.appendChild(company_name);
     if (e.companyDescription) {
         let company_description = document.createElement('p');
-        company_description.textContent = e.companyName;
+        company_description.innerHTML = e.companyDescription + '<br>';
         company_description.classList.add('company-description')
         job.appendChild(company_description);
 
         if (e.companyWebsite) {
             let company_website = document.createElement('a');
             company_website.href = e.companyWebsite;
+            company_website.textContent = 'website';
             company_website.classList.add('company-website')
             company_description.appendChild(company_website);
         }
@@ -81,14 +82,17 @@ experience.forEach(e => {
     job_date.classList.add('date');
     job.appendChild(job_date);
 
-    let job_description = document.createElement('p');
+    let job_description = document.createElement('ul');
     job_description.classList.add('job-description');
     job.appendChild(job_description);
     e.jobDescription.forEach(desc => {
-        job_description.innerHTML += desc + '<br>'
+        let desc_li = document.createElement('li');
+        desc_li.textContent = desc;
+        job_description.appendChild(desc_li);
     })
 
 })
+
 const projects_wrapper = document.querySelector('.projects-wrapper')
 projects.forEach(p => {
     let new_div = document.createElement('div')

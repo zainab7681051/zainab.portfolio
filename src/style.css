@@ -13,7 +13,7 @@
     --green: #45fbcf;
     --blue: #4A46FF;
     --white: #FFF;
-    --black: #000;
+    --black: #1A1A1A;
     --milky-white: #FFFEF7;
 }
 
@@ -25,7 +25,7 @@ body {
     font-family: 'Work Sans', sans-serif;
     font-weight: 400;
     line-height: 1.3;
-    background-color: azure;
+    background-color: var(--milky-white);
 }
 
 section {
@@ -103,13 +103,12 @@ footer {
     padding: 2rem .5rem 2rem 2rem;
     gap: 1rem;
     border-radius: 1.5rem;
-    background-color: var(--milky-white);
-    color: var(--black);
-    border: solid 2px var(--black);
+    background-color: var(--blue);
+    color: var(--milky-white);
 }
 
 .menu a {
-    color: var(--black);
+    color: var(--milky-white);
     padding: 0.5rem;
 }
 
@@ -117,7 +116,7 @@ footer {
     content: '';
     width: 0;
     height: 1rem;
-    background-color: var(--black);
+    background-color: var(--green);
     display: inline-block;
     border-radius: 0.25rem;
     position: relative;
@@ -307,7 +306,7 @@ span.circle {
     padding: 1rem 0;
     text-transform: capitalize;
     min-height: 40vh;
-    padding: 0 0 1rem 0;
+    padding: 0 0 2rem 0;
 }
 
 .job h4 {
@@ -328,7 +327,7 @@ span.circle {
 .company-description {
     font-size: .9rem;
     padding: 0 0 1rem 0;
-    width: calc(100% - 200px);
+    width: calc(100% - 50px);
 }
 
 .company-website {
@@ -337,9 +336,11 @@ span.circle {
 }
 
 .job-description {
-    width: calc(100% - 200px);
+    width: calc(100% - 50px);
     text-align: justify;
     font-size: 0.8rem;
+    list-style: inside;
+    gap: 1rem;
 }
 
 @media (min-width: 1024px) {
@@ -517,7 +518,15 @@ span.circle {
     }
 
     .job {
-        min-height: 60vh;
+        min-height: 40vh;
+    }
+
+    .company-description {
+        width: calc(100% - 200px);
+    }
+
+    .job-description {
+        width: calc(100% - 200px);
     }
 
 }
