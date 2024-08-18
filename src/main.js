@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js"
 import { intro } from './intro.js'
 import { skills } from './skills.js'
 import { projects } from './projects.js'
+import { experience } from './experience.js'
 import pinkSvg from '../assets/mandala.svg'
 import pdf from '../assets/Resume.pdf'
 
@@ -37,13 +38,64 @@ skills.other.forEach(s => {
     other_skills.appendChild(li)
 })
 
+const experience_wrapper = document.querySelector('experience-wrapper');
+experience.forEach(e => {
+    let job_container = document.createElement('div');
+    job_container.classList.add('job-container');
+    experience_wrapper.appendChild(job_container);
+
+    let timeline = document.createElement('div');
+    timeline.classList.add('timeline');
+    job_container.appendChild(timeline);
+    let circle = document.createElement('span');
+    circle.classList.add('circle');
+    timeline.appendChild(circle);
+    let bar = document.createElement('div');
+    bar.classList.add('bar');
+    timeline.appendChild(bar);
+
+    let job = document.createElement('div');
+    job.classList.add('job');
+    job_container.appendChild(job);
+    let work_title = document.createElement('h4');
+    work_title.textContent = e.workTitle;
+    job.appendChild(work_title);
+    let company_name = document.createElement('h5');
+    company_name.textContent = e.companyName;
+    job.appendChild(company_name);
+    if (e.companyDescription) {
+        let company_description = document.createElement('p');
+        company_description.textContent = e.companyName;
+        company_description.classList.add('company-description')
+        job.appendChild(company_description);
+
+        if (e.companyWebsite) {
+            let company_website = document.createElement('a');
+            company_website.href = e.companyWebsite;
+            company_website.classList.add('company-website')
+            company_description.appendChild(company_website);
+        }
+    }
+    let job_date = document.createElement('p');
+    job_date.textContent = e.date;
+    job_date.classList.add('date');
+    job.appendChild(job_date);
+
+    let job_description = document.createElement('p');
+    job_description.classList.add('job-description');
+    job.appendChild(job_description);
+    e.jobDescription.forEach(desc => {
+        job_description.innerHTML += desc + '<br>'
+    })
+
+})
 const projects_wrapper = document.querySelector('.projects-wrapper')
 projects.forEach(p => {
     let new_div = document.createElement('div')
     new_div.classList.add('project-container')
     projects_wrapper.appendChild(new_div)
 
-    let img_wrapper=document.createElement('div')
+    let img_wrapper = document.createElement('div')
     img_wrapper.classList.add('project-img-wrapper')
     let img = document.createElement('img')
     import(`../assets/img/${p.imgSrc}`).then(e => img.src = e.default)
@@ -54,7 +106,7 @@ projects.forEach(p => {
     title.textContent = p.title
     new_div.appendChild(title)
 
-    if(p.githubUrl) {
+    if (p.githubUrl) {
         let source = document.createElement('a')
         source.href = p.githubUrl
         source.target = '_blank'
@@ -97,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .to('h2', { left: '100%', duration: 0.1 }, 0)
             .to('.quote', { top: '100%', duration: 0.1 }, 0)
             .to('.menu', { display: 'flex', opacity: 1, duration: 0.1 }, 0)
-            .to('.green', {rotate: 500, top: '70%' }, 0.1)
+            .to('.green', { rotate: 500, top: '70%' }, 0.1)
     });
     let sections = document.querySelectorAll('section:not(#intro)')
     let menuLinks = document.querySelectorAll('.menu li a')
