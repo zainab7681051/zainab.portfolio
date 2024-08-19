@@ -108,7 +108,13 @@ projects.forEach(p => {
 
     let title = document.createElement('p')
     title.textContent = p.title
+    title.classList.add('title')
     new_div.appendChild(title)
+
+    let description = document.createElement('p')
+    description.textContent = p.description
+    description.classList.add('project-description')
+    new_div.appendChild(description)
 
     if (p.githubUrl) {
         let source = document.createElement('a')
