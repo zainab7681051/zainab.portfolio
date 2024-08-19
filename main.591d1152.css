@@ -244,10 +244,14 @@ ul {
     border-radius: 1.2rem;
 }
 
-.projects-wrapper p {
+.projects-wrapper .title {
     color: #000;
     font-size: 18px;
     font-weight: 600;
+}
+
+.projects-wrapper .project-description {
+    margin: .2rem 0 1rem 0;
 }
 
 .projects-wrapper div a {
@@ -460,7 +464,7 @@ span.circle {
         margin-right: 1rem;
     }
 
-    .projects-wrapper p {
+    .projects-wrapper .title {
         font-size: 21px;
     }
 
