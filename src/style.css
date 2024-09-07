@@ -341,12 +341,13 @@ span.circle {
 
 .job-description {
     width: calc(100% - 50px);
-    text-align: justify;
     font-size: 0.8rem;
     list-style: inside;
     gap: 1rem;
 }
-
+.job-description li::marker{
+    color: var(--pink);
+}
 @media (min-width: 1024px) {
     section {
         min-height: 100vh;
