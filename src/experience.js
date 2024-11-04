@@ -4,7 +4,7 @@ export const experience = [
         companyName: 'cleverCode services',
         companyDescription: 'A custom web development services and solutions company.',
         companyWebsite: 'https://clevercode-services.web.app/',
-        date: 'june 2024 - present',
+        date: 'june 2024 - november 2024',
         jobDescription: [
             'Developed and maintained responsive web applications using HTML, CSS, JavaScript, and Vue.js for frontend development.',
             'Collaborated with UI/UX designers to create intuitive user interfaces and enhance overall user experience.',
