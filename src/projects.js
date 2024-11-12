@@ -7,7 +7,13 @@ export const projects = [
         "githubUrl": "",
         "appUrl": "https://clevercode-services.web.app"
     },
-
+    {
+        "title": "DisneyMoviesWatchlist",
+        "description": "DisneyMoviesWatchlist is a server-side web application in C# - ASP.NET Core, Entity Framework and Razor Pages",
+        "imgSrc": "DisneyMoviesWatchlist.png",
+        "githubUrl": "https://github.com/zainab7681051/DisneyMoviesWatchlist",
+        "appUrl": "https://disneywatchlist001.bsite.net/"
+    },
     {
         "title": "SimpleFreetube",
         "description": "a frontend project in Vue and the Invidious API for watching youtube",
@@ -21,27 +27,6 @@ export const projects = [
         "imgSrc": "fileconvertertool.png",
         "githubUrl": "https://github.com/zainab7681051/OnlineFileConverterTool",
         "appUrl": "https://fileconvertertool.web.app"
-    },
-    {
-        "title": "DisneyMoviesWatchlist",
-        "description": "DisneyMoviesWatchlist is a server-side web application in C# - ASP.NET Core, Entity Framework and Razor Pages",
-        "imgSrc": "DisneyMoviesWatchlist.png",
-        "githubUrl": "https://github.com/zainab7681051/DisneyMoviesWatchlist",
-        "appUrl": "https://disneywatchlist.bsite.net/"
-    },
-    {
-        "title": "DisneyMoviesApi",
-        "description": "The Disney Animation Movies API allows you to retrieve information about Disney animation movies",
-        "imgSrc": "DisneyMoviesApi1.png",
-        "githubUrl": "https://github.com/zainab7681051/DisneyMoviesApi",
-        "appUrl": "https://apidisneymovies.bsite.net/api/v1/movies/all"
-    },
-    {
-        "title": "Invidious Instances",
-        "description": "App for fetching the free and open-source Invidious instances using the invidious API",
-        "imgSrc": "Invidious-Instances.png",
-        "githubUrl": "https://github.com/zainab7681051/get-invidious-instances",
-        "appUrl": "https://zainab7681051.github.io/get-invidious-instances/"
     },
     {
         "title": "Pizza-Delivery",
