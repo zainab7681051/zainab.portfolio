@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js"
 import { intro } from './intro.js'
 import { skills } from './skills.js'
 import { projects } from './projects.js'
-import { experience } from './experience.js'
 import pinkSvg from '../assets/mandala.svg'
 import pdf from '../assets/Resume.pdf'
 
@@ -36,61 +35,6 @@ skills.other.forEach(s => {
     const li = document.createElement('li')
     li.textContent = s
     other_skills.appendChild(li)
-})
-
-let experience_wrapper = document.querySelector('.experience-wrapper');
-experience.forEach(e => {
-    let job_container = document.createElement('div');
-    job_container.classList.add('job-container');
-    experience_wrapper.appendChild(job_container);
-
-    let timeline = document.createElement('div');
-    timeline.classList.add('timeline');
-    job_container.appendChild(timeline);
-    let circle = document.createElement('span');
-    circle.classList.add('circle');
-    timeline.appendChild(circle);
-    let bar = document.createElement('div');
-    bar.classList.add('bar');
-    timeline.appendChild(bar);
-
-    let job = document.createElement('div');
-    job.classList.add('job');
-    job_container.appendChild(job);
-    let work_title = document.createElement('h4');
-    work_title.textContent = e.workTitle;
-    job.appendChild(work_title);
-    let company_name = document.createElement('h5');
-    company_name.textContent = e.companyName;
-    job.appendChild(company_name);
-    if (e.companyDescription) {
-        let company_description = document.createElement('p');
-        company_description.innerHTML = e.companyDescription + '<br>';
-        company_description.classList.add('company-description')
-        job.appendChild(company_description);
-
-        if (e.companyWebsite) {
-            let company_website = document.createElement('a');
-            company_website.href = e.companyWebsite;
-            company_website.textContent = 'website';
-            company_website.classList.add('company-website')
-            company_description.appendChild(company_website);
-        }
-    }
-    let job_date = document.createElement('p');
-    job_date.textContent = e.date;
-    job_date.classList.add('date');
-    job.appendChild(job_date);
-
-    let job_description = document.createElement('ul');
-    job_description.classList.add('job-description');
-    job.appendChild(job_description);
-    e.jobDescription.forEach(desc => {
-        let desc_li = document.createElement('li');
-        desc_li.textContent = desc;
-        job_description.appendChild(desc_li);
-    })
-
 })
 
 const projects_wrapper = document.querySelector('.projects-wrapper')
@@ -132,7 +76,6 @@ projects.forEach(p => {
     }
 
 })
-document.getElementById('linkedin').href = intro.linkedin
 document.getElementById('github').href = intro.github
 document.getElementById('email').href = "mailto:" + intro.email
 
