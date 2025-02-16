@@ -8,12 +8,12 @@
 }
 
 :root {
-    --pink: #E0379D;
-    --green: #45fbcf;
-    --blue: #4A46FF;
-    --white: #FFF;
-    --black: #1A1A1A;
-    --milky-white: #FFFEF7;
+    --cube-1: #FC6471;
+    --cube-2: #55D6BE;
+    --cube-3: #7D5BA6;
+    --white: #FCFFFC;
+    --black: #040F0F;
+    --milky-white: #DDDDDD;
 }
 
 html {
@@ -25,6 +25,7 @@ body {
     font-weight: 400;
     line-height: 1.3;
     background-color: var(--milky-white);
+    color: var(--black);
 }
 
 section {
@@ -41,7 +42,9 @@ footer {
 #menu-btn {
     display: none
 }
-
+a { 
+text-transform: uppercase;
+}
 .menu-btn,
 .resume-btn {
     outline: none;
@@ -84,6 +87,9 @@ footer {
 
 .menu {
     display: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
     position: fixed;
     top: 4.5rem;
     right: -15rem;
@@ -102,10 +108,9 @@ footer {
     padding: 2rem .5rem 2rem 2rem;
     gap: 1rem;
     border-radius: 1.5rem;
-    background-color: var(--blue);
+    background-color: var(--cube-3);
     color: var(--milky-white);
 }
-
 .menu a {
     color: var(--milky-white);
     padding: 0.5rem;
@@ -115,7 +120,7 @@ footer {
     content: '';
     width: 0;
     height: 1rem;
-    background-color: var(--green);
+    background-color: var(--cube-2);
     display: inline-block;
     border-radius: 0.25rem;
     position: relative;
@@ -129,7 +134,7 @@ footer {
 }
 
 
-.pink {
+.cube-1 {
     max-width: 100%;
     height: auto;
     display: block;
@@ -138,35 +143,39 @@ footer {
     margin: 7rem auto 1.5rem;
     position: relative;
     border-radius: 1.5rem;
-    background-color: var(--pink);
+    background-color: var(--cube-1);
 }
 
-.blue,
-.green {
+.cube-2,
+.cube-3 {
     width: 125px;
     height: 125px;
     position: absolute;
     border-radius: 1.5rem;
     z-index: -1;
 }
-
-.blue {
+.cube-1,
+.cube-2,
+.cube-3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.cube-2 {
     top: 8rem;
     left: calc(50% + 1rem);
-    background-color: var(--blue);
+    background-color: var(--cube-3);
 }
 
-.green {
+.cube-3 {
     top: calc(10rem + 125px);
     left: calc(50% - 125px - 1rem);
-    background-color: var(--green);
+    background-color: var(--cube-2);
 }
 
 h1 {
     font-size: 3.5rem;
     text-transform: uppercase;
     font-weight: 800;
-    color: var(--blue);
+    color: var(--cube-3);
     margin-bottom: 0;
 }
 
@@ -202,7 +211,7 @@ p+ul {
 }
 
 a {
-    color: var(--blue);
+    color: var(--cube-3);
     text-decoration: none;
 }
 
@@ -218,7 +227,7 @@ ul {
 }
 
 .skills li {
-    border: 2px solid var(--green);
+    border: 2px solid var(--cube-2);
     padding: 0.5rem 1rem;
     display: block;
     border-radius: 1.5rem;
@@ -345,7 +354,7 @@ span.circle {
     gap: 1rem;
 }
 .job-description li::marker{
-    color: var(--pink);
+    color: var(--cube-1);
 }
 @media (min-width: 1024px) {
     section {
@@ -398,7 +407,7 @@ span.circle {
                 clip-path: inset(0 0 0 0);
     }
 
-    .pink {
+    .cube-1 {
         width: 400px;
         height: 400px;
         position: fixed;
@@ -408,19 +417,19 @@ span.circle {
         top: calc(50% - 200px);
     }
 
-    .green,
-    .blue {
+    .cube-3,
+    .cube-2 {
         width: 200px;
         height: 200px;
         position: fixed;
     }
 
-    .blue {
+    .cube-2 {
         left: calc(50% - 200px - 2rem);
         top: calc(50% - 200px);
     }
 
-    .green {
+    .cube-3 {
         left: calc(50% - 400px - 6rem);
         top: calc(50% + 2rem);
     }
@@ -481,7 +490,7 @@ span.circle {
 
     .skills li:hover {
         border-color: var(--black);
-        background-color: var(--green);
+        background-color: var(--cube-2);
     }
 
     .menu {
@@ -508,7 +517,7 @@ span.circle {
         content: '';
         width: 0;
         height: 1rem;
-        background-color: var(--green);
+        background-color: var(--cube-2);
         display: inline-block;
         border-radius: 0.25rem;
         position: relative;
