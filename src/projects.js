@@ -1,11 +1,10 @@
 export const projects = [
-
     {
         "title": "CleverCode Services Company Website",
-        "description": "a website for a Custom web development and solutions company",
+        "description": "a website for a Custom web development and web solutions company",
         "imgSrc": "clevercode-services.web.app.jpeg",
-        "githubUrl": "",
-        "appUrl": "https://clevercode-services.web.app"
+        "githubUrl": "https://github.com/zainab7681051/clevercode-services-website",
+        "appUrl": "https://zainab7681051.github.io/clevercode-services-website/"
     },
     {
         "title": "DisneyMoviesWatchlist",
