@@ -2,7 +2,7 @@ export const projects = [
 
     {
         "title": "CleverCode Services Company Website",
-        "description": "The offcial website for CleverCode Services, a Custom web development solutions company",
+        "description": "a website for a Custom web development and solutions company",
         "imgSrc": "clevercode-services.web.app.jpeg",
         "githubUrl": "",
         "appUrl": "https://clevercode-services.web.app"
