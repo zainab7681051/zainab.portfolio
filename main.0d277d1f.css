@@ -1,4 +1,21 @@
 @import url(https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700;800&display=swap);
+/*
+[width x height]
+img wrapper: 407 x 194 - 241 x 114
+@media (min-width: 320px) {
+  :root {
+    min-height: 0vw;
+    --img-wrapper-w: calc(8.8125rem + ((1vw - 3.2px) * 23.75));
+     --img-wrapper-h: calc(7.125rem + ((1vw - 3.2px) * 7.1429));
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+        --img-wrapper-w: 407px;
+        --img-wrapper-h: 194px;
+    }
+}
+*/
 *,
 *::before,
 *::after {
@@ -245,11 +262,14 @@ ul {
     height: auto;
     margin-bottom: 3rem;
 }
-
+.project-img-wrapper{
+    width: var(--img-wrapper-w);
+    height: var(--img-wrapper-h);
+}
 .projects-wrapper img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 1.2rem;
 }
 
@@ -464,14 +484,11 @@ span.circle {
 
     .projects-wrapper {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
+        flex-direction: column;
     }
 
     .projects-wrapper .project-container {
-        width: 40%;
-        margin-right: 1rem;
+        width: 50%;
     }
 
     .projects-wrapper .title {
@@ -559,8 +576,17 @@ span.circle {
         font-size: 1.6rem;
     }
 
-    .projects-wrapper .project-container {
-        width: 45%;
+}
+@media (min-width: 320px) {
+  :root {
+    min-height: 0vw;
+    --img-wrapper-w: calc(15.0625rem + ((1vw - 3.2px) * 14.9107));
+     --img-wrapper-h: calc(7.125rem + ((1vw - 3.2px) * 7.1429));
+  }
+}
+@media (min-width: 1440px) {
+  :root {
+        --img-wrapper-w: 407px;
+        --img-wrapper-h: 194px;
     }
 }
-

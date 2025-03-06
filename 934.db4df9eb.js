@@ -1,0 +1,1 @@
+(self.webpackChunkzainab_portfolio=self.webpackChunkzainab_portfolio||[]).push([[934],{1934:function(e,a,p){e.exports=p.p+"assets/ice-cream-website-template7fa4de33.jpeg"}}]);
