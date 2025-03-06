@@ -1,5 +1,12 @@
 export const projects = [
     {
+        "title": "Ice-Cream Website Template",
+        "description": "A fully-responsive and cross-platform landing-page template for an ice-cream company.",
+        "imgSrc": "ice-cream-website-template.jpeg",
+        "githubUrl": "https://github.com/zainab7681051/ice-cream-website-template",
+        "appUrl": "https://zainab7681051.github.io/ice-cream-website-template/"
+    },
+    {
         "title": "CleverCode Services Company Website",
         "description": "a website for a Custom web development and web solutions company",
         "imgSrc": "clevercode-services.web.app.jpeg",
