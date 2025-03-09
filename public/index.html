@@ -13,26 +13,29 @@
 <body>
     <section class="intro" id="intro">
         <input type="checkbox" id="menu-btn" />
-        <label for="menu-btn" class="menu-btn">menu</label>
-
+        <label for="menu-btn" class="menu-btn">
+            <span></span>
+        </label>
         <a class="resume-btn" id="resume" target="_blank"><i class="bi bi-cloud-download"></i>resume</a>
         <div class="resume-btn-msg">download my cv</div>
-
-        <span class="cube-2"></span>
-        <span class="cube-3"></span>
-        <img loading="eager" draggable="false" class="cube-1"></img>
-
-        <h1><a href="#intro" id="name"></a></h1>
-        <h2 id="role"></h2>
-
-        <p class="quote" id="short_description"></p>
-
         <ul class="menu">
             <li><a href="#skills">skills</a></li>
             <li><a href="#projects">projects</a></li>
             <li><a href="#contact">contact</a></li>
             <li><a target="_blank" id="li-resume">my resume <i class="bi bi-cloud-download"></i></a></li>
         </ul>
+        <div class="cubes">
+            <div class="cube-1-container">
+                <img loading="eager" draggable="false" class="cube-1"/>
+            </div>
+            <div class="cube-2"></div>
+            <div class="cube-3"></div>
+        </div>
+        <div class="intro-text">
+            <h1 class="name"><a href="#intro" id="name"></a></h1>
+            <h2 id="role" class="role"></h2>
+            <p id="short_description" class="short-description"></p>
+        </div>
     </section>
 
     <section id="skills">
@@ -65,5 +68,4 @@
 
     <footer>@zainab</footer>
 </body>
-
 </html>
