@@ -15,7 +15,56 @@
     --black: #040F0F;
     --grey: #DDDDDD;
 }
+@media (min-width: 320px) {
+  :root {
+    min-height: 0vw;
+    --sml-med-27px-44px: calc(1.6875rem + ((1vw - 3.2px) * 2.4182));
+    --sml-med--8px-10px: calc(0.5rem + ((1vw - 3.2px) * 0.2845));
+    --sml-med-10px-16px: calc(0.625rem + ((1vw - 3.2px) * 0.8535));
+    --sml-med-30px-60px: calc(1.875rem + ((1vw - 3.2px) * 4.2674));
+    --sml-med-3px-6px:calc(0.1875rem + ((1vw - 3.2px) * 0.4267));
+    --sml-med-23px-53px:calc(1.4375rem + ((1vw - 3.2px) * 4.2674));
+  }
+}
+@media (min-width: 1023px) {
+  :root {
+    --sml-med-27px-44px: 44px;
+    --sml-med--8px-10px: 10px;
+    --sml-med-10px-16px: 16px;
+    --sml-med-30px-60px: 60px;
+    --sml-med-3px-6px: 6px;
+    --sml-med-23px-53px: 53px;
+  }
+}
+@font-face {
+    font-family: "PlayfairDisplay-BoldItalic";
+    font-display: block;
+    src: url("../assets/fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf") format("truetype");
+    font-style: normal;
+}
+@font-face {
+    font-family: "PlayfairDisplay-SemiBoldItalic";
+    font-display: block;
+    src: url("../assets/fonts/Playfair_Display/static/PlayfairDisplay-SemiBoldItalic.ttf") format("truetype");
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lato-Regular";
+    font-display: block;
+    src: url("../assets/fonts/Lato/Lato-Regular.ttf") format("truetype");
+    font-style: normal;
+}
 
+@font-face {
+    font-family: "Lato-Bold";
+    font-display: block;
+    src: url("../assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
+    font-style: normal;
+}
+::selection{
+    background: var(--cyan);
+    color: var(--pink);
+}
 body{
     background-color: var(--grey);
     overflow-x: hidden;
@@ -47,8 +96,8 @@ section{
     position: fixed;
     right: 5%;
     top: 5%;
-    width: 30px;
-    height: 30px;
+    width: var(--sml-med-30px-60px);
+    height: var(--sml-med-30px-60px);
     z-index: 10;
 }
 #resume, #menu-btn, .resume-btn-msg, .menu-btn{
@@ -59,27 +108,25 @@ section{
     display: inline-block;
     top: 50%;
     background-color: var(--black);
-    width: 30px;
-    height: 3px;
-    transition: all .1s ease;
-    transform-origin: center center;
+    width: var(--sml-med-30px-60px);
+    height: var(--sml-med-3px-6px);
 }
 .menu-btn span::before,
 .menu-btn span::after{
     content: '';
     position: absolute;
     background-color: var(--black);
-    width: 30px;
-    height: 3px;
+    width: var(--sml-med-30px-60px);
+    height: var(--sml-med-3px-6px);
     border-radius: 10px;
     transition: all .2s ease;
     transform-origin: center center;
 }
 .menu-btn span::before{
-    top: calc(50% - 10px);
+    top: calc(50% - var(--sml-med-10px-16px));
 }
 .menu-btn span::after{
-    top: calc(50% + 8px);
+    top: calc(50% + var(--sml-med--8px-10px));
 }
 #menu-btn:hover~.menu-btn{
     transform: rotate(90deg);
@@ -103,7 +150,7 @@ section{
 #menu-btn:checked~.menu-btn span::after,
 #menu-btn:hover~.menu-btn span::before,
 #menu-btn:hover~.menu-btn span::after{
-    width: 27px;
+    width: var(--sml-med-27px-44px);
 }
 
 #menu-btn:checked~.menu-btn span::before,
@@ -122,7 +169,8 @@ section{
     top: 0;
     background-color: var(--pink);
     z-index: 9;
-    font-size: 21px;
+    font-family: "PlayfairDisplay-SemiBoldItalic";
+    font-size: var(--sml-med-23px-53px);
     font-weight: 700;
     text-transform: capitalize;
     color: var(--white);
@@ -157,11 +205,18 @@ section{
     align-items: center;
     z-index: 2;
     cursor: pointer;
+    transform: rotate(0deg);
+    transition: transform 3.5s linear;
 }
-/* ROTATION ANIMATION OF IMAGE on hover
+
 .cube-1-container:hover{
-    animation: ;
-}*/
+    animation: cube-rotate 3.5s linear infinite ;
+}
+@keyframes cube-rotate {
+    to{
+        transform: rotate(360deg);
+    }
+}
 .cube-1 {
     height: 90%;
     width: 90%;
@@ -173,6 +228,9 @@ section{
     position: absolute;
     border-radius: 10%;
     z-index: 1;
+}
+.cube-1-container, .cube-2, .cube-3{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 .cube-2{
     background-color: var(--purple);
@@ -196,11 +254,17 @@ section{
 }
 .name{
     font-size: 55px;
+    font-family: "PlayfairDisplay-BoldItalic";
+    color: var(--purple);
 }
 .role{
     font-size: 21px;
+    font-family: "PlayfairDisplay-SemiBoldItalic";
+    margin-bottom: 12px;
+    margin-top: -5px;
 }
 .short-description{
-    font-size: 15px;
+    font-size: 14px;
     text-transform: capitalize;
+    font-family: "Lato-Regular";
 }
