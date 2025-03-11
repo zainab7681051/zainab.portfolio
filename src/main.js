@@ -1,104 +1,140 @@
-import "./style.css"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger.js"
-import { intro } from './intro.js'
-import { skills } from './skills.js'
-import { projects } from './projects.js'
-import pinkSvg from '../assets/mandala.svg'
-import pdf from '../assets/Resume.pdf'
+import "./style.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import { intro } from "./intro.js";
+import { skills } from "./skills.js";
+import { projects } from "./projects.js";
+import pinkSvg from "../assets/mandala.svg";
+import pdf from "../assets/Resume.pdf";
+// let sections = document.querySelectorAll('section:not(#intro)')
+// let menuLinks = document.querySelectorAll('.menu li a')
+// window.addEventListener('scroll', () => {
+//     sections.forEach((section, i) => {
+//         if (section.getBoundingClientRect().y < window.innerHeight - window.innerHeight / 2) {
+//             menuLinks.forEach(link => link.removeAttribute('class'))
+//             menuLinks[i].setAttribute('class', 'active')
+//         }
+//     })
+// });
 
-document.querySelector('.cube-1').src = pinkSvg
-document.getElementById('name').textContent = intro.name;
-document.getElementById('role').textContent = intro.role;
-document.getElementById('short_description').textContent = intro.short_description;
+function updateIntro() {
+    const cubeElement = document.querySelector(".cube-1");
+    if (cubeElement) cubeElement.src = pinkSvg;
 
-document.getElementById('resume').href = pdf
-document.getElementById('li-resume').href = pdf
+    const nameElement = document.getElementById("name");
+    const roleElement = document.getElementById("role");
+    const shortDescElement = document.getElementById("short_description");
+    if (nameElement) nameElement.textContent = intro.name;
+    if (roleElement) roleElement.textContent = intro.role;
+    if (shortDescElement) shortDescElement.textContent = intro.short_description;
 
+    const resumeLink = document.getElementById("resume");
+    const liResumeLink = document.getElementById("li-resume");
+    if (resumeLink) resumeLink.href = pdf;
+    if (liResumeLink) liResumeLink.href = pdf;  
 
-const frontend_skills = document.getElementById('frontend')
-skills.frontend.forEach(s => {
-    const li = document.createElement('li')
-    li.textContent = s
-    frontend_skills.appendChild(li)
-})
+    updateLink("github", intro.github);
+    updateLink("email", intro.email);
+}
 
-const backend_skills = document.getElementById('backend')
-skills.backend.forEach(s => {
-    const li = document.createElement('li')
-    li.textContent = s
-    backend_skills.appendChild(li)
-})
+function updateLink(elementId, linkHref) {
+    const linkElement = document.getElementById(elementId);
+    if (linkElement) linkElement.href = linkHref;
+}
 
-const other_skills = document.getElementById('other')
-skills.other.forEach(s => {
-    const li = document.createElement('li')
-    li.textContent = s
-    other_skills.appendChild(li)
-})
-
-const projects_wrapper = document.querySelector('.projects-wrapper')
-projects.forEach(p => {
-    let new_div = document.createElement('div')
-    new_div.classList.add('project-container')
-    projects_wrapper.appendChild(new_div)
-
-    let img_wrapper = document.createElement('div')
-    img_wrapper.classList.add('project-img-wrapper')
-    let img = document.createElement('img')
-    import(`../assets/img/${p.imgSrc}`).then(e => img.src = e.default)
-    img.loading="eager";
-    img.draggable="false";
-    img_wrapper.appendChild(img)
-    new_div.appendChild(img_wrapper)
-
-    let title = document.createElement('p')
-    title.textContent = p.title
-    title.classList.add('title')
-    new_div.appendChild(title)
-
-    let description = document.createElement('p')
-    description.textContent = p.description
-    description.classList.add('project-description')
-    new_div.appendChild(description)
-
-    if (p.githubUrl) {
-        let source = document.createElement('a')
-        source.href = p.githubUrl
-        source.target = '_blank'
-        source.textContent = 'source'
-        new_div.appendChild(source)
-    }
-    if (p.appUrl) {
-        let url = document.createElement('a')
-        url.href = p.appUrl
-        url.target = '_blank'
-        url.textContent = 'url'
-        new_div.appendChild(url)
-    }
-
-})
-document.getElementById('github').href = intro.github
-document.getElementById('email').href = "mailto:" + intro.email
-
-gsap.registerPlugin(ScrollTrigger);
-
-document.addEventListener('DOMContentLoaded', function () {
-
-    let mm = gsap.matchMedia();
-
-    mm.add('(min-width: 1024px)', () => {
-        console.log("gsap animation");
+function populateSkillList(elementId, skillArray) {
+  const listElement = document.getElementById(elementId);
+  if (listElement) {
+    skillArray.forEach((skill) => {
+      const li = document.createElement("li");
+      li.textContent = skill;
+      listElement.appendChild(li);
     });
-    
-    // let sections = document.querySelectorAll('section:not(#intro)')
-    // let menuLinks = document.querySelectorAll('.menu li a')
-    // window.addEventListener('scroll', () => {
-    //     sections.forEach((section, i) => {
-    //         if (section.getBoundingClientRect().y < window.innerHeight - window.innerHeight / 2) {
-    //             menuLinks.forEach(link => link.removeAttribute('class'))
-    //             menuLinks[i].setAttribute('class', 'active')
-    //         }
-    //     })
-    // });
-})
+  }
+}
+
+function populateSkills() {
+  populateSkillList("frontend", skills.frontend);
+  populateSkillList("backend", skills.backend);
+  populateSkillList("other", skills.other);
+}
+
+function populateProjects() {
+  const projectsWrapper = document.querySelector(".projects-wrapper");
+  if (!projectsWrapper) return;
+
+  projects.forEach((project) => {
+    const projectContainer = document.createElement("div");
+    projectContainer.classList.add("project-container");
+
+    const imgWrapper = document.createElement("div");
+    imgWrapper.classList.add("project-img-wrapper");
+    const img = document.createElement("img");
+
+    import(`../assets/img/${project.imgSrc}`).then((module) => {
+      img.src = module.default;
+    });
+    img.loading = "eager";
+    img.draggable = false;
+    imgWrapper.appendChild(img);
+    projectContainer.appendChild(imgWrapper);
+
+    const titleEl = document.createElement("p");
+    titleEl.textContent = project.title;
+    titleEl.classList.add("title");
+    projectContainer.appendChild(titleEl);
+
+    const descriptionEl = document.createElement("p");
+    descriptionEl.textContent = project.description;
+    descriptionEl.classList.add("project-description");
+    projectContainer.appendChild(descriptionEl);
+
+    if (project.githubUrl) {
+      const sourceLink = document.createElement("a");
+      sourceLink.href = project.githubUrl;
+      sourceLink.target = "_blank";
+      sourceLink.textContent = "source";
+      projectContainer.appendChild(sourceLink);
+    }
+
+    if (project.appUrl) {
+      const appLink = document.createElement("a");
+      appLink.href = project.appUrl;
+      appLink.target = "_blank";
+      appLink.textContent = "url";
+      projectContainer.appendChild(appLink);
+    }
+
+    projectsWrapper.appendChild(projectContainer);
+  });
+}
+
+function handleGsapAnimation() {
+    gsap.registerPlugin(ScrollTrigger);
+       let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: 1
+            }
+        });
+    tl.to("#role", {
+        x:"500%", 
+        duration:0.1,
+    }, 0)
+}
+
+function initializeGsapAnimations() {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 1024px)", () => {
+        handleGsapAnimation();
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateIntro();
+  populateSkills();
+  populateProjects();
+  initializeGsapAnimations();
+});
