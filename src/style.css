@@ -25,16 +25,30 @@
     --sml-lg-3px-6px: calc(0.1875rem + ((1vw - 3.2px) * 0.2679));
     --sml-lg-23px-53px: calc(1.4375rem + ((1vw - 3.2px) * 2.6786));
     --sml-lg-55px-155px: calc(3.4375rem + ((1vw - 3.2px) * 8.9286));
-    --sml-lg-21px-68px: calc(1.3125rem + ((1vw - 3.2px) * 4.1964));
-    --sml-lg-14px-35px: calc(0.875rem + ((1vw - 3.2px) * 1.875));
+    --sml-lg-21px-54px: calc(1.3125rem + ((1vw - 3.2px) * 2.9464));
+    --sml-lg-14px-28px:  calc(0.875rem + ((1vw - 3.2px) * 1.25));
     --sml-lg-100px-300px: calc(6.25rem + ((1vw - 3.2px) * 17.8571));
     --sml-lg-200px-500px: calc(12.5rem + ((1vw - 3.2px) * 26.7857));
     --sml-lg-353px-635px:calc(22.0625rem + ((1vw - 3.2px) * 25.1786));
+    --sml-med-54px-313px:calc(3.375rem + ((1vw - 3.2px) * 36.8421));
+    --sml-med-226px-315px: calc(14.125rem + ((1vw - 3.2px) * 12.66));
+    --sml-med-15px-225px:calc(0.9375rem + ((1vw - 3.2px) * 29.872));
+    --sml-med-186px-262px:calc(11.625rem + ((1vw - 3.2px) * 10.8108));
     min-height: 0vw;
   }
 }
-@media (min-width: 1023px){
-
+@media (min-width: 1024px){
+    :root{
+        --sml-med-54px-313px: 313px;
+        --sml-med-226px-315px: 315px;
+        --sml-med-15px-225px: 225px;
+        --sml-med-186px-262px: 262px;
+        --med-lg-45px-100px: calc(2.8125rem + ((1vw - 10.23px) * 13.1894));
+        --med-lg-295px-338px: calc(18.4375rem + ((1vw - 10.23px) * 10.3118));
+        --med-lg-8px-25px: calc(0.5rem + ((1vw - 10.23px) * 4.0767));
+        --med-lg-295px-335px: calc(18.4375rem + ((1vw - 10.23px) * 9.5923));
+        --med-lg-0px-10px:calc(0.0625rem + ((1vw - 10.23px) * 2.1583));
+    }
 }
 @media (min-width: 1440px) {
   :root {
@@ -45,11 +59,16 @@
     --sml-lg-3px-6px: 6px;
     --sml-lg-23px-53px: 53px;
     --sml-lg-55px-155px:155px;
-    --sml-lg-21px-68px:68px;
-    --sml-lg-14px-35px:35px;
+    --sml-lg-21px-54px:54px;
+    --sml-lg-14px-28px:30px;
     --sml-lg-100px-300px:300px;
     --sml-lg-200px-500px:500px;
     --sml-lg-353px-635px:635px;
+    --med-lg-45px-100px:100px;
+    --med-lg-295px-338px:338px;
+    --med-lg-8px-25px:25px;
+    --med-lg-295px-335px:335px;
+    --med-lg-0px-10px:10px;
   }
 }
 @font-face {
@@ -210,13 +229,12 @@ section{
     width: 100%;
     height: var(--sml-lg-353px-635px);
 }
+
 .cube-1-container{
     width: var(--sml-lg-200px-500px);
     height: var(--sml-lg-200px-500px);
     position: absolute;
     border-radius: 10%;
-    top: 100px; 
-    left: 54px;
     background-color: var(--pink);
     display: flex;
     justify-content: center;
@@ -224,11 +242,11 @@ section{
     z-index: 2;
     cursor: pointer;
     transform: rotate(0deg);
-    transition: transform 3.5s linear;
+    transition: transform 4.5s linear;
 }
 
 .cube-1-container:hover{
-    animation: cube-rotate 3.5s linear infinite ;
+    animation: cube-rotate 4.5s linear infinite ;
 }
 @keyframes cube-rotate {
     to{
@@ -252,14 +270,26 @@ section{
 }
 .cube-2{
     background-color: var(--purple);
-    top: 226px;
-    left: 15px;
 }
 .cube-3{
     background-color: var(--cyan);
-    top: 74px;
-    right: 15px;  
 }
+
+.cube-1-container{
+    top: 100px;
+    left:var(--sml-med-54px-313px);
+/*    top: 72px;*/
+/*    left: 45px;*/
+}
+.cube-2{
+    top:var(--sml-med-226px-315px);
+    left:var(--sml-med-15px-225px);
+}
+.cube-3{
+    bottom: var(--sml-med-186px-262px);
+    right: var(--sml-med-15px-225px);
+}
+
 .intro-text{
     display: flex;
     flex-direction: column;
@@ -276,21 +306,34 @@ section{
     color: var(--purple);
 }
 .role{
-    font-size: var(--sml-lg-21px-68px);
+    font-size: var(--sml-lg-21px-54px);
     font-family: "PlayfairDisplay-SemiBoldItalic";
     margin-bottom: 12px;
     margin-top: -5px;
 }
 .short-description{
-    font-size: var(--sml-lg-14px-35px);
+    font-size: var(--sml-lg-14px-28px);
     text-transform: capitalize;
     font-family: "Lato-Regular";
 }
 @media (min-width: 320px){}
 
 @media (min-width: 1024px){
-    #intro{
+    #intro {
         display: flex;
         flex-direction: row;
+    }
+
+    .cube-1-container {
+      top: 72px;
+      left: var(--med-lg-45px-100px);
+    }
+    .cube-2 {
+        top: var(--med-lg-295px-338px);
+        left: var(--med-lg-8px-25px);
+    }
+    .cube-3 {
+        bottom: var(--med-lg-295px-335px);
+        right: var(--med-lg-0px-10px);
     }
 }
