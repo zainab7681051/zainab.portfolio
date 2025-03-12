@@ -110,25 +110,33 @@ function populateProjects() {
 }
 
 function handleGsapAnimation() {
-    gsap.registerPlugin(ScrollTrigger);
-       let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: 'body',
-                start: 'top top',
-                end: 'bottom bottom',
-                scrub: 1
-            }
-        });
-    tl.to("#role", {
-        x:"500%", 
-        duration:0.1,
-    }, 0)
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 1
+        }
+    });
+    tl.to("#role",{
+        left:"100%",
+        duration: 0.1,
+    },0)
+    //     tl.to('.cube-2', { left: -100, width: 300, height: 300, rotate: 135, top: 'calc(50% - 150px)', duration: 0.1 }, 0)
+    //         .to('.cube-3', { left: 'calc(100% - 200px)', top: '10%', rotate: 180, scale: 0.8, duration: 0.1 }, 0)
+    //         .to('.cube-1', { width: 120, height: 120, top: 'calc(50% - 175px)', left: '1.5rem', duration: 0.1 }, 0)
+    //         .to('h1', { color: '#fff', fontSize: '1.75rem', left: '2rem', top: 'calc(50% - 2.5rem)', duration: 0.1 }, 0)
+    //         .to('h2', { left: '100%', duration: 0.1 }, 0)
+    //         .to('.quote', { top: '100%', duration: 0.1 }, 0)
+    //         .to('.menu', { display: 'flex', opacity: 1, duration: 0.1 }, 0)
+    //         .to('.cube-3', { rotate: 500, top: '70%' }, 0.1)
+    // });
 }
 
 function initializeGsapAnimations() {
     const mm = gsap.matchMedia();
     mm.add("(min-width: 1024px)", () => {
-        handleGsapAnimation();
+        // handleGsapAnimation();
     });
 }
 
