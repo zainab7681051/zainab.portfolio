@@ -83,7 +83,7 @@
     --med-lg-340px-440px:440px;
   }
 }
-@font-face {
+/*@font-face {
     font-family: "PlayfairDisplay-BoldItalic";
     font-display: block;
     src: url("../assets/fonts/Playfair_Display/static/PlayfairDisplay-BoldItalic.ttf") format("truetype");
@@ -107,7 +107,7 @@
     font-display: block;
     src: url("../assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
     font-style: normal;
-}
+}*/
 ::selection{
     background: var(--cyan);
     color: var(--pink);
@@ -208,6 +208,12 @@ section{
     background-color: var(--white);
 }
 
+/*
+#remove align-items center from menu
+#add position rel to .menu li
+# add display flex, align-items center, and justify conntent center to .menu li
+# add postion abs to link-msg 
+*/
 .menu{
     display: flex;
     flex-direction: column;
@@ -336,22 +342,7 @@ section{
         display: flex;
         flex-direction: row;
     }
-    .cubes{
-        position: static;
-    }
-        .intro-text{
-        position: static;
-/*        width: 100%;
-        height: var(--sml-lg-353px-635px);*/
-    }
-    .cube-1-container, 
-    .cube-2,
-    .cube-3,
-    .name, 
-    .role, 
-    .short-description{
-        position: fixed;
-    } 
+
     .cube-1-container {
       top: 72px;
       left: var(--med-lg-45px-100px);
@@ -365,21 +356,25 @@ section{
         right: unset;
         left: var(--med-lg-255px-355px);
     }
+    .intro-text{
+        width: 100%;
+        height: var(--sml-lg-353px-635px);
+    }
+    .name, .role, .short-description{
+        position: absolute;
+    } 
     .name{    
         right: var(--med-lg-30px-70px);
-        top: var(--med-lg-135px-170px); 
-/*        top: 200px*/
+        top: var(--med-lg-135px-170px);
     }
     .role{
         right: var(--med-lg-30px-70px);
         top: var(--med-lg-285px-360px);
-/*        top: 345px*/
     }
     .short-description{
         right: var(--med-lg-20px-45px);
         width: var(--med-lg-475px-625px);
         top: var(--med-lg-340px-440px);
-/*        top:405*/
         text-align: left;
     }
 }
