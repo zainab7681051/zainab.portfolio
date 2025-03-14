@@ -60,12 +60,12 @@ function populateSkills() {
 }
 
 function populateProjects() {
-  const projectsWrapper = document.querySelector(".projects-wrapper");
-  if (!projectsWrapper) return;
+  const projectsContainer = document.querySelector(".projects-container");
+  if (!projectsContainer) return;
 
   projects.forEach((project) => {
-    const projectContainer = document.createElement("div");
-    projectContainer.classList.add("project-container");
+    const projectWrapper = document.createElement("div");
+    projectWrapper.classList.add("project-wrapper");
 
     const imgWrapper = document.createElement("div");
     imgWrapper.classList.add("project-img-wrapper");
@@ -77,24 +77,27 @@ function populateProjects() {
     img.loading = "eager";
     img.draggable = false;
     imgWrapper.appendChild(img);
-    projectContainer.appendChild(imgWrapper);
+    projectWrapper.appendChild(imgWrapper);
 
     const titleEl = document.createElement("p");
     titleEl.textContent = project.title;
     titleEl.classList.add("title");
-    projectContainer.appendChild(titleEl);
+    projectWrapper.appendChild(titleEl);
 
     const descriptionEl = document.createElement("p");
     descriptionEl.textContent = project.description;
     descriptionEl.classList.add("project-description");
-    projectContainer.appendChild(descriptionEl);
+    projectWrapper.appendChild(descriptionEl);
+
+    const projectLinks = document.createElement("div");
+    projectLinks.classList.add("project-links");
 
     if (project.githubUrl) {
       const sourceLink = document.createElement("a");
       sourceLink.href = project.githubUrl;
       sourceLink.target = "_blank";
       sourceLink.textContent = "source";
-      projectContainer.appendChild(sourceLink);
+      projectLinks.appendChild(sourceLink);
     }
 
     if (project.appUrl) {
@@ -102,10 +105,12 @@ function populateProjects() {
       appLink.href = project.appUrl;
       appLink.target = "_blank";
       appLink.textContent = "url";
-      projectContainer.appendChild(appLink);
+      projectLinks.appendChild(appLink);
     }
+    
+    projectWrapper.appendChild(projectLinks);
 
-    projectsWrapper.appendChild(projectContainer);
+    projectsContainer.appendChild(projectWrapper);
   });
 }
 
