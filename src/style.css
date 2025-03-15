@@ -186,6 +186,7 @@ section{
     height: var(--sml-lg-3px-6px);
     border-radius: 10px;
     transform-origin: center center;
+    transition: transform .2s ease;
 }
 .menu-btn span::before{
     top: calc(50% - var(--sml-lg-10px-16px));

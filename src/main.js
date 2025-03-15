@@ -8,43 +8,42 @@ import pinkSvg from "../assets/mandala.svg";
 import pdf from "../assets/Resume.pdf";
 
 function updateMenu(){
-  const menu = document.querySelector(".menu");
+  const menu = getElement(".menu");
   menu.classList.add("menu-transition");
 }
+
 function updateIntro() {
-    const cubeElement = document.querySelector(".cube-1");
-    if (cubeElement) cubeElement.src = pinkSvg;
+    const cubeElement = getElement(".cube-1");
+    cubeElement.src = pinkSvg;
 
-    const nameElement = document.getElementById("name");
-    const roleElement = document.getElementById("role");
-    const shortDescElement = document.getElementById("short_description");
-    if (nameElement) nameElement.textContent = intro.name;
-    if (roleElement) roleElement.textContent = intro.role;
-    if (shortDescElement) shortDescElement.textContent = intro.short_description;
+    const nameElement = getElement("#name");
+    const roleElement = getElement("#role");
+    const shortDescElement = getElement("#short_description");
+    nameElement.textContent = intro.name;
+    roleElement.textContent = intro.role;
+    shortDescElement.textContent = intro.short_description;
 
-    const resumeLink = document.getElementById("resume");
-    const liResumeLink = document.getElementById("li-resume");
-    if (resumeLink) resumeLink.href = pdf;
-    if (liResumeLink) liResumeLink.href = pdf;  
+    const resumeLink = getElement("#resume");
+    const liResumeLink = getElement("#li-resume");
+    resumeLink.href = pdf;
+    liResumeLink.href = pdf;  
 
     updateLink("github", intro.github);
     updateLink("email", intro.email);
 }
 
 function updateLink(elementId, linkHref) {
-    const linkElement = document.getElementById(elementId);
-    if (linkElement) linkElement.href = linkHref;
+    const linkElement = getElement("#" + elementId);
+    linkElement.href = linkHref;
 }
 
 function populateSkillList(elementId, skillArray) {
-  const listElement = document.getElementById(elementId);
-  if (listElement) {
-    skillArray.forEach((skill) => {
-      const li = document.createElement("li");
-      li.textContent = skill;
-      listElement.appendChild(li);
-    });
-  }
+  const listElement = getElement("#" + elementId);
+  skillArray.forEach((skill) => {
+    const li = document.createElement("li");
+    li.textContent = skill;
+    listElement.appendChild(li);
+  });
 }
 
 function populateSkills() {
@@ -54,8 +53,7 @@ function populateSkills() {
 }
 
 function populateProjects() {
-  const projectsContainer = document.querySelector(".projects-container");
-  if (!projectsContainer) return;
+  const projectsContainer = getElement(".projects-container");
 
   projects.forEach((project) => {
     const projectWrapper = document.createElement("div");
@@ -108,36 +106,91 @@ function populateProjects() {
   });
 }
 
-function handleGsapAnimation() {
-  const tl = gsap.timeline();
-  tl.from(".name", {
-    right:'-100%',
-    duration: 0.5,
-    ease: 'power1.in'
-  },0)
-  tl.from(".role", {
-    right:'-100%',
-    duration: 0.5,
-    ease: 'power1.in'
-  },0.5)
-  tl.from(".short-description", {
-    top:'100%',
-    duration: 0.5,
-    ease: 'power1.in'
-  },0.5)
+function getElement(selector) {
+  const Element = document.querySelector(selector);
+  if (!Element)
+    throw new Error(`element "${selector}" does not exist!`);
+  return Element;
 }
 
-function initializeGsapAnimations() {
-    const mm = gsap.matchMedia();
-    mm.add("(min-width: 1024px)", () => {
-        // handleGsapAnimation();
-    });
+function getElementStyleValue(selector, styleProperty) {
+  const Element = getElement(selector);
+  return getComputedStyle(Element)[styleProperty];
 }
+
+function updateElementStyle(selector, styleProperty, styleValue) {
+  const Element = getElement(selector);
+  Element.style[styleProperty] = styleValue;  
+}
+
+class GsapAnimator {
+  constructor() {
+    this.timeline = gsap.timeline();
+    this.matchMedia = gsap.matchMedia();
+  }
+  createAnimationTo({ selector, styles, duration = 0.5, ease = 'power1.in' }, timelinePosition = 0) {
+    // const originalValue = getElementStyleValue(selector, styleProperty);
+    // updateElementStyle(selector, styleProperty, newValue);
+    const originalValues = {};
+    for(const [styleProperty, styleValue] of Object.entries(styles)){
+    // Object.keys(styles).forEach(styleProperty => {
+      originalValues[styleProperty] = getElementStyleValue(selector, styleProperty);
+      updateElementStyle(selector, styleProperty, styleValue);
+    }
+    // );
+    console.log({originalValues});
+    return () => {
+      this.timeline.to(selector, {
+       ...originalValues, 
+        duration,
+        ease,
+      }, timelinePosition);
+    };
+  }
+
+  addResponsiveAnimation(query, animationCallback) {
+    this.matchMedia.add(query, animationCallback);
+  }
+}
+const animator = new GsapAnimator();
+const animations=[];
+  
+const animateName = animator.createAnimationTo({
+  selector: ".name",
+  styles:{
+    right: "-100%"
+  }
+});
+animations.push(animateName);
+
+// const animateRole = animator.createAnimationTo({
+//   selector: ".role",
+//   styles:{
+//     left: "-100%"
+//   },
+//   duration: 0.5
+// }, 0.2);
+// animations.push(animateRole);
+
+// const animateShortDescription = animator.createAnimationTo({
+//   selector: ".short-description",
+//   styles:{
+//       top: "100%",
+//       opacity: 0
+//     },
+//   duration: 0.5
+// }, 0.3);
+// animations.push(animateShortDescription);
 
 updateIntro();
 populateSkills();
 populateProjects();
 addEventListener("load", () => {
   updateMenu();
-  initializeGsapAnimations();
+  animator.addResponsiveAnimation("(min-width: 1024px)", () => {
+      // animations.forEach(animationFunc => animationFuncn());
+      for(const anim of animations){
+        anim()
+      }
+  });
 });
