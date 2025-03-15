@@ -129,15 +129,12 @@ class GsapAnimator {
     this.matchMedia = gsap.matchMedia();
   }
   createAnimationTo({ selector, styles, duration = 0.5, ease = 'power1.in' }, timelinePosition = 0) {
-    // const originalValue = getElementStyleValue(selector, styleProperty);
-    // updateElementStyle(selector, styleProperty, newValue);
     const originalValues = {};
+    
     for(const [styleProperty, styleValue] of Object.entries(styles)){
-    // Object.keys(styles).forEach(styleProperty => {
       originalValues[styleProperty] = getElementStyleValue(selector, styleProperty);
       updateElementStyle(selector, styleProperty, styleValue);
     }
-    // );
     console.log({originalValues});
     return () => {
       this.timeline.to(selector, {
@@ -163,24 +160,24 @@ const animateName = animator.createAnimationTo({
 });
 animations.push(animateName);
 
-// const animateRole = animator.createAnimationTo({
-//   selector: ".role",
-//   styles:{
-//     left: "-100%"
-//   },
-//   duration: 0.5
-// }, 0.2);
-// animations.push(animateRole);
+const animateRole = animator.createAnimationTo({
+  selector: ".role",
+  styles:{
+    right: "-100%"
+  },
+  duration: 0.5
+}, 0.2);
+animations.push(animateRole);
 
-// const animateShortDescription = animator.createAnimationTo({
-//   selector: ".short-description",
-//   styles:{
-//       top: "100%",
-//       opacity: 0
-//     },
-//   duration: 0.5
-// }, 0.3);
-// animations.push(animateShortDescription);
+const animateShortDescription = animator.createAnimationTo({
+  selector: ".short-description",
+  styles:{
+      top: "100%",
+      opacity: 0
+    },
+  duration: 0.8
+}, 0.3);
+animations.push(animateShortDescription);
 
 updateIntro();
 populateSkills();
@@ -188,7 +185,6 @@ populateProjects();
 addEventListener("load", () => {
   updateMenu();
   animator.addResponsiveAnimation("(min-width: 1024px)", () => {
-      // animations.forEach(animationFunc => animationFuncn());
       for(const anim of animations){
         anim()
       }
