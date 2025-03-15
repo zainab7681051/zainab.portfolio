@@ -6,17 +6,11 @@ import { skills } from "./skills.js";
 import { projects } from "./projects.js";
 import pinkSvg from "../assets/mandala.svg";
 import pdf from "../assets/Resume.pdf";
-// let sections = document.querySelectorAll('section:not(#intro)')
-// let menuLinks = document.querySelectorAll('.menu li a')
-// window.addEventListener('scroll', () => {
-//     sections.forEach((section, i) => {
-//         if (section.getBoundingClientRect().y < window.innerHeight - window.innerHeight / 2) {
-//             menuLinks.forEach(link => link.removeAttribute('class'))
-//             menuLinks[i].setAttribute('class', 'active')
-//         }
-//     })
-// });
 
+function updateMenu(){
+  const menu = document.querySelector(".menu");
+  menu.classList.add("menu-transition");
+}
 function updateIntro() {
     const cubeElement = document.querySelector(".cube-1");
     if (cubeElement) cubeElement.src = pinkSvg;
@@ -107,7 +101,7 @@ function populateProjects() {
       appLink.textContent = "url";
       projectLinks.appendChild(appLink);
     }
-    
+
     projectWrapper.appendChild(projectLinks);
 
     projectsContainer.appendChild(projectWrapper);
@@ -115,49 +109,35 @@ function populateProjects() {
 }
 
 function handleGsapAnimation() {
-    // gsap.from(".name, .role, .short-description", {
-    //   x:500,
-    //   duration:.5,
-    //   stagger:.5
-    // }, 0)
-    // gsap.from(".cube-1-container", {
-    //   y:-200,
-    //   rotate: 135,
-    //   duration: .5
-    // }, .5)
-    // let tl = gsap.timeline({
-    //     scrollTrigger: {
-    //         trigger: 'body',
-    //         start: 'top top',
-    //         end: 'bottom bottom',
-    //         scrub: 1
-    //     }
-    // });
-    // tl.to("#role",{
-    //     left:"100%",
-    //     duration: 0.1,
-    // },0)
-    //     tl.to('.cube-2', { left: -100, width: 300, height: 300, rotate: 135, top: 'calc(50% - 150px)', duration: 0.1 }, 0)
-    //         .to('.cube-3', { left: 'calc(100% - 200px)', top: '10%', rotate: 180, scale: 0.8, duration: 0.1 }, 0)
-    //         .to('.cube-1', { width: 120, height: 120, top: 'calc(50% - 175px)', left: '1.5rem', duration: 0.1 }, 0)
-    //         .to('h1', { color: '#fff', fontSize: '1.75rem', left: '2rem', top: 'calc(50% - 2.5rem)', duration: 0.1 }, 0)
-    //         .to('h2', { left: '100%', duration: 0.1 }, 0)
-    //         .to('.quote', { top: '100%', duration: 0.1 }, 0)
-    //         .to('.menu', { display: 'flex', opacity: 1, duration: 0.1 }, 0)
-    //         .to('.cube-3', { rotate: 500, top: '70%' }, 0.1)
-    // });
+  const tl = gsap.timeline();
+  tl.from(".name", {
+    right:'-100%',
+    duration: 0.5,
+    ease: 'power1.in'
+  },0)
+  tl.from(".role", {
+    right:'-100%',
+    duration: 0.5,
+    ease: 'power1.in'
+  },0.5)
+  tl.from(".short-description", {
+    top:'100%',
+    duration: 0.5,
+    ease: 'power1.in'
+  },0.5)
 }
 
 function initializeGsapAnimations() {
     const mm = gsap.matchMedia();
     mm.add("(min-width: 1024px)", () => {
-        handleGsapAnimation();
+        // handleGsapAnimation();
     });
 }
 
+updateIntro();
+populateSkills();
+populateProjects();
 addEventListener("load", () => {
-  updateIntro();
-  populateSkills();
-  populateProjects();
+  updateMenu();
   initializeGsapAnimations();
 });
