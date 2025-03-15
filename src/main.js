@@ -144,49 +144,51 @@ class GsapAnimator {
       }, timelinePosition);
     };
   }
-
   addResponsiveAnimation(query, animationCallback) {
     this.matchMedia.add(query, animationCallback);
   }
 }
-const animator = new GsapAnimator();
-const animations=[];
+// const animator = new GsapAnimator();
+// const animations=[];
   
-const animateName = animator.createAnimationTo({
-  selector: ".name",
-  styles:{
-    right: "-100%"
-  }
-});
-animations.push(animateName);
+// const animateName = animator.createAnimationTo({
+//   selector: ".name",
+//   styles:{
+//     right: "-100%"
+//   }
+// });
+// animations.push(animateName);
 
-const animateRole = animator.createAnimationTo({
-  selector: ".role",
-  styles:{
-    right: "-100%"
-  },
-  duration: 0.5
-}, 0.2);
-animations.push(animateRole);
+// const animateRole = animator.createAnimationTo({
+//   selector: ".role",
+//   styles:{
+//     right: "-100%"
+//   },
+//   duration: 0.5
+// }, 0.2);
+// animations.push(animateRole);
 
-const animateShortDescription = animator.createAnimationTo({
-  selector: ".short-description",
-  styles:{
-      top: "100%",
-      opacity: 0
-    },
-  duration: 0.8
-}, 0.3);
-animations.push(animateShortDescription);
+// const animateShortDescription = animator.createAnimationTo({
+//   selector: ".short-description",
+//   styles:{
+//       top: "100%",
+//       opacity: 0
+//     },
+//   duration: 0.8
+// }, 0.3);
+// animations.push(animateShortDescription);
 
+// const animateCube1 = animator.createAnimationTo({
+//   selector: ""
+// })
 updateIntro();
 populateSkills();
 populateProjects();
 addEventListener("load", () => {
   updateMenu();
-  animator.addResponsiveAnimation("(min-width: 1024px)", () => {
-      for(const anim of animations){
-        anim()
-      }
-  });
+  // animator.addResponsiveAnimation("(min-width: 1024px)", () => {
+  //     for(const anim of animations){
+  //       anim()
+  //     }
+  // });
 });
