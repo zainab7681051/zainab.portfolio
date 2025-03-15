@@ -210,13 +210,10 @@ section{
     transform: rotate(-45deg);
     transition: transform .2s ease;
 }
-#menu-btn:checked~.menu-btn span::before,
-#menu-btn:checked~.menu-btn span::after{
-    width: var(--sml-lg-27px-44px);
-}
 
 #menu-btn:checked~.menu-btn span::before,
 #menu-btn:checked~.menu-btn span::after{
+    width: var(--sml-lg-27px-44px);
     background-color: var(--white);
 }
 
@@ -468,6 +465,13 @@ footer{
     color: var(--white);
     text-align: center;
     font-family: "PlayfairDisplay-SemiBoldItalic";
+}
+@media (max-width: 1023px){
+    #menu-btn:checked~.menu-btn span::before,
+    #menu-btn:checked~.menu-btn span::after{
+        width: var(--sml-lg-30px-60px);
+        top:0;
+    }
 }
 @media (min-width: 1024px){
     #intro {
