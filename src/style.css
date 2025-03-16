@@ -271,7 +271,6 @@ section{
     z-index: 2;
     cursor: pointer;
     transform: rotate(0deg);
-    transition: transform 4.5s linear;
 }
 
 .cube-1 {
@@ -501,14 +500,6 @@ footer{
     #menu-btn:checked:hover~.menu-btn span::after{
         width: var(--sml-lg-30px-60px);
         top: unset;
-    }
-    .cube-1-container:hover{
-        animation: cube-rotate 4.5s linear infinite ;
-    }
-    @keyframes cube-rotate {
-        to{
-            transform: rotate(360deg);
-        }
     }
     .cube-1-container {
       top: 72px;

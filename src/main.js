@@ -7,6 +7,8 @@ import { projects } from "./projects.js";
 import pinkSvg from "../assets/mandala.svg";
 import pdf from "../assets/Resume.pdf";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function updateMenu(){
   const menu = getElement(".menu");
   menu.classList.add("menu-transition");
@@ -123,24 +125,38 @@ function updateElementStyle(selector, styleProperty, styleValue) {
   Element.style[styleProperty] = styleValue;  
 }
 
+function updateCube1(){
+  const Cube1 = getElement(".cube-1-container");
+  Cube1.classList.add("cube-rotate");
+}
 class GsapAnimator {
   constructor() {
     this.timeline = gsap.timeline();
     this.matchMedia = gsap.matchMedia();
   }
-  createAnimationTo({ selector, styles, duration = 0.5, ease = 'power1.in' }, timelinePosition = 0) {
+  createAnimation({ selector, styles, duration = 0.5, ease = 'power1.in', timeline = true, stagger, scrollTrigger}, timelinePosition = 0) {
     const originalValues = {};
     
     for(const [styleProperty, styleValue] of Object.entries(styles)){
       originalValues[styleProperty] = getElementStyleValue(selector, styleProperty);
       updateElementStyle(selector, styleProperty, styleValue);
     }
-    console.log({originalValues});
     return () => {
-      this.timeline.to(selector, {
+      if(!timeline){
+        return gsap.to(selector, {
+         ...originalValues, 
+          duration,
+          ease,
+          stagger,
+          scrollTrigger
+        }, 0); 
+      }
+      return this.timeline.to(selector, {
        ...originalValues, 
         duration,
         ease,
+        stagger,
+        scrollTrigger
       }, timelinePosition);
     };
   }
@@ -148,47 +164,94 @@ class GsapAnimator {
     this.matchMedia.add(query, animationCallback);
   }
 }
-// const animator = new GsapAnimator();
-// const animations=[];
+const animator = new GsapAnimator();
+const animations=[];
   
-// const animateName = animator.createAnimationTo({
-//   selector: ".name",
-//   styles:{
-//     right: "-100%"
-//   }
-// });
-// animations.push(animateName);
+const AnimateName = animator.createAnimation({
+  selector: ".name",
+  styles:{
+    right: "-100%"
+  }
+});
+animations.push(AnimateName);
 
-// const animateRole = animator.createAnimationTo({
-//   selector: ".role",
-//   styles:{
-//     right: "-100%"
-//   },
-//   duration: 0.5
-// }, 0.2);
-// animations.push(animateRole);
+const AnimateRole = animator.createAnimation({
+  selector: ".role",
+  styles:{
+    right: "-100%"
+  },
+}, 0.2);
+animations.push(AnimateRole);
 
-// const animateShortDescription = animator.createAnimationTo({
-//   selector: ".short-description",
-//   styles:{
-//       top: "100%",
-//       opacity: 0
-//     },
-//   duration: 0.8
-// }, 0.3);
-// animations.push(animateShortDescription);
+const AnimateShortDescription = animator.createAnimation({
+  selector: ".short-description",
+  styles:{
+      top: "100%",
+      opacity: 0
+    },
+}, 0.3);
+animations.push(AnimateShortDescription);
 
-// const animateCube1 = animator.createAnimationTo({
-//   selector: ""
-// })
+const AnimateCube1 = animator.createAnimation({
+  selector: ".cube-1-container",
+  styles:{
+    transform: "translate(-100%,-100%) scale(0.6)",
+    opacity: 0,
+    ease: "power3.in"
+  },
+}, 0.5);
+animations.push(AnimateCube1);
+
+const AnimateCube2 = animator.createAnimation({
+  selector: ".cube-2",
+  styles:{
+    transform: "translateX(-100%) scale(0.6)",
+    opacity: 0,
+    ease: "power3.in"
+  },
+}, 0.8);
+animations.push(AnimateCube2);
+
+const AnimateCube3 = animator.createAnimation({
+  selector: ".cube-3",
+  styles:{
+    transform: "translateY(-100%) scale(0.6)",
+    opacity: 0,
+    ease: "power3.in"
+  },
+}, 0.8);
+animations.push(AnimateCube3);
+
+// the issue is in selector. it retrurs by querSelector and not queryselectorAll which is what should be used for ".skills li" since we have more than one
+setTimeout(() =>{
+  const AnimaeSkills = animator.createAnimation({
+    selector: ".skills li",
+    styles:{
+      transform: "translateX(-100%)",
+      opacity: 0,
+    },
+      timeline: false,
+      stagger: 0.2,
+      scrollTrigger:{
+        trigger:".list-container",
+        start: "top center",
+        // once: true,
+        scrub: true,
+        markers: true,
+      }
+  });
+  animations.push(AnimaeSkills);
+}, 0);
+
 updateIntro();
 populateSkills();
 populateProjects();
+
 addEventListener("load", () => {
   updateMenu();
-  // animator.addResponsiveAnimation("(min-width: 1024px)", () => {
-  //     for(const anim of animations){
-  //       anim()
-  //     }
-  // });
+  animator.addResponsiveAnimation("(min-width: 1024px)", () => {
+      for(const anim of animations){
+        anim()
+      }
+  });
 });
