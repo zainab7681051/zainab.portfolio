@@ -115,6 +115,13 @@ function getElement(selector) {
   return Element;
 }
 
+function getElements(selector){
+  const Elements = document.querySelectorAll(selector);
+  if (Elements.length === 0)
+    throw new Error(`elements "${selector}" do not exist!`);
+  return Elements;
+}
+
 function getElementStyleValue(selector, styleProperty) {
   const Element = getElement(selector);
   return getComputedStyle(Element)[styleProperty];
@@ -130,11 +137,15 @@ function updateCube1(){
   Cube1.classList.add("cube-rotate");
 }
 class GsapAnimator {
-  constructor() {
-    this.timeline = gsap.timeline();
-    this.matchMedia = gsap.matchMedia();
+  constructor({
+    timelineOptions = {}, 
+    matchMediaOptions = {}
+  }) {
+    this.timeline = gsap.timeline(timelineOptions);
+    this.matchMedia = gsap.matchMedia(matchMediaOptions);
   }
-  createAnimation({ selector, styles, duration = 0.5, ease = 'power1.in', timeline = true, stagger, scrollTrigger}, timelinePosition = 0) {
+
+  createAnimation({ selector, styles, duration = 0.5, ease = 'power1.in'}, timelinePosition = 0) {
     const originalValues = {};
     
     for(const [styleProperty, styleValue] of Object.entries(styles)){
@@ -142,24 +153,14 @@ class GsapAnimator {
       updateElementStyle(selector, styleProperty, styleValue);
     }
     return () => {
-      if(!timeline){
-        return gsap.to(selector, {
-         ...originalValues, 
-          duration,
-          ease,
-          stagger,
-          scrollTrigger
-        }, 0); 
-      }
       return this.timeline.to(selector, {
        ...originalValues, 
         duration,
-        ease,
-        stagger,
-        scrollTrigger
+        ease
       }, timelinePosition);
     };
   }
+
   addResponsiveAnimation(query, animationCallback) {
     this.matchMedia.add(query, animationCallback);
   }
@@ -222,26 +223,94 @@ const AnimateCube3 = animator.createAnimation({
 }, 0.8);
 animations.push(AnimateCube3);
 
-// the issue is in selector. it retrurs by querSelector and not queryselectorAll which is what should be used for ".skills li" since we have more than one
+class MultipleSelectorsGsapAnimator extends GsapAnimator {
+  constructor({
+    newTimeline = false, 
+    newMatchMedia = false, 
+    timelineOptions = {}, 
+    matchMediaOptions = {} }) {
+    super();
+    if(newTimeline) this.timeline = gsap.timeline(timelineOptions);
+    if(newMatchMedia) this.matchMedia = gsap.matchMedia(matchMediaOptions);
+  }
+
+  createAnimation({ 
+    selector, 
+    styles, 
+    duration = 0.5, 
+    ease = 'power1.in', 
+    stagger, 
+    scrollTrigger}, timelinePosition = 0) {
+
+    const elements = getElements(selector);
+    const originalValues = [];
+
+    elements.forEach(element => {
+      const elementValues = {};
+      for (const [property, value] of Object.entries(styles)) {
+        elementValues[property] = getComputedStyle(element)[property];
+        element.style[property] = value;
+      }
+      originalValues.push(elementValues);
+    });
+
+    return () => {
+      return this.timeline.to(elements, {
+        ...Object.fromEntries(
+          Object.keys(styles).map(property => [
+            property,
+            (index) => originalValues[index][property]
+          ])
+        ),
+        duration,
+        ease,
+        stagger,
+        scrollTrigger
+      }, timelinePosition);
+    };
+  }
+}
+
+const MulSelecAnimator = new MultipleSelectorsGsapAnimator({newTimeline: true});
+
 setTimeout(() =>{
-  const AnimaeSkills = animator.createAnimation({
+  const AnimateSkills = MulSelecAnimator.createAnimation({
     selector: ".skills li",
     styles:{
       transform: "translateX(-100%)",
       opacity: 0,
     },
-      timeline: false,
-      stagger: 0.2,
-      scrollTrigger:{
-        trigger:".list-container",
-        start: "top center",
-        // once: true,
-        scrub: true,
-        markers: true,
-      }
+    duration: 0.3,
+    stagger: 0.5,
+    ease: "power3.in",
+    scrollTrigger:{
+      trigger:".list-container",
+      start: "top center",
+      // end: "bottom top",
+      // once: true,
+      // scrub:true,
+      // markers:true
+    }
   });
-  animations.push(AnimaeSkills);
-}, 0);
+  animations.push(AnimateSkills);
+}, 0)
+
+// setTimeout(() => {
+//   const AnimaeSkills = () => {
+//     gsap.to(".skills li",{
+//       transform: "translateX(0)",
+//       opacity: 1,
+//       stagger: 0.3,
+//       duration: .2,
+//       scrollTrigger:{
+//         trigger:".list-container",
+//         start: "top center",
+//         end: "bottom top",
+//         once: true,
+//       }
+//     });
+//   }
+// }, 0)
 
 updateIntro();
 populateSkills();

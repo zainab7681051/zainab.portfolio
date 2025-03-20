@@ -95,8 +95,6 @@
     --sml-lg-300px-600px:600px;
     --sml-lg-168px-350px:350px;
     --sml-lg-20px-60px:60px;
-
-
   }
 }
 @font-face {
@@ -272,12 +270,10 @@ section{
     cursor: pointer;
     transform: rotate(0deg);
 }
-
 .cube-1 {
     height: 90%;
     width: 90%;
 }
-
 .cube-2, .cube-3{
     width: var(--sml-lg-100px-300px);
     height: var(--sml-lg-100px-300px);
@@ -386,7 +382,6 @@ section{
     margin: var(--margin);
     border-radius: 10px;
     cursor: pointer;
-    transition: all .2s ease-out;
 }
 .projects-container{
     display: flex;
@@ -587,9 +582,21 @@ footer{
     .menu a:hover+.resume-link{
         right: calc(var(--pos) + var(--med-lg-105px-155px));
     }
+   /* .skills li{
+        opacity: 0;
+    }
+    .skills.frontend li, .skills.other li{
+        transform: translateX(-100%);
+        transform-origin: center left;
+    }
+    .skills.backend li{
+        transform: translateX(100%);
+        transform-origin: center right;
+    }*/
     .skills li:hover{
         background-color: transparent;
         color: var(--black);
+        transition: background-color .2s ease-out, color .2s ease-out;
     }
     .project-wrapper a{
         position: relative;
