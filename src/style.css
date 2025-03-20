@@ -582,17 +582,15 @@ footer{
     .menu a:hover+.resume-link{
         right: calc(var(--pos) + var(--med-lg-105px-155px));
     }
-   /* .skills li{
+    .skills li{
         opacity: 0;
     }
     .skills.frontend li, .skills.other li{
         transform: translateX(-100%);
-        transform-origin: center left;
     }
     .skills.backend li{
         transform: translateX(100%);
-        transform-origin: center right;
-    }*/
+    }
     .skills li:hover{
         background-color: transparent;
         color: var(--black);
@@ -631,4 +629,12 @@ footer{
         width: 100%;
         transition: width .3s ease;
     }
+    /*.name, .role{
+        transform: translateX(150%);
+    }
+    .short-description{
+        opacity: 0;
+        transform: translateY(100%);
+    }*/
+
 }

@@ -132,40 +132,6 @@ function updateElementStyle(selector, styleProperty, styleValue) {
   Element.style[styleProperty] = styleValue;  
 }
 
-function updateCube1(){
-  const Cube1 = getElement(".cube-1-container");
-  Cube1.classList.add("cube-rotate");
-}
-class GsapAnimator {
-  constructor({
-    timelineOptions = {}, 
-    matchMediaOptions = {}
-  }) {
-    this.timeline = gsap.timeline(timelineOptions);
-    this.matchMedia = gsap.matchMedia(matchMediaOptions);
-  }
-
-  createAnimation({ selector, styles, duration = 0.5, ease = 'power1.in'}, timelinePosition = 0) {
-    const originalValues = {};
-    
-    for(const [styleProperty, styleValue] of Object.entries(styles)){
-      originalValues[styleProperty] = getElementStyleValue(selector, styleProperty);
-      updateElementStyle(selector, styleProperty, styleValue);
-    }
-    return () => {
-      return this.timeline.to(selector, {
-       ...originalValues, 
-        duration,
-        ease
-      }, timelinePosition);
-    };
-  }
-
-  addResponsiveAnimation(query, animationCallback) {
-    this.matchMedia.add(query, animationCallback);
-  }
-}
-const animator = new GsapAnimator();
 const animations=[];
   
 const AnimateName = animator.createAnimation({
@@ -213,104 +179,56 @@ const AnimateCube2 = animator.createAnimation({
 }, 0.8);
 animations.push(AnimateCube2);
 
-const AnimateCube3 = animator.createAnimation({
-  selector: ".cube-3",
-  styles:{
-    transform: "translateY(-100%) scale(0.6)",
-    opacity: 0,
-    ease: "power3.in"
-  },
-}, 0.8);
-animations.push(AnimateCube3);
 
-class MultipleSelectorsGsapAnimator extends GsapAnimator {
-  constructor({
-    newTimeline = false, 
-    newMatchMedia = false, 
-    timelineOptions = {}, 
-    matchMediaOptions = {} }) {
-    super();
-    if(newTimeline) this.timeline = gsap.timeline(timelineOptions);
-    if(newMatchMedia) this.matchMedia = gsap.matchMedia(matchMediaOptions);
-  }
-
-  createAnimation({ 
-    selector, 
-    styles, 
-    duration = 0.5, 
-    ease = 'power1.in', 
-    stagger, 
-    scrollTrigger}, timelinePosition = 0) {
-
-    const elements = getElements(selector);
-    const originalValues = [];
-
-    elements.forEach(element => {
-      const elementValues = {};
-      for (const [property, value] of Object.entries(styles)) {
-        elementValues[property] = getComputedStyle(element)[property];
-        element.style[property] = value;
-      }
-      originalValues.push(elementValues);
-    });
-
-    return () => {
-      return this.timeline.to(elements, {
-        ...Object.fromEntries(
-          Object.keys(styles).map(property => [
-            property,
-            (index) => originalValues[index][property]
-          ])
-        ),
-        duration,
-        ease,
-        stagger,
-        scrollTrigger
-      }, timelinePosition);
-    };
-  }
-}
-
-const MulSelecAnimator = new MultipleSelectorsGsapAnimator({newTimeline: true});
-
-setTimeout(() =>{
-  const AnimateSkills = MulSelecAnimator.createAnimation({
-    selector: ".skills li",
+setTimeout(() => {
+  // bring other functions inside setTimeout
+  const AnimateCube3 = animator.createAnimation({
+    selector: ".cube-3",
     styles:{
-      transform: "translateX(-100%)",
+      transform: "translateY(-100%) scale(0.6)",
       opacity: 0,
+      ease: "power3.in"
     },
-    duration: 0.3,
-    stagger: 0.5,
-    ease: "power3.in",
-    scrollTrigger:{
-      trigger:".list-container",
-      start: "top center",
-      // end: "bottom top",
-      // once: true,
-      // scrub:true,
-      // markers:true
-    }
-  });
-  animations.push(AnimateSkills);
-}, 0)
+  }, 0.8);
+  animations.push(AnimateCube3);
 
-// setTimeout(() => {
-//   const AnimaeSkills = () => {
-//     gsap.to(".skills li",{
-//       transform: "translateX(0)",
-//       opacity: 1,
-//       stagger: 0.3,
-//       duration: .2,
-//       scrollTrigger:{
-//         trigger:".list-container",
-//         start: "top center",
-//         end: "bottom top",
-//         once: true,
-//       }
-//     });
-//   }
-// }, 0)
+   const AnimateSkills = () => {
+    gsap.to(".skills li",{
+      transform: "translateX(0)",
+      opacity: 1,
+      stagger: 0.1,
+      duration: 0.2,
+      ease: "power3,in",
+      scrollTrigger:{
+        trigger:".list-container",
+        start: "top center",
+        once: true,
+      }
+    });
+  }
+  animations.push(AnimateSkills);
+
+  const AnimateProjects = () => {
+    const ProjectsWrappers = getElements(".project-wrapper");
+    let count = 0;
+    ProjectsWrappers.forEach(p => {
+      p.style.opacity = 0;
+      p.style.transform = `translateX(${count++ % 2 === 0 ? '-':''}100%)`;
+      gsap.to(p,{
+        transform: "translateX(0)",
+        opacity: 1,
+        duration: 0.7,
+        ease: "power1,in",
+        scrollTrigger:{
+          trigger:p,
+          start: "top center",
+          once: true,
+        }
+      });
+    })
+  }
+  animations.push(AnimateProjects);
+}, 0)
 
 updateIntro();
 populateSkills();
@@ -318,7 +236,7 @@ populateProjects();
 
 addEventListener("load", () => {
   updateMenu();
-  animator.addResponsiveAnimation("(min-width: 1024px)", () => {
+  gsap.matchMedia.add("(min-width: 1024px)", () => {
       for(const anim of animations){
         anim()
       }
