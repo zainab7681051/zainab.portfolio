@@ -642,13 +642,13 @@ footer{
         opacity: 0;
     }
     .cube-1-container{
-     transform: "translate(-100%,-100%) scale(0.6)";
+     transform: translate(-100%,-100%) rotate(90deg) scale(0.4);
     }
     .cube-3{
-     transform: "translateY(-100%) scale(0.6)";
+     transform: translateY(-100%) scale(0.4);
     }
     .cube-2{
-     transform: "translateX(-100%) scale(0.6)";
+     transform: translateX(-100%) scale(0.4);
     }
     .project-wrapper {
         opacity: 0;

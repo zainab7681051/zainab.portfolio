@@ -13,14 +13,16 @@ gsap.registerPlugin(ScrollTrigger);
 function getElement(selector) {
   const Element = document.querySelector(selector);
   if (!Element)
-    throw new Error(`element "${selector}" does not exist!`);
+    console.error(`element "${selector}" does not exist!`);
+
   return Element;
 }
 
 function getElements(selector){
   const Elements = document.querySelectorAll(selector);
   if (Elements.length === 0)
-    throw new Error(`elements "${selector}" do not exist!`);
+    console.error(`elements "${selector}" do not exist!`);
+
   return Elements;
 }
 
@@ -30,14 +32,10 @@ function updateMenu(){
 }
 
 function handleMenuLinkEvent(){
-  const menuBtn = getElement("#menu-btn");
-  const menuLinks = getElements(".menu li a");
-
-  menuLinks.forEach(li => {
-    li.addEventListener('click', () => {
-      menuBtn.checked = false;
-    })
-  })
+  getElement(".menu").addEventListener("click", (event) => {
+    if (event.target.closest('a')) 
+      getElement("#menu-btn").checked = false;
+  });
 }
 
 function updateIntro() {
@@ -51,9 +49,7 @@ function updateIntro() {
     roleElement.textContent = intro.role;
     shortDescElement.textContent = intro.short_description;
 
-    const resumeLink = getElement("#resume");
     const liResumeLink = getElement("#li-resume");
-    resumeLink.href = pdf;
     liResumeLink.href = pdf;  
 
     updateLink("github", intro.github);
@@ -136,57 +132,51 @@ function populateProjects() {
 
 let animations = [];
 
-const tl = gsap.timeline({
-  duration: 0.5,
-  ease: "power3.in"      
-});
+const AnimateIntro = () => {
+  const tl = gsap.timeline({
+    duration: 0.9,
+    ease: "power3.in"      
+  });
 
-const AnimateName = () => {
   tl.to(".name",{
     transform: "translateX(0)",
   }, 0.1);
-} 
-animations.push(AnimateName);
 
-const AnimateRole = () => {
   tl.to(".role",{
     transform: "translateX(0)",
   }, 0.3);
-} 
-animations.push(AnimateRole);
 
-const AnimateShortDescription = () => {
   tl.to(".short-description",{
     transform: "translateY(0)",
     opacity: 1,
   }, 0.4);
-} 
-animations.push(AnimateShortDescription);
 
-const AnimateCube1 = () => {
   tl.to(".cube-1-container",{
-    transform: "translate(0,0) scale(1)",
+    transform: "translate(0,0) rotate(0deg) scale(1)",
     opacity: 1,
   }, 0.6);
-} 
-animations.push(AnimateCube1);
 
-const AnimateCube2 = () => {
   tl.to(".cube-2",{
     transform: "translateX(0) scale(1)",
     opacity: 1,
   }, 0.9);
-} 
-animations.push(AnimateCube2);
 
-const AnimateCube3 = () => {
   tl.to(".cube-3",{
     transform: "translateY(0) scale(1)",
     opacity: 1,
   }, 0.9);
-} 
-animations.push(AnimateCube3);
 
+  return tl.play();
+} 
+animations.push(AnimateIntro);
+
+const scroll = (trigger) => {
+  return {
+      trigger,
+      start: "top center",
+      once: true,
+    }
+}
  const AnimateSkills = () => {
   gsap.to(".skills li",{
     transform: "translateX(0)",
@@ -194,11 +184,7 @@ animations.push(AnimateCube3);
     stagger: 0.1,
     duration: 0.2,
     ease: "power3,in",
-    scrollTrigger:{
-      trigger:".list-container",
-      start: "top center",
-      once: true,
-    }
+    scrollTrigger: scroll(".list-container"),
   });
 }
 animations.push(AnimateSkills);
@@ -213,11 +199,7 @@ const AnimateProjects = () => {
         opacity: 1,
         duration: 0.7,
         ease: "power1,in",
-        scrollTrigger:{
-          trigger:p,
-          start: "top center",
-          once: true,
-        }
+        scrollTrigger: scroll(p),
       };
     gsap.to(p,options);
   })
@@ -231,9 +213,12 @@ handleMenuLinkEvent()
 
 addEventListener("load", () => {
   updateMenu();
+
+  // start Gsap animations:
   gsap.matchMedia().add("(min-width: 1024px)", () => {
       for(const anim of animations){
         anim()
       }
   });
+  
 });
