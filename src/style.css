@@ -629,12 +629,28 @@ footer{
         width: 100%;
         transition: width .3s ease;
     }
-    /*.name, .role{
-        transform: translateX(150%);
+    .name, .role{
+        transform: translateX(calc(100% + 200px));
     }
     .short-description{
         opacity: 0;
         transform: translateY(100%);
-    }*/
-
+    }
+    .cube-1-container,
+    .cube-2,
+    .cube-3{      
+        opacity: 0;
+    }
+    .cube-1-container{
+     transform: "translate(-100%,-100%) scale(0.6)";
+    }
+    .cube-3{
+     transform: "translateY(-100%) scale(0.6)";
+    }
+    .cube-2{
+     transform: "translateX(-100%) scale(0.6)";
+    }
+    .project-wrapper {
+        opacity: 0;
+    }
 }
