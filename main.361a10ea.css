@@ -95,8 +95,6 @@
     --sml-lg-300px-600px:600px;
     --sml-lg-168px-350px:350px;
     --sml-lg-20px-60px:60px;
-
-
   }
 }
 @font-face {
@@ -275,14 +273,11 @@ section{
     z-index: 2;
     cursor: pointer;
     transform: rotate(0deg);
-    transition: transform 4.5s linear;
 }
-
 .cube-1 {
     height: 90%;
     width: 90%;
 }
-
 .cube-2, .cube-3{
     width: var(--sml-lg-100px-300px);
     height: var(--sml-lg-100px-300px);
@@ -391,7 +386,6 @@ section{
     margin: var(--margin);
     border-radius: 10px;
     cursor: pointer;
-    transition: all .2s ease-out;
 }
 .projects-container{
     display: flex;
@@ -506,20 +500,6 @@ footer{
         width: var(--sml-lg-30px-60px);
         top: unset;
     }
-    .cube-1-container:hover{
-        -webkit-animation: cube-rotate 4.5s linear infinite ;
-                animation: cube-rotate 4.5s linear infinite ;
-    }
-    @-webkit-keyframes cube-rotate {
-        to{
-            transform: rotate(360deg);
-        }
-    }
-    @keyframes cube-rotate {
-        to{
-            transform: rotate(360deg);
-        }
-    }
     .cube-1-container {
       top: 72px;
       left: var(--med-lg-45px-100px);
@@ -606,9 +586,19 @@ footer{
     .menu a:hover+.resume-link{
         right: calc(var(--pos) + var(--med-lg-105px-155px));
     }
+    .skills li{
+        opacity: 0;
+    }
+    .skills.frontend li, .skills.other li{
+        transform: translateX(-100%);
+    }
+    .skills.backend li{
+        transform: translateX(100%);
+    }
     .skills li:hover{
         background-color: transparent;
         color: var(--black);
+        transition: background-color .2s ease-out, color .2s ease-out;
     }
     .project-wrapper a{
         position: relative;
@@ -642,5 +632,29 @@ footer{
     .links li a:hover::after{
         width: 100%;
         transition: width .3s ease;
+    }
+    .name, .role{
+        transform: translateX(calc(100% + 200px));
+    }
+    .short-description{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    .cube-1-container,
+    .cube-2,
+    .cube-3{      
+        opacity: 0;
+    }
+    .cube-1-container{
+     transform: translate(-100%,-100%) rotate(90deg) scale(0.4);
+    }
+    .cube-3{
+     transform: translateY(-100%) scale(0.4);
+    }
+    .cube-2{
+     transform: translateX(-100%) scale(0.4);
+    }
+    .project-wrapper {
+        opacity: 0;
     }
 }
