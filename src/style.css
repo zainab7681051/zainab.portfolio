@@ -23,8 +23,6 @@
     --sml-lg-30px-60px: calc(1.875rem + ((1vw - 3.2px) * 2.6786));
     --sml-lg-3px-6px: calc(0.1875rem + ((1vw - 3.2px) * 0.2679));
     --sml-lg-3px-10px: calc(0.1875rem + ((1vw - 3.2px) * 0.625));
-    --sml-lg-23px-53px: calc(1.4375rem + ((1vw - 3.2px) * 2.6786));
-    --sml-lg-55px-155px: calc(3.4375rem + ((1vw - 3.2px) * 8.9286));
     --sml-lg-21px-54px: calc(1.3125rem + ((1vw - 3.2px) * 2.9464));
     --sml-lg-14px-28px: calc(0.875rem + ((1vw - 3.2px) * 1.25));
     --sml-lg-100px-300px: calc(6.25rem + ((1vw - 3.2px) * 17.8571));
@@ -51,12 +49,6 @@
     --med-lg-8px-25px: calc(0.5rem + ((1vw - 10.23px) * 4.0767));
     --med-lg-295px-335px: calc(18.4375rem + ((1vw - 10.23px) * 9.5923));
     --med-lg-255px-355px: calc(15.9375rem + ((1vw - 10.23px) * 23.9808));
-    --med-lg-30px-70px: calc(1.875rem + ((1vw - 10.23px) * 9.5923));
-    --med-lg-135px-170px: calc(8.4375rem + ((1vw - 10.23px) * 8.3933));
-    --med-lg-285px-360px: calc(17.8125rem + ((1vw - 10.23px) * 17.9856));
-    --med-lg-20px-45px: calc(1.25rem + ((1vw - 10.23px) * 5.9952));
-    --med-lg-475px-625px: calc(29.6875rem + ((1vw - 10.23px) * 35.9712));
-    --med-lg-340px-440px: calc(21.25rem + ((1vw - 10.23px) * 23.9808));
     --med-lg-25px-45px: calc(2.8125rem + ((1vw - 10.23px) * 7.1942));
     --med-lg-45px-75px: calc(2.8125rem + ((1vw - 10.23px) * 7.1942));
     --med-lg-105px-155px: calc(6.5625rem + ((1vw - 10.23px) * 11.9904));
@@ -69,8 +61,6 @@
     --sml-lg-10px-16px: 16px;
     --sml-lg-30px-60px: 60px;
     --sml-lg-3px-6px: 6px;
-    --sml-lg-23px-53px: 53px;
-    --sml-lg-55px-155px: 155px;
     --sml-lg-21px-54px: 54px;
     --sml-lg-14px-28px: 30px;
     --sml-lg-100px-300px: 300px;
@@ -81,12 +71,6 @@
     --med-lg-8px-25px: 25px;
     --med-lg-295px-335px: 335px;
     --med-lg-255px-355px: 355px;
-    --med-lg-30px-70px: 70px;
-    --med-lg-135px-170px: 170px;
-    --med-lg-285px-360px: 360px;
-    --med-lg-20px-45px: 45px;
-    --med-lg-475px-625px: 625px;
-    --med-lg-340px-440px: 440px;
     --med-lg-25px-45px: 45px;
     --med-lg-45px-75px: 75px;
     --med-lg-105px-155px: 155px;
@@ -229,7 +213,7 @@ section {
   background-color: var(--pink);
   z-index: 9;
   font-family: 'PlayfairDisplay-SemiBoldItalic';
-  --font-min:23px;
+  --font-min: 23px;
   --font-max: 53px;
   --font-fluid: 4vw;
   font-weight: 700;
@@ -321,46 +305,44 @@ section {
 }
 
 .name,
-.role, 
+.role,
 .short-description,
 .menu,
 .section-header,
 .skills li,
 .title,
 .project-description,
-.project-links a ,
+.project-links a,
 .links li,
 footer,
-.link-msg 
-{
+.link-msg {
   font-size: clamp(var(--font-min), var(--font-fluid), var(--font-max));
 }
-.section-header{
+.section-header {
   letter-spacing: clamp(var(--letter-s-min), var(--letter-s-fluid), var(--letter-s-max));
-
 }
 .name,
 .role {
   text-transform: uppercase;
 }
 .name {
-  --font-min:46px;
-  --font-max:155px;
+  --font-min: 46px;
+  --font-max: 155px;
   --font-fluid: 11vw;
   font-family: 'PlayfairDisplay-BoldItalic';
   color: var(--purple);
 }
 .role {
-  --font-min:24px;
-  --font-max:54px;
+  --font-min: 24px;
+  --font-max: 54px;
   --font-fluid: 4vw;
   font-family: 'PlayfairDisplay-SemiBoldItalic';
   margin-bottom: 12px;
   margin-top: -5px;
 }
 .short-description {
-  --font-min:18px;
-  --font-max:28px;
+  --font-min: 18px;
+  --font-max: 28px;
   --font-fluid: 3.5vw;
   text-transform: capitalize;
   font-family: 'Lato-Regular';
@@ -375,14 +357,14 @@ footer,
 }
 .section-header {
   text-transform: uppercase;
- --font-min: 32px;
-    --font-max: 55px;
-    --font-fluid: 5vw;  
+  --font-min: 32px;
+  --font-max: 55px;
+  --font-fluid: 5vw;
   font-family: 'Lato-Bold';
   --letter-s-min: 5px;
   --letter-s-max: 15px;
   --letter-s-fluid: 1.1vw;
-  }
+}
 .list-container {
   display: flex;
   flex-wrap: wrap;
@@ -408,9 +390,9 @@ footer,
   --color: var(--white);
 }
 .skills li {
-  --font-min: 14px;
-  --font-max: 28px;
-  --font-fluid: 4vw;
+  --font-min: 21px;
+  --font-max: 38px;
+  --font-fluid: 3.5vw;  
   --padding-top-bottom: calc(var(--sml-lg-14px-28px) - 9px);
   --padding-left-right: calc(var(--sml-lg-14px-28px) - 4px);
   --margin: var(--padding-top-bottom);
@@ -473,8 +455,8 @@ footer,
 }
 .project-links a {
   --font-min: 18px;
-  --font-max: 28px;
-  --font-fluid: 2.5vw;
+  --font-max: 24px;
+  --font-fluid: 2vw;
   font-family: 'Lato-Bold';
   color: var(--purple);
   text-transform: uppercase;
@@ -492,10 +474,10 @@ footer,
   justify-content: space-evenly;
 }
 .links li {
---font-min: 28px;
-    --font-max: 42px;
-    --font-fluid: 4vw;  
-    font-family: 'Lato-Regular';
+  --font-min: 28px;
+  --font-max: 42px;
+  --font-fluid: 4vw;
+  font-family: 'Lato-Regular';
   font-weight: lighter;
   text-transform: capitalize;
   margin-top: var(--sml-lg-14px-28px);
@@ -503,8 +485,8 @@ footer,
 }
 footer {
   --font-min: 18px;
-    --font-max: 32px;
-    --font-fluid: 3vw;  
+  --font-max: 32px;
+  --font-fluid: 3vw;
   background-color: var(--pink);
   color: var(--white);
   text-align: center;
@@ -563,7 +545,7 @@ footer {
     width: 100%;
     height: auto;
   }
-  
+
   .menu {
     align-items: unset;
   }
@@ -580,9 +562,9 @@ footer {
     right: var(--pos);
     background-color: var(--purple);
     color: var(--white);
-    --font-min: 23px;
-    --font-max: 53px;
-    --font-fluid: 4vw;
+    --font-min: 21px;
+    --font-max: 30px;
+    --font-fluid: 2.2vw;
     font-family: 'Lato-Regular';
     font-weight: lighter;
     padding: 18px 10px;
