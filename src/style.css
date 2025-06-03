@@ -130,6 +130,7 @@
 body {
   background-color: var(--grey);
   overflow-x: hidden;
+  font-size: 16px;
 }
 a {
   text-decoration: none;
@@ -312,26 +313,40 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   position: relative;
 }
+
+.name,
+.role, 
+.short-description{
+  font-size: clamp(var(--min), var(--fluid), var(--max));
+}
+
 .name,
 .role {
   text-transform: uppercase;
 }
 .name {
-  font-size: var(--sml-lg-55px-155px);
+  --min:46px;
+  --max:155px;
+  --fluid: 11vw;
   font-family: 'PlayfairDisplay-BoldItalic';
   color: var(--purple);
 }
 .role {
-  font-size: var(--sml-lg-21px-54px);
+  --min:24px;
+  --max:54px;
+  --fluid: 4vw;
   font-family: 'PlayfairDisplay-SemiBoldItalic';
   margin-bottom: 12px;
   margin-top: -5px;
 }
 .short-description {
-  font-size: var(--sml-lg-14px-28px);
+  --min:18px;
+  --max:28px;
+  --fluid: 3.5vw;
   text-transform: capitalize;
   font-family: 'Lato-Regular';
 }
@@ -516,27 +531,9 @@ footer {
   }
   .intro-text {
     width: 100%;
-    height: var(--sml-lg-353px-635px);
+    height: auto;
   }
-  .name,
-  .role,
-  .short-description {
-    position: absolute;
-  }
-  .name {
-    top: var(--med-lg-135px-170px);
-    right: var(--med-lg-30px-70px);
-  }
-  .role {
-    right: var(--med-lg-30px-70px);
-    top: var(--med-lg-285px-360px);
-  }
-  .short-description {
-    right: var(--med-lg-20px-45px);
-    width: var(--med-lg-475px-625px);
-    top: var(--med-lg-340px-440px);
-    text-align: left;
-  }
+  
   .menu {
     align-items: unset;
   }
