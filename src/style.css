@@ -214,8 +214,8 @@ section {
   z-index: 9;
   font-family: 'PlayfairDisplay-SemiBoldItalic';
   --font-min: 40px;
-  --font-max: 53px;
-  --font-fluid: 4vw;
+  --font-max: 54px;
+  --font-fluid: 6vw;
   font-weight: 700;
   text-transform: capitalize;
   color: var(--white);
