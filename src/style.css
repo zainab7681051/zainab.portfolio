@@ -213,7 +213,7 @@ section {
   background-color: var(--pink);
   z-index: 9;
   font-family: 'PlayfairDisplay-SemiBoldItalic';
-  --font-min: 23px;
+  --font-min: 40px;
   --font-max: 53px;
   --font-fluid: 4vw;
   font-weight: 700;
@@ -326,14 +326,14 @@ footer,
   text-transform: uppercase;
 }
 .name {
-  --font-min: 46px;
+  --font-min: 85px;
   --font-max: 155px;
   --font-fluid: 11vw;
   font-family: 'PlayfairDisplay-BoldItalic';
   color: var(--purple);
 }
 .role {
-  --font-min: 24px;
+  --font-min: 36px;
   --font-max: 54px;
   --font-fluid: 4vw;
   font-family: 'PlayfairDisplay-SemiBoldItalic';
@@ -341,9 +341,9 @@ footer,
   margin-top: -5px;
 }
 .short-description {
-  --font-min: 18px;
+  --font-min: 24px;
   --font-max: 28px;
-  --font-fluid: 3.5vw;
+  --font-fluid: 3vw;
   text-transform: capitalize;
   font-family: 'Lato-Regular';
 }
@@ -357,9 +357,9 @@ footer,
 }
 .section-header {
   text-transform: uppercase;
-  --font-min: 32px;
-  --font-max: 55px;
-  --font-fluid: 5vw;
+  --font-min: 36px;
+  --font-max: 62px;
+  --font-fluid: 6vw;
   font-family: 'Lato-Bold';
   --letter-s-min: 5px;
   --letter-s-max: 15px;
@@ -392,7 +392,7 @@ footer,
 .skills li {
   --font-min: 21px;
   --font-max: 38px;
-  --font-fluid: 3.5vw;  
+  --font-fluid: 3.5vw;
   --padding-top-bottom: calc(var(--sml-lg-14px-28px) - 9px);
   --padding-left-right: calc(var(--sml-lg-14px-28px) - 4px);
   --margin: var(--padding-top-bottom);
@@ -417,14 +417,14 @@ footer,
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: var(--sml-lg-300px-600px);
+  width: 90vw;
   height: auto;
   margin: var(--sml-lg-20px-60px) 0px;
 }
 
 .project-img-wrapper {
   width: 100%;
-  height: var(--sml-lg-168px-350px);
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -434,16 +434,16 @@ footer,
   height: 100%;
 }
 .title {
-  --font-min: 21px;
-  --font-max: 38px;
-  --font-fluid: 3vw;
+  --font-min: 32px;
+  --font-max: 45px;
+  --font-fluid: 5vw;
   font-family: 'Lato-Bold';
   margin: var(--sml-lg-3px-10px) 0px;
 }
 .project-description {
-  --font-min: 18px;
-  --font-max: 28px;
-  --font-fluid: 2.5vw;
+  --font-min: 25px;
+  --font-max: 30px;
+  --font-fluid: 3vw;
   font-family: 'Lato-Regular';
   font-weight: lighter;
   margin: var(--sml-lg-3px-10px) 0px;
@@ -454,7 +454,7 @@ footer,
   justify-content: space-evenly;
 }
 .project-links a {
-  --font-min: 18px;
+  --font-min: 21px;
   --font-max: 24px;
   --font-fluid: 2vw;
   font-family: 'Lato-Bold';
@@ -618,6 +618,7 @@ footer {
       background-color 0.2s ease-out,
       color 0.2s ease-out;
   }
+
   .project-wrapper a {
     position: relative;
   }
@@ -675,5 +676,9 @@ footer {
   }
   .project-wrapper {
     opacity: 0;
+    width: var(--sml-lg-300px-600px);
+  }
+  .project-img-wrapper {
+    height: var(--sml-lg-168px-350px);
   }
 }
