@@ -229,7 +229,9 @@ section {
   background-color: var(--pink);
   z-index: 9;
   font-family: 'PlayfairDisplay-SemiBoldItalic';
-  font-size: var(--sml-lg-23px-53px);
+  --font-min:23px;
+  --font-max: 53px;
+  --font-fluid: 4vw;
   font-weight: 700;
   text-transform: capitalize;
   color: var(--white);
@@ -320,33 +322,46 @@ section {
 
 .name,
 .role, 
-.short-description{
-  font-size: clamp(var(--min), var(--fluid), var(--max));
+.short-description,
+.menu,
+.section-header,
+.skills li,
+.title,
+.project-description,
+.project-links a ,
+.links li,
+footer,
+.link-msg 
+{
+  font-size: clamp(var(--font-min), var(--font-fluid), var(--font-max));
 }
+.section-header{
+  letter-spacing: clamp(var(--letter-s-min), var(--letter-s-fluid), var(--letter-s-max));
 
+}
 .name,
 .role {
   text-transform: uppercase;
 }
 .name {
-  --min:46px;
-  --max:155px;
-  --fluid: 11vw;
+  --font-min:46px;
+  --font-max:155px;
+  --font-fluid: 11vw;
   font-family: 'PlayfairDisplay-BoldItalic';
   color: var(--purple);
 }
 .role {
-  --min:24px;
-  --max:54px;
-  --fluid: 4vw;
+  --font-min:24px;
+  --font-max:54px;
+  --font-fluid: 4vw;
   font-family: 'PlayfairDisplay-SemiBoldItalic';
   margin-bottom: 12px;
   margin-top: -5px;
 }
 .short-description {
-  --min:18px;
-  --max:28px;
-  --fluid: 3.5vw;
+  --font-min:18px;
+  --font-max:28px;
+  --font-fluid: 3.5vw;
   text-transform: capitalize;
   font-family: 'Lato-Regular';
 }
@@ -360,10 +375,14 @@ section {
 }
 .section-header {
   text-transform: uppercase;
-  font-size: var(--sml-lg-23px-53px);
+ --font-min: 32px;
+    --font-max: 55px;
+    --font-fluid: 5vw;  
   font-family: 'Lato-Bold';
-  letter-spacing: var(--sml-lg-3px-10px);
-}
+  --letter-s-min: 5px;
+  --letter-s-max: 15px;
+  --letter-s-fluid: 1.1vw;
+  }
 .list-container {
   display: flex;
   flex-wrap: wrap;
@@ -389,7 +408,9 @@ section {
   --color: var(--white);
 }
 .skills li {
-  font-size: var(--sml-lg-14px-28px);
+  --font-min: 14px;
+  --font-max: 28px;
+  --font-fluid: 4vw;
   --padding-top-bottom: calc(var(--sml-lg-14px-28px) - 9px);
   --padding-left-right: calc(var(--sml-lg-14px-28px) - 4px);
   --margin: var(--padding-top-bottom);
@@ -431,13 +452,16 @@ section {
   height: 100%;
 }
 .title {
-  font-size: var(--sml-lg-14px-28px);
+  --font-min: 21px;
+  --font-max: 38px;
+  --font-fluid: 3vw;
   font-family: 'Lato-Bold';
   margin: var(--sml-lg-3px-10px) 0px;
-  align-self: center;
 }
 .project-description {
-  font-size: calc(var(--sml-lg-14px-28px) / 1.5);
+  --font-min: 18px;
+  --font-max: 28px;
+  --font-fluid: 2.5vw;
   font-family: 'Lato-Regular';
   font-weight: lighter;
   margin: var(--sml-lg-3px-10px) 0px;
@@ -448,7 +472,9 @@ section {
   justify-content: space-evenly;
 }
 .project-links a {
-  font-size: calc(var(--sml-lg-14px-28px) / 1.5);
+  --font-min: 18px;
+  --font-max: 28px;
+  --font-fluid: 2.5vw;
   font-family: 'Lato-Bold';
   color: var(--purple);
   text-transform: uppercase;
@@ -466,15 +492,19 @@ section {
   justify-content: space-evenly;
 }
 .links li {
-  font-size: var(--sml-lg-14px-28px);
-  font-family: 'Lato-Regular';
+--font-min: 28px;
+    --font-max: 42px;
+    --font-fluid: 4vw;  
+    font-family: 'Lato-Regular';
   font-weight: lighter;
   text-transform: capitalize;
   margin-top: var(--sml-lg-14px-28px);
   color: var(--purple);
 }
 footer {
-  font-size: calc(var(--sml-lg-10px-16px) + 3px);
+  --font-min: 18px;
+    --font-max: 32px;
+    --font-fluid: 3vw;  
   background-color: var(--pink);
   color: var(--white);
   text-align: center;
@@ -550,7 +580,9 @@ footer {
     right: var(--pos);
     background-color: var(--purple);
     color: var(--white);
-    font-size: calc(var(--sml-lg-23px-53px) / 2.5);
+    --font-min: 23px;
+    --font-max: 53px;
+    --font-fluid: 4vw;
     font-family: 'Lato-Regular';
     font-weight: lighter;
     padding: 18px 10px;
